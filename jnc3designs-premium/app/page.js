@@ -21,6 +21,9 @@ export default function Home() {
           <a href="tel:4328940429" className="button-outline">
             Call 432-894-0429
           </a>
+    <a href="#quote" className="button-primary" style={{marginLeft: "10px"}}>
+    Request Bulk Pricing
+  </a>
         </div>
             <p className="mt-6 text-sm opacity-80">
   Follow us:{" "}
@@ -93,7 +96,7 @@ export default function Home() {
 </section>
 
 
-      <section className="section">
+      <section className="section" id="quote">
         <h2>Request a Quote</h2>
         <form action="https://formspree.io/f/xykdwayl" method="POST">
     <input type="hidden" name="_subject" value="New Website Quote Request - JNC3Designs" />
