@@ -53,16 +53,21 @@ export default function Home() {
       </section>
 
       <section className="section">
-        <h2>Gallery</h2>
-        <div className="gallery-grid">
-          <img src="/images/sample1.jpg" alt="Sample 1"/>
-          <img src="/images/sample2.jpg" alt="Sample 2"/>
-          <img src="/images/sample3.jpg" alt="Sample 3"/>
-        </div>
-        <p style={{opacity: 0.6, marginTop: "10px"}}>
-          Replace sample images inside /public/images folder with your real product photos.
-        </p>
-      </section>
+  <h2>Gallery</h2>
+
+  <div className="gallery-grid">
+    <img src="/custom.jpeg" alt="Custom 3D print" />
+    <img src="/custom1.jpeg" alt="Custom 3D print" />
+    <img src="/custom3.jpeg" alt="Custom 3D print" />
+    <img src="/custom4.jpeg" alt="Custom 3D print" />
+    <img src="/keychain.jpeg" alt="Custom keychain" />
+    <img src="/keychain1.jpeg" alt="Custom keychain" />
+    <img src="/keychain2.jpeg" alt="Custom keychain" />
+    <img src="/tumbler-topper.jpeg" alt="Tumbler topper" />
+    <img src="/tumbler-topper2.jpeg" alt="Tumbler topper" />
+  </div>
+</section>
+
 
       <section className="section">
         <h2>Request a Quote</h2>
