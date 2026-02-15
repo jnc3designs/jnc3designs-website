@@ -6,7 +6,8 @@ export default function Home() {
       <section className="section">
         <h1 style={{fontSize: "42px"}}>Custom 3D Printing in Midland, TX - JNC3Designs LLC</h1>
         <p style={{opacity: 0.8}}>
-          Custom 3D prints, keychains, tumbler toppers and bulk promotional orders made locally in Midland, TX.
+          Custom 3D prints, branded keychains, tumbler toppers and bulk promotional orders made locally in Midland, TX.
+            Fast turnaround. Bulk discounts available.
         </p>
 
         <div style={{marginTop: "20px"}}>
@@ -56,6 +57,11 @@ export default function Home() {
       </section>
 
       <section className="section">
+            <p style={{marginBottom: "20px", fontWeight: "bold"}}>
+  Need custom merchandise for your gym, oilfield crew or event?
+  Message us today for bulk pricing.
+</p>
+
   <h2>Gallery</h2>
 
   <div className="gallery-grid">
