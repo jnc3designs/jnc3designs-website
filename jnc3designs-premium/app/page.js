@@ -92,6 +92,8 @@ export default function Home() {
       <section className="section">
         <h2>Request a Quote</h2>
         <form action="https://formspree.io/f/xykdwayl" method="POST">
+    <input type="hidden" name="_subject" value="New Website Quote Request - JNC3Designs" />
+
           <div style={{marginBottom: "10px"}}>
             <input type="text" name="Name" placeholder="Your Name" required style={{padding: "8px", width: "100%"}}/>
           </div>
