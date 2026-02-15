@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: "JNC3Designs LLC | Custom 3D Printing in Midland, TX",
-  description: "JNC3Designs LLC offers custom 3D prints, keychains, tumbler toppers, and bulk promotional orders in Midland, TX. Fast turnaround for gyms, oilfield crews, and local businesses.",
+  title: "Custom 3D Printing in Midland TX | JNC3Designs LLC",
+  description: "Custom 3D printing, keychains, tumbler toppers and bulk promotional items in Midland, TX. Fast local service for gyms, oilfield crews and small businesses.",
 };
 
 export default function RootLayout({ children }) {
