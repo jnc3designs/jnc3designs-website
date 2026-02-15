@@ -54,6 +54,11 @@ export default function Home() {
         <p style={{opacity: 0.8}}>
           Need 25, 50, or 100+ pieces? We specialize in high-quantity custom prints with clean finishes and consistent quality.
         </p>
+
+            <p style={{ opacity: 0.9, marginTop: "8px", fontWeight: "600" }}>
+  Trusted by local gyms, oilfield companies and growing businesses across Midland, TX.
+</p>
+
         <ul style={{lineHeight: "1.8"}}>
           <li>• Gym merchandise & promo items</li>
           <li>• Oilfield crew keychains & gear tags</li>
