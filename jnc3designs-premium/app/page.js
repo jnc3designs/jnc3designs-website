@@ -17,6 +17,25 @@ export default function Home() {
             Call 432-894-0429
           </a>
         </div>
+            <p className="mt-6 text-sm opacity-80">
+  Follow us:
+  <a 
+    href="https://www.facebook.com/profile.php?id=61579552738924" 
+    target="_blank"
+    className="ml-2 underline"
+  >
+    Facebook
+  </a>
+  <span className="mx-2">|</span>
+  <a 
+    href="https://www.instagram.com/jnc3designs/" 
+    target="_blank"
+    className="underline"
+  >
+    Instagram
+  </a>
+</p>
+
       </section>
 
       <section className="section">
