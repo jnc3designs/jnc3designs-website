@@ -4,9 +4,9 @@ export default function Home() {
     <main>
 
       <section className="section">
-        <h1 style={{fontSize: "42px"}}>JNC3Designs</h1>
+        <h1 style={{fontSize: "42px"}}>Custom 3D Printing in Midland, TX - JNC3Designs LLC</h1>
         <p style={{opacity: 0.8}}>
-          Custom 3D prints, keychains, toppers and bulk orders. Made local in Midland, TX.
+          Custom 3D prints, keychains, tumbler toppers and bulk promotional orders made locally in Midland, TX.
         </p>
 
         <div style={{marginTop: "20px"}}>
