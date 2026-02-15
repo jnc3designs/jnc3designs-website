@@ -58,7 +58,7 @@ export default function Home() {
   <div className="gallery-grid">
     <img src="/custom.jpeg" alt="Custom 3D print" />
     <img src="/custom1.jpeg" alt="Custom 3D print" />
-    <img src="/custom3.jpeg" alt="Custom 3D print" />
+    <img src="/custome3.jpeg" alt="Custom 3D print" />
     <img src="/custom4.jpeg" alt="Custom 3D print" />
     <img src="/keychain.jpeg" alt="Custom keychain" />
     <img src="/keychain1.jpeg" alt="Custom keychain" />
