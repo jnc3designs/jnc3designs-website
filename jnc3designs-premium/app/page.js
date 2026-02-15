@@ -18,11 +18,11 @@ export default function Home() {
           </a>
         </div>
             <p className="mt-6 text-sm opacity-80">
-  Follow us:
+  Follow us:{" "}
   <a 
     href="https://www.facebook.com/profile.php?id=61579552738924" 
     target="_blank"
-    className="ml-2 underline"
+    className="underline"
   >
     Facebook
   </a>
