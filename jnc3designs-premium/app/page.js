@@ -97,7 +97,7 @@ export default function Home() {
 
 
       <section className="section" id="quote">
-        <h2>Request a Quote</h2>
+        <h2>Get a Custom Quote</h2>
         <form action="https://formspree.io/f/xykdwayl" method="POST">
     <input type="hidden" name="_subject" value="New Website Quote Request - JNC3Designs" />
 
