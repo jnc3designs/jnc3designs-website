@@ -26,7 +26,10 @@ export default function Home() {
   >
     Facebook
   </a>
-  <span className="mx-2">|</span>
+  {" "}
+<span className="mx-2">|</span>
+{" "}
+
   <a 
     href="https://www.instagram.com/jnc3designs/" 
     target="_blank"
