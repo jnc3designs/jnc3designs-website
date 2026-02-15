@@ -8,6 +8,10 @@ export default function Home() {
         <p style={{opacity: 0.8}}>
           Custom 3D prints, branded keychains, tumbler toppers and bulk promotional orders made locally in Midland, TX.
             Fast turnaround. Bulk discounts available.
+            <p style={{marginTop: "20px"}}>
+  Serving Midland, Odessa and the Permian Basin.
+</p>
+
         </p>
 
         <div style={{marginTop: "20px"}}>
