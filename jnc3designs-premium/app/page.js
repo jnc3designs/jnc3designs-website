@@ -54,7 +54,18 @@ export default function Home() {
           <li>• School teams & fundraisers</li>
           <li>• Local business branding</li>
         </ul>
+            
       </section>
+<section className="section">
+  <h2>Why Choose JNC3Designs?</h2>
+  <ul>
+    <li>✔ Local Midland, TX business</li>
+    <li>✔ Bulk pricing available</li>
+    <li>✔ Fast turnaround times</li>
+    <li>✔ Custom logo & branding options</li>
+    <li>✔ High-quality, clean finishes</li>
+  </ul>
+</section>
 
       <section className="section">
             <p style={{marginBottom: "20px", fontWeight: "bold"}}>
