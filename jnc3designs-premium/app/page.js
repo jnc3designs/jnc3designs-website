@@ -41,7 +41,7 @@ export default function Home() {
 
 </div>
 
-        </div>
+      
             <p className="mt-6 text-sm opacity-80">
   Follow us:{" "}
   <a
