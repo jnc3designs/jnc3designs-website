@@ -28,7 +28,7 @@ export default function Home() {
 
   <a 
     href="tel:4328940429" 
-    className="button-secondary"
+    className="button-primary"
   >
     Call 432-894-0429
   </a>
