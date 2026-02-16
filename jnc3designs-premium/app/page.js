@@ -5,12 +5,14 @@ export default function Home() {
 
       <section className="section">
         <h1 style={{fontSize: "42px"}}>Custom 3D Printing in Midland, TX - JNC3Designs LLC</h1>
-        <p style={{opacity: 0.8}}>
-          Custom 3D prints, branded keychains, tumbler toppers and bulk promotional orders made locally in Midland, TX.
-            Fast turnaround. Bulk discounts available.
-            <p style={{marginTop: "20px"}}>
+        <p style={{ opacity: 0.8 }}>
+  Custom 3D prints, branded keychains, tumbler toppers and bulk promotional orders made locally in Midland, TX. Fast turnaround. Bulk discounts available.
+</p>
+
+<p style={{ marginTop: "20px", opacity: 0.8 }}>
   Serving Midland, Odessa and the Permian Basin.
 </p>
+
 
         </p>
 
@@ -25,7 +27,6 @@ export default function Home() {
   Message on Facebook
 </a>
 
-
   <a 
     href="tel:4328940429" 
     className="button-primary"
@@ -36,11 +37,8 @@ export default function Home() {
   <a
   href="#quote"
   className="button-primary"
-  style={{ marginLeft: "10px" }}
->
   Request Bulk Pricing
 </a>
-
 
 </div>
 
