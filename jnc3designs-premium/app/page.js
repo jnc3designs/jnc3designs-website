@@ -13,7 +13,6 @@ export default function Home() {
   Serving Midland, Odessa and the Permian Basin.
 </p>
 
-
         <div className="hero-buttons">
 
   <a
