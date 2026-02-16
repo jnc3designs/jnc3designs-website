@@ -101,6 +101,29 @@ export default function Home() {
   Need custom merchandise for your gym, oilfield crew or event?
   Message us today for bulk pricing.
 </p>
+<section className="section">
+  <h2>How It Works</h2>
+
+  <div className="steps-grid">
+    <div className="step-card">
+      <div className="step-num">1</div>
+      <h3>Send Your Idea</h3>
+      <p>Message us your logo, concept, or reference photo. We’ll confirm sizing, colors, and quantity.</p>
+    </div>
+
+    <div className="step-card">
+      <div className="step-num">2</div>
+      <h3>Approve Quote</h3>
+      <p>We’ll send pricing and a quick mockup if needed. Bulk discounts available for 25+ pieces.</p>
+    </div>
+
+    <div className="step-card">
+      <div className="step-num">3</div>
+      <h3>Print & Deliver</h3>
+      <p>We print your order with clean finishes and consistent quality. Local pickup in Midland or shipping available.</p>
+    </div>
+  </div>
+</section>
 
   <h2>Gallery</h2>
 
