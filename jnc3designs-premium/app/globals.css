@@ -46,7 +46,14 @@ a { text-decoration: none; }
 }
 .gallery-grid img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05) translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 .hero-buttons {
   display: flex;
