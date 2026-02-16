@@ -44,25 +44,25 @@ export default function Home() {
         </div>
             <p className="mt-6 text-sm opacity-80">
   Follow us:{" "}
-  <a 
-    href="https://www.facebook.com/profile.php?id=61579552738924" 
+  <a
+    href="https://www.facebook.com/profile.php?id=61579552738924"
     target="_blank"
-    className="underline"
+    rel="noreferrer"
+    className="ml-2 underline"
   >
     Facebook
   </a>
-  {" "}
-<span className="mx-2">|</span>
-{" "}
-
-  <a 
-    href="https://www.instagram.com/jnc3designs/" 
+  <span className="mx-2">|</span>
+  <a
+    href="https://www.instagram.com/jnc3designs/"
     target="_blank"
+    rel="noreferrer"
     className="underline"
   >
     Instagram
   </a>
 </p>
+
 
       </section>
 
