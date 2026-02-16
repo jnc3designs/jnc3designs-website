@@ -98,6 +98,14 @@ export default function Home() {
     <img src="/tumbler-topper.jpeg" alt="Tumbler topper" />
     <img src="/tumbler-topper2.jpeg" alt="Tumbler topper" />
   </div>
+
+    <a
+  href="/gallery"
+  className="button-primary"
+  style={{ display: "inline-block", marginTop: "20px" }}
+>
+  View Full Gallery →
+</a>
 </section>
 
 
