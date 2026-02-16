@@ -32,3 +32,10 @@ a { text-decoration: none; }
   width: 100%;
   border-radius: 12px;
 }
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
