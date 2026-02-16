@@ -12,7 +12,6 @@ export default function Home() {
 <p style={{ marginTop: "20px", opacity: 0.8 }}>
   Serving Midland, Odessa and the Permian Basin.
 </p>
-
         <div className="hero-buttons">
 
   <a
