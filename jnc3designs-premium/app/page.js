@@ -105,16 +105,17 @@ export default function Home() {
   <h2>Gallery</h2>
 
   <div className="gallery-grid">
-    <img src="/custom.jpeg" alt="Custom 3D print" />
-    <img src="/custom1.jpeg" alt="Custom 3D print" />
-    <img src="/custome3.jpeg" alt="Custom 3D print" />
-    <img src="/custom4.jpeg" alt="Custom 3D print" />
-    <img src="/keychain.jpeg" alt="Custom keychain" />
-    <img src="/keychain1.jpeg" alt="Custom keychain" />
-    <img src="/keychain2.jpeg" alt="Custom keychain" />
-    <img src="/tumbler-topper.jpeg" alt="Tumbler topper" />
-    <img src="/tumbler-topper2.jpeg" alt="Tumbler topper" />
-  </div>
+  <img className="gallery-img" src="/custom.jpeg" alt="Custom 3D print" />
+  <img className="gallery-img" src="/custom1.jpeg" alt="Custom 3D print" />
+  <img className="gallery-img" src="/custome3.jpeg" alt="Custom 3D print" />
+  <img className="gallery-img" src="/custom4.jpeg" alt="Custom 3D print" />
+  <img className="gallery-img" src="/keychain.jpeg" alt="Custom keychain" />
+  <img className="gallery-img" src="/keychain1.jpeg" alt="Custom keychain" />
+  <img className="gallery-img" src="/keychain2.jpeg" alt="Custom keychain" />
+  <img className="gallery-img" src="/tumbler-topper.jpeg" alt="Tumbler topper" />
+  <img className="gallery-img" src="/tumbler-topper2.jpeg" alt="Tumbler topper" />
+</div>
+
 
     <a
   href="/gallery"
