@@ -16,14 +16,15 @@ export default function Home() {
 
         <div className="hero-buttons">
 
-  <a 
-    href="https://www.facebook.com/profile.php?id=61579552738924" 
-    className="button-secondary" 
-    target="_blank" 
-    rel="noreferrer"
-  >
-    Message on Facebook
-  </a>
+  <a
+  href="https://www.facebook.com/profile.php?id=61579552738924"
+  target="_blank"
+  rel="noreferrer"
+  className="button-primary"
+>
+  Message on Facebook
+</a>
+
 
   <a 
     href="tel:4328940429" 
@@ -32,12 +33,14 @@ export default function Home() {
     Call 432-894-0429
   </a>
 
-  <a 
-    href="#quote" 
-    className="button-primary"
-  >
-    Request Bulk Pricing
-  </a>
+  <a
+  href="#quote"
+  className="button-primary"
+  style={{ marginLeft: "10px" }}
+>
+  Request Bulk Pricing
+</a>
+
 
 </div>
 
