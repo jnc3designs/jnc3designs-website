@@ -170,10 +170,12 @@ a { text-decoration: none; }
   border-radius: 14px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
+  border-left: 3px solid #4f7cff;
   font-weight: 600;
   letter-spacing: 0.2px;
   transition: all 0.25s ease;
 }
+
 
 .feature-list li:hover {
   background: rgba(255,255,255,0.08);
