@@ -30,11 +30,10 @@ export default function Home() {
     Call 432-894-0429
   </a>
 
-  <a
-  href="#quote"
-  className="button-primary"
+  <a href="#quote" className="button-primary">
   Request Bulk Pricing
 </a>
+
 
 </div>
 
