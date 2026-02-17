@@ -29,7 +29,7 @@ export default function GalleryPage() {
   items: [
     { src: "/custom.jpeg", alt: "Custom 3D print" },
     { src: "/custom1.jpeg", alt: "Custom 3D print" },
-    { src: "/custom3.jpeg", alt: "Custom 3D print" },
+    { src: "/custome3.jpeg", alt: "Custom 3D print" },
     { src: "/custom4.jpeg", alt: "Custom 3D print" },
 
     // 🔥 New Branded Utility Pens
