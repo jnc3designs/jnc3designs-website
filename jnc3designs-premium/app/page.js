@@ -72,13 +72,14 @@ export default function Home() {
   Trusted by local gyms, oilfield companies and growing businesses across Midland, TX.
 </p>
 
-        <ul style={{lineHeight: "1.8"}}>
-          <li>• Gym merchandise & promo items</li>
-          <li>• Oilfield crew keychains & gear tags</li>
-          <li>• Company giveaways & event swag</li>
-          <li>• School teams & fundraisers</li>
-          <li>• Local business branding</li>
-        </ul>
+        <div className="pill-grid">
+  <span className="pill">Gym merchandise & promo items</span>
+  <span className="pill">Oilfield crew keychains & gear tags</span>
+  <span className="pill">Company giveaways & event swag</span>
+  <span className="pill">School teams & fundraisers</span>
+  <span className="pill">Local business branding</span>
+</div>
+
             
       </section>
 <section className="section">
