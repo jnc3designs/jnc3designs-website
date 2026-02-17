@@ -25,14 +25,25 @@ export default function GalleryPage() {
         ],
       },
       {
-        title: "Custom Prints",
-        items: [
-          { src: "/custom.jpeg", alt: "Custom 3D print" },
-          { src: "/custom1.jpeg", alt: "Custom 3D print" },
-          { src: "/custome3.jpeg", alt: "Custom 3D print" },
-          { src: "/custom4.jpeg", alt: "Custom 3D print" },
-        ],
-      },
+  title: "Custom Prints",
+  items: [
+    { src: "/custom.jpeg", alt: "Custom 3D print" },
+    { src: "/custom1.jpeg", alt: "Custom 3D print" },
+    { src: "/custom3.jpeg", alt: "Custom 3D print" },
+    { src: "/custom4.jpeg", alt: "Custom 3D print" },
+
+    // 🔥 New Branded Utility Pens
+    { src: "/ultralite-pen.jpeg", alt: "Ultralite Solutions custom branded utility pen case" },
+    { src: "/inspatial-pen.jpeg", alt: "InSpatial custom branded utility pen case" },
+    { src: "/military-set.jpeg", alt: "USMC, US Army, US Air Force custom utility pen cases" },
+    { src: "/exxon-pen.jpeg", alt: "ExxonMobil custom logo utility pen case" },
+    { src: "/frye-ret.jpeg", alt: "Custom sheriff retirement utility pen case" },
+    { src: "/navy-pen.jpeg", alt: "US Navy custom utility pen case" },
+    { src: "/kgm-repair.jpeg", alt: "KGM Repair custom branded utility pen case" },
+    { src: "/pen-case-open.jpeg", alt: "Custom 3D printed utility pen case interior" },
+  ],
+},
+
     ],
     []
   );
