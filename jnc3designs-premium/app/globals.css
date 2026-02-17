@@ -184,4 +184,20 @@ a { text-decoration: none; }
   border-color: rgba(255,255,255,0.12);
   transform: translateY(-2px);
 }
+.feature-list{
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 12px;
+  max-width: 900px;
+}
+
+.feature-list li{
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}
 
