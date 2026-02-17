@@ -72,7 +72,7 @@ export default function Home() {
   Trusted by local gyms, oilfield companies and growing businesses across Midland, TX.
 </p>
 
-   <ul className="feature-list">
+  <ul className="feature-list why">
   <li>Local Midland, TX business</li>
   <li>Bulk pricing available</li>
   <li>Fast turnaround times</li>
