@@ -72,12 +72,12 @@ export default function Home() {
   Trusted by local gyms, oilfield companies and growing businesses across Midland, TX.
 </p>
 
-  <ul className="feature-list why">
-  <li>Local Midland, TX business</li>
-  <li>Bulk pricing available</li>
-  <li>Fast turnaround times</li>
-  <li>Custom logo & branding options</li>
-  <li>High-quality, clean finishes</li>
+  <ul className="feature-list">
+  <li>Gym merchandise & promo items</li>
+  <li>Oilfield crew keychains & gear tags</li>
+  <li>Company giveaways & event swag</li>
+  <li>School teams & fundraisers</li>
+  <li>Local business branding</li>
 </ul>
 
 
@@ -85,13 +85,14 @@ export default function Home() {
       </section>
 <section className="section">
   <h2>Why Choose JNC3Designs?</h2>
-  <ul>
-    <li>✔ Local Midland, TX business</li>
-    <li>✔ Bulk pricing available</li>
-    <li>✔ Fast turnaround times</li>
-    <li>✔ Custom logo & branding options</li>
-    <li>✔ High-quality, clean finishes</li>
-  </ul>
+  <ul className="feature-list">
+  <li>Local Midland, TX business</li>
+  <li>Bulk pricing available</li>
+  <li>Fast turnaround times</li>
+  <li>Custom logo & branding options</li>
+  <li>High-quality, clean finishes</li>
+</ul>
+
 </section>
 
       <section className="section">
