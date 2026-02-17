@@ -72,12 +72,12 @@ export default function Home() {
   Trusted by local gyms, oilfield companies and growing businesses across Midland, TX.
 </p>
 
-     <ul className="feature-list">
-  <li>Gym merchandise & promo items</li>
-  <li>Oilfield crew keychains & gear tags</li>
-  <li>Company giveaways & event swag</li>
-  <li>School teams & fundraisers</li>
-  <li>Local business branding</li>
+   <ul className="feature-list">
+  <li>Local Midland, TX business</li>
+  <li>Bulk pricing available</li>
+  <li>Fast turnaround times</li>
+  <li>Custom logo & branding options</li>
+  <li>High-quality, clean finishes</li>
 </ul>
 
 
