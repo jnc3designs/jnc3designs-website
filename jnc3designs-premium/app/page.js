@@ -94,6 +94,35 @@ export default function Home() {
 </ul>
 
 </section>
+  
+
+{/* 🔥 ZYLtech Reseller Section */}
+<section className="section">
+  <h2>Authorized ZYLtech Reseller</h2>
+
+  <div className="reseller-box">
+    <img
+      src="/ZYLtech.png"
+      alt="Official ZYLtech Engineering Filament Reseller"
+      className="reseller-logo"
+    />
+
+    <p>
+      JNC3Designs is an official authorized reseller of ZYLtech Engineering Filament,
+      proudly manufactured in Houston, Texas.
+    </p>
+
+    <p>
+      ZYLtech is known for high-performance engineering-grade filaments
+      including PLA, PETG, ASA, ABS, and specialty materials.
+    </p>
+
+    <p>
+      Local pickup and bulk supply options available in Midland, TX.
+    </p>
+  </div>
+</section>
+
 
       <section className="section">
             <p style={{marginBottom: "20px", fontWeight: "bold"}}>
