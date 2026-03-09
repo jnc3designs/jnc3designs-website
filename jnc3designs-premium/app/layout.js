@@ -1,4 +1,5 @@
 import './globals.css';
+import Script from "next/script";
 
 export const metadata = {
   title: "Custom 3D Printing in Midland TX | JNC3Designs LLC",
