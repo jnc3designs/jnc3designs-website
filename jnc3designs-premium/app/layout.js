@@ -8,6 +8,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+    
+    {/* Google Tag */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17972991441"
+        strategy="afterInteractive"
+      />
+
+      <Script id="google-tag" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17972991441');
+        `}
+      </Script>
+        
       <body>{children}</body>
     </html>
   );
