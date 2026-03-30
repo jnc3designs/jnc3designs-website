@@ -197,6 +197,12 @@ export default function Home() {
           </div>
           <button type="submit" className="button-primary">Send Request</button>
         </form>
+    <p style={{ fontSize: "12px", opacity: 0.6, marginTop: "10px" }}>
+  By submitting a request, you agree to our{" "}
+  <a href="/policies" className="underline">
+    Shop Policies
+  </a>.
+</p>
       </section>
 
       <section className="section">
