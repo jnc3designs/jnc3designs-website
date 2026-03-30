@@ -205,7 +205,22 @@ export default function Home() {
         <p>Phone: 432-894-0429</p>
         <p>Instagram: https://www.instagram.com/jnc3designs/</p>
       </section>
+<section className="section" style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginTop: "40px" }}>
+  <div style={{ textAlign: "center", opacity: 0.7, fontSize: "14px" }}>
+    
+    <p style={{ marginBottom: "10px" }}>
+      © {new Date().getFullYear()} JNC3Designs LLC
+    </p>
 
+    <p>
+      <a href="/policies" className="underline">
+        Terms & Conditions / Shop Policies
+      </a>
+    </p>
+
+  </div>
+</section>
+        
     </main>
   );
 }
