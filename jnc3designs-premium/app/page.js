@@ -12,7 +12,9 @@ export default function Home() {
 
 <p style={{ marginTop: "20px", opacity: 0.8 }}>
   Serving Midland, Odessa and the Permian Basin.
-    <p style={{ marginTop: "10px", opacity: 0.85 }}>
+</p>
+
+<p style={{ marginTop: "10px", opacity: 0.85 }}>
   Need supplies? Check out tools and materials we recommend.
 </p>
 
