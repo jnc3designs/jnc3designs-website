@@ -164,6 +164,9 @@ export default function Home() {
 >
   Shop Recommended Tools & Supplies →
 </a>
+        <p style={{ fontSize: "12px", opacity: 0.6, marginTop: "6px" }}>
+  *Some links may be affiliate links, meaning we may earn a small commission at no extra cost to you.
+</p>
 </section>
 
 
