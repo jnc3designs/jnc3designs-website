@@ -292,7 +292,7 @@ export default function Home() {
 
             
       </section>
-<section className="section">
+
   <h2>Why Choose JNC3Designs?</h2>
   <ul className="feature-list">
   <li>Local Midland, TX business</li>
