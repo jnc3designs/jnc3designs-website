@@ -11,6 +11,25 @@ export default function Home() {
 
 <p style={{ marginTop: "20px", opacity: 0.8 }}>
   Serving Midland, Odessa and the Permian Basin.
+    <p style={{ marginTop: "10px", opacity: 0.85 }}>
+  Need supplies? Check out tools and materials we recommend.
+</p>
+
+<a
+  href="https://overture3d.com/?aff=145&utm_source=affiliate&utm_medium=referral&utm_campaign=affiliate"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: "inline-block",
+    marginTop: "8px",
+    fontWeight: "600",
+    color: "#4f7cff"
+  }}
+>
+  Shop Supplies →
+</a>
+    <p style={{ fontSize: "12px", opacity: 0.6, marginTop: "8px" }}>
+  *Some links may be affiliate links, meaning we may earn a small commission at no extra cost to you.
 </p>
     <p className="hero-subnote">
   Official ZYLtech Engineering Filament Reseller • Local Inventory Available in Midland, TX
@@ -124,6 +143,24 @@ export default function Home() {
       Local pickup and bulk supply options available in Midland, TX.
     </p>
   </div>
+        <p style={{ marginTop: "16px" }}>
+  We also partner with trusted suppliers for tools and materials we use daily.
+</p>
+
+<a
+  href="https://overture3d.com/?aff=145&utm_source=affiliate&utm_medium=referral&utm_campaign=affiliate"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: "inline-block",
+    marginTop: "10px",
+    color: "#4f7cff",
+    fontWeight: "600",
+    textDecoration: "underline"
+  }}
+>
+  Shop Recommended Tools & Supplies →
+</a>
 </section>
 
 
