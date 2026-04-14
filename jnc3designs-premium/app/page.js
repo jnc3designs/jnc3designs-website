@@ -59,6 +59,9 @@ export default function Home() {
   Request Bulk Pricing
 </a>
 
+          <a href="#filament" className="button-primary">
+  Order Filament
+</a>
 
 </div>
 
