@@ -248,6 +248,152 @@ export default function Home() {
 </p>
       </section>
 
+        <section className="section" id="filament">
+  <h2>ZYLtech Filament In Stock Locally</h2>
+
+  <p style={{ opacity: 0.8, maxWidth: "900px" }}>
+    JNC3Designs stocks ZYLtech PLA filament locally in Midland, TX for quick pickup.
+    No waiting on shipping. Message us for live availability or submit an order below.
+  </p>
+
+  <p style={{ marginTop: "10px", fontWeight: "600" }}>
+    1kg Spools • 1.75mm • $17.95 each • Bulk pricing available
+  </p>
+
+  <div className="filament-grid">
+    <div className="filament-card">
+      <h3>Core Colors</h3>
+      <ul className="filament-list">
+        <li>Glossy Black</li>
+        <li>Ceramic White</li>
+        <li>Fortress Gray</li>
+        <li>Deep Blue</li>
+        <li>Light Blue</li>
+        <li>Lipstick Red</li>
+        <li>Army Green</li>
+        <li>Dark Green</li>
+        <li>Orange</li>
+        <li>Maroon</li>
+      </ul>
+    </div>
+
+    <div className="filament-card">
+      <h3>Specialty Colors</h3>
+      <ul className="filament-list">
+        <li>Silk Black</li>
+        <li>Cocoa Brown</li>
+        <li>Ivory</li>
+        <li>Matte Khaki</li>
+        <li>Panhandle Khaki</li>
+        <li>Bahama Blue</li>
+        <li>Matte Cyan</li>
+        <li>Taro Purple</li>
+        <li>Cookie Love Pink</li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="hero-buttons" style={{ marginTop: "20px" }}>
+    <a
+      href="https://www.facebook.com/profile.php?id=61579552738924"
+      target="_blank"
+      rel="noreferrer"
+      className="button-primary"
+    >
+      Message to Order
+    </a>
+
+    <a href="tel:4328940429" className="button-primary">
+      Call for Availability
+    </a>
+  </div>
+
+  <div style={{ marginTop: "30px" }}>
+    <h3>Submit a Filament Order</h3>
+
+    <form action="https://formspree.io/f/xykdwayl" method="POST">
+      <input type="hidden" name="_subject" value="New Filament Order - JNC3Designs" />
+
+      <div style={{ marginBottom: "10px" }}>
+        <input
+          type="text"
+          name="Name"
+          placeholder="Your Name"
+          required
+          style={{ padding: "8px", width: "100%" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "10px" }}>
+        <input
+          type="email"
+          name="Email"
+          placeholder="Your Email"
+          required
+          style={{ padding: "8px", width: "100%" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "10px" }}>
+        <input
+          type="text"
+          name="Phone"
+          placeholder="Your Phone Number"
+          style={{ padding: "8px", width: "100%" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "10px" }}>
+        <input
+          type="text"
+          name="Colors Requested"
+          placeholder="Color(s) requested"
+          required
+          style={{ padding: "8px", width: "100%" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "10px" }}>
+        <input
+          type="number"
+          name="Quantity"
+          placeholder="Quantity"
+          min="1"
+          required
+          style={{ padding: "8px", width: "100%" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "10px" }}>
+        <select
+          name="Order Type"
+          style={{ padding: "8px", width: "100%" }}
+          defaultValue=""
+          required
+        >
+          <option value="" disabled>
+            Pickup or Delivery?
+          </option>
+          <option value="Local Pickup">Local Pickup</option>
+          <option value="Local Delivery">Local Delivery</option>
+        </select>
+      </div>
+
+      <div style={{ marginBottom: "10px" }}>
+        <textarea
+          name="Notes"
+          placeholder="Notes or preferred colors..."
+          style={{ padding: "8px", width: "100%" }}
+        />
+      </div>
+
+      <button type="submit" className="button-primary">
+        Submit Filament Order
+      </button>
+    </form>
+  </div>
+</section>
+              
       <section className="section">
         <h2>Contact</h2>
         <p>Email: jnc3designs@gmail.com</p>
