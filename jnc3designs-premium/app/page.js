@@ -52,7 +52,7 @@ export default function Home() {
   </a>
 
   <a href="tel:4328940429" className="button-primary">
-  Call for Availability
+  Call Now
 </a>
 </div>
 
