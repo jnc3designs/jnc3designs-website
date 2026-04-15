@@ -37,32 +37,23 @@ export default function Home() {
     <p className="hero-subnote">
   Official ZYLtech Engineering Filament Reseller • Local Inventory Available in Midland, TX
 </p>
-        <div className="hero-buttons">
-
-  <a
-  href="https://www.facebook.com/profile.php?id=61579552738924"
-  target="_blank"
-  rel="noreferrer"
-  className="button-primary"
->
-  Message on Facebook
-</a>
-
-  <a 
-    href="tel:4328940429" 
-    className="button-primary"
-  >
-    Call 432-894-0429
+      <div className="hero-buttons" style={{ marginTop: "20px" }}>
+  <a href="#filament-order" className="button-primary">
+    Submit Order
   </a>
 
-  <a href="#quote" className="button-primary">
-  Request Bulk Pricing
-</a>
+  <a
+    href="https://www.facebook.com/profile.php?id=61579552738924"
+    target="_blank"
+    rel="noreferrer"
+    className="button-primary"
+  >
+    Message to Reserve
+  </a>
 
-          <a href="#filament" className="button-primary">
-  Order Filament
-</a>
-
+  <a href="tel:4328940429" className="button-secondary">
+    Call for Availability
+  </a>
 </div>
 
       
