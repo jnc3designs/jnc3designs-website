@@ -252,12 +252,15 @@ export default function Home() {
       </section>
 
         <section className="section" id="filament">
-  <h2>ZYLtech Filament In Stock Locally</h2>
+  <h2>3D Printer Filament In Stock – Midland, TX</h2>
 
-  <p style={{ opacity: 0.8, maxWidth: "900px" }}>
-    JNC3Designs stocks ZYLtech PLA filament locally in Midland, TX for quick pickup.
-    No waiting on shipping. Message us for live availability or submit an order below.
-  </p>
+<p style={{ opacity: 0.85, maxWidth: "900px" }}>
+  Need filament today? JNC3Designs stocks ZYLtech PLA locally in Midland so you can skip shipping delays and keep your prints running.
+</p>
+
+<p style={{ marginTop: "10px", fontWeight: "600", color: "#4f7cff" }}>
+  Same-day pickup available • Limited stock • Message to reserve
+</p>
 
   <p style={{ marginTop: "10px", fontWeight: "600" }}>
     1kg Spools • 1.75mm • $17.95 each • Bulk pricing available
