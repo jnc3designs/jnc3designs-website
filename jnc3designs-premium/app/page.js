@@ -51,9 +51,9 @@ export default function Home() {
     Message to Reserve
   </a>
 
-  <a href="tel:4328940429" className="button-secondary">
-    Call for Availability
-  </a>
+  <a href="tel:4328940429" className="button-primary">
+  Call for Availability
+</a>
 </div>
 
       
