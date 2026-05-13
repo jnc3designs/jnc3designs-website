@@ -69,6 +69,15 @@ const policies = [
       "Bulk discounts may be available for larger orders.",
     ],
   },
+  {
+  title: "Industrial Use Disclaimer",
+  items: [
+    "JNC3Designs provides custom 3D printed components based on customer-provided samples or specifications.",
+    "These parts are not certified, pressure-rated, or guaranteed for structural, load-bearing, or critical safety applications unless explicitly stated in writing.",
+    "It is the customer’s responsibility to test, validate, and approve all parts for their intended use and operating conditions.",
+    "JNC3Designs shall not be held liable for equipment damage, failure, downtime, or injury resulting from the use or misuse of printed components.",
+  ],
+},
 ];
 
 export default function PoliciesPage() {
