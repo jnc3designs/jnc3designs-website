@@ -54,6 +54,9 @@ export default function Home() {
   <a href="tel:4328940429" className="button-primary">
   Call Now
 </a>
+          <a href="/projects" className="button-primary">
+  Customer Projects →
+</a>
 </div>
 
       
