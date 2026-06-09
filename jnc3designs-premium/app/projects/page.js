@@ -14,7 +14,7 @@ export default function Projects() {
         <h2>Bridge Plug Keychain</h2>
 
         <img
-          src="/bridge-plug-flyer.jpg"
+          src="/bridge-plug-flyer.png"
           alt="Bridge Plug Keychain Project"
           style={{
             width: "100%",
