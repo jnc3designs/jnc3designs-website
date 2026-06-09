@@ -2,14 +2,14 @@ const projects = [
   {
     title: "Bridge Plug Keychain",
     category: "CAD File to Finished Product",
-    image: "/bridge-plug-flyer.jpg",
+    image: "/bridge-plug-flyer.png",
     description:
       "Customer-provided SolidWorks files were converted into a detailed 3D printed promotional keychain.",
   },
   {
     title: '2" NPT Adapter',
     category: "Custom Part Recreation",
-    image: "/npt-adapter-flyer.jpg",
+    image: "/npt-adapter-flyer.png",
     description:
       "A customer supplied an existing part sample, and JNC3Designs recreated it as a functional printed replacement.",
   },
