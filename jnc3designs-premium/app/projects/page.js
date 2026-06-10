@@ -9,7 +9,7 @@ const projects = [
   {
     title: '2" NPT Adapter',
     category: "Custom Part Recreation",
-    image: "/npt-adapter-flyer.png.png",
+    image: "/npt-adapter-flyer.png",
     description:
       "A customer supplied an existing part sample, and JNC3Designs recreated it as a functional printed replacement.",
   },
