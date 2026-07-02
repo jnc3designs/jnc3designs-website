@@ -146,7 +146,9 @@ export default function Home() {
         <p style={{ marginTop: "16px" }}>
   We also partner with trusted suppliers for tools and materials we use daily.
 </p>
-
+<a href="/supply" className="button-primary">
+  Explore JNC3 Supply →
+</a>
 <a
   href="https://overture3d.com/?aff=145&utm_source=affiliate&utm_medium=referral&utm_campaign=affiliate"
   target="_blank"
