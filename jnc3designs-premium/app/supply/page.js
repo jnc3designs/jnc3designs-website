@@ -1,4 +1,4 @@
-import { supplyCategories } from "../../data/products";
+import { supplyCategories } from "../../data/catalog";
 
 export default function SupplyPage() {
   return (
