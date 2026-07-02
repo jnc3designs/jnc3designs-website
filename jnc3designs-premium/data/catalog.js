@@ -25,3 +25,5 @@ export const supplyCategories = [
     description: "Glossy specialty filament for decorative prints.",
   },
 ];
+export const products = [
+];
