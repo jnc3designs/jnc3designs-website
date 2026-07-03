@@ -5,9 +5,19 @@ export const supplyCategories = [
     description: "Everyday printing filament for clean, reliable prints.",
   },
   {
+    name: "PLA High Speed",
+    slug: "pla-high-speed",
+    description: "Optimized for faster printing while maintaining quality.",
+  },
+  {
     name: "PLA+",
     slug: "pla-plus",
     description: "Stronger PLA option for durable prints.",
+  },
+  {
+    name: "PLA Metallic",
+    slug: "pla-metallic",
+    description: "Metallic finish filament for decorative and display prints.",
   },
   {
     name: "PETG",
