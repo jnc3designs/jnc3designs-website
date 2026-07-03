@@ -36,7 +36,33 @@ export const supplyCategories = [
   },
 ];
 export const products = [
-  { id: 1, name: "Ceramic White PLA", material: "PLA", category: "pla", color: "Ceramic White", brand: "ZYLtech", price: 17.95, stock: 2, square: "" },
+  {
+  id: 1,
+  slug: "ceramic-white",
+  name: "Ceramic White PLA",
+  material: "PLA",
+  category: "pla",
+  color: "Ceramic White",
+  brand: "ZYLtech",
+  price: 17.95,
+  stock: 2,
+  square: "",
+  image: "/filament/pla/ceramic-white.jpg",
+  description:
+    "Premium PLA for clean, reliable everyday printing with a smooth finish.",
+  applications: [
+    "Prototypes",
+    "Decorative prints",
+    "Signs and displays",
+    "General purpose printing",
+  ],
+  printerCompatibility: [
+    "Bambu Lab",
+    "Creality",
+    "Prusa",
+    "Any FDM printer",
+  ],
+},
   { id: 2, name: "Light Blue PLA", material: "PLA", category: "pla", color: "Light Blue", brand: "ZYLtech", price: 17.95, stock: 2, square: "" },
   { id: 3, name: "Dark Red PLA", material: "PLA", category: "pla", color: "Dark Red", brand: "ZYLtech", price: 17.95, stock: 2, square: "" },
   { id: 4, name: "Deep Blue PLA", material: "PLA", category: "pla", color: "Deep Blue", brand: "ZYLtech", price: 17.95, stock: 4, square: "" },
