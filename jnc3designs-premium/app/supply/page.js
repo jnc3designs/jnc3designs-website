@@ -34,6 +34,20 @@ export default function SupplyPage() {
           ))}
         </div>
       </section>
+            <section className="section">
+  <h2>Featured Filament</h2>
+
+  <p style={{ opacity: 0.8, marginBottom: "24px" }}>
+    Browse our current inventory of ZYLtech Engineering Filament available for
+    local pickup in Midland, TX.
+  </p>
+
+  <div className="product-grid">
+    {products.slice(0, 6).map((product) => (
+      <ProductCard key={product.id} product={product} />
+    ))}
+  </div>
+</section>
     </main>
   );
 }
