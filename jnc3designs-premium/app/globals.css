@@ -320,7 +320,26 @@ a { text-decoration: none; }
   opacity: 0.8;
   margin-bottom: 18px;
 }
-.product-card{
+.product-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.product-card:visited {
+  color: inherit;
+}
+
+.product-card:hover {
+  text-decoration: none;
+}
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
 
 padding:24px;
 
