@@ -30,7 +30,10 @@ export default function ProductCard({ product }) {
   const swatch = getSwatch(product.color);
 
   return (
-    <div className="product-card">
+    <a
+  href={`/supply/${product.category}/${product.slug}`}
+  className="product-card"
+>
       <div className="product-top">
         <div
           className="product-swatch"
@@ -66,6 +69,6 @@ export default function ProductCard({ product }) {
           Buy with Square
         </a>
       </div>
-    </div>
+    </a>
   );
 }
