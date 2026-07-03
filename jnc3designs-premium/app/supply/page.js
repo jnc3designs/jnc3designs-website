@@ -1,7 +1,24 @@
+"use client";
+
+import { useState } from "react";
 import { supplyCategories, products } from "../../data/catalog";
 import ProductCard from "../../components/ProductCard";
 
 export default function SupplyPage() {
+    const [activeCategory, setActiveCategory] = useState("all");
+  const [search, setSearch] = useState("");
+
+  const filteredProducts = products.filter((product) => {
+    const matchesCategory =
+      activeCategory === "all" || product.category === activeCategory;
+
+    const matchesSearch =
+      product.name.toLowerCase().includes(search.toLowerCase()) ||
+      product.color.toLowerCase().includes(search.toLowerCase()) ||
+      product.material.toLowerCase().includes(search.toLowerCase());
+
+    return matchesCategory && matchesSearch;
+  });
   return (
     <main>
       <section className="section">
@@ -44,6 +61,51 @@ export default function SupplyPage() {
 
   <div className="product-grid">
     {products.slice(0, 6).map((product) => (
+      <ProductCard key={product.id} product={product} />
+    ))}
+  </div>
+</section>
+    <section className="section">
+  <h2>Browse All Inventory</h2>
+
+  <p style={{ opacity: 0.8, marginBottom: "20px" }}>
+    Search by color, material, or product name.
+  </p>
+
+  <div className="supply-filter-bar">
+    <button
+      className={activeCategory === "all" ? "filter-active" : ""}
+      onClick={() => setActiveCategory("all")}
+    >
+      All
+    </button>
+
+    {supplyCategories.map((category) => (
+      <button
+        key={category.slug}
+        className={activeCategory === category.slug ? "filter-active" : ""}
+        onClick={() => setActiveCategory(category.slug)}
+      >
+        {category.name}
+      </button>
+    ))}
+  </div>
+
+  <input
+    className="supply-search"
+    type="text"
+    placeholder="Search blue, PETG, silk..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+  />
+
+  <p style={{ opacity: 0.7, marginTop: "16px", marginBottom: "20px" }}>
+    Showing {filteredProducts.length} product
+    {filteredProducts.length === 1 ? "" : "s"}.
+  </p>
+
+  <div className="product-grid">
+    {filteredProducts.map((product) => (
       <ProductCard key={product.id} product={product} />
     ))}
   </div>
