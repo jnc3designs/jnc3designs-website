@@ -14,6 +14,7 @@ export default async function ProductPage({ params }) {
       item.category === category &&
       item.slug === productSlug
   );
+  const material = materialDetails[product?.category];
 
   if (!product) {
     return (
@@ -92,6 +93,17 @@ export default async function ProductPage({ params }) {
           <li>1kg spool</li>
         </ul>
       </section>
+                  <section className="section">
+  <h2>Material Specs</h2>
+
+  <ul className="feature-list">
+    <li>Nozzle Temp: {material?.nozzleTemp}</li>
+    <li>Bed Temp: {material?.bedTemp}</li>
+    <li>Difficulty: {material?.difficulty}</li>
+    <li>Best For: {material?.bestFor}</li>
+    <li>{material?.notes}</li>
+  </ul>
+</section>
 
       <section className="section">
         <h2>Recommended Uses</h2>
