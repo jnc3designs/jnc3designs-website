@@ -1,4 +1,4 @@
-import { products } from "../../../../data/catalog";
+import { products, materialDetails } from "../../../../data/catalog";
 
 function getStockText(stock) {
   if (stock <= 0) return "Out of Stock";
