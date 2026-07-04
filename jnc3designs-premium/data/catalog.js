@@ -34,6 +34,77 @@ export const supplyCategories = [
     slug: "silk",
     description: "Glossy specialty filament for decorative prints.",
   },
+  export const materialDetails = {
+  pla: {
+    displayName: "PLA",
+    nozzleTemp: "200–220°C",
+    bedTemp: "50–60°C",
+    difficulty: "Easy",
+    bestFor: "Everyday prints, signs, display pieces, prototypes, and general use.",
+    notes:
+      "PLA is one of the easiest materials to print and is a great choice for clean detail and reliable results.",
+  },
+
+  "pla-high-speed": {
+    displayName: "PLA High Speed",
+    nozzleTemp: "210–230°C",
+    bedTemp: "50–60°C",
+    difficulty: "Easy",
+    bestFor: "Fast prints, prototypes, and everyday parts.",
+    notes:
+      "Designed for faster printing while still keeping clean surface quality.",
+  },
+
+  "pla-plus": {
+    displayName: "PLA+",
+    nozzleTemp: "205–225°C",
+    bedTemp: "50–60°C",
+    difficulty: "Easy",
+    bestFor: "Stronger everyday prints and parts needing extra durability.",
+    notes:
+      "PLA+ gives you improved toughness while staying easy to print.",
+  },
+
+  "pla-metallic": {
+    displayName: "PLA Metallic",
+    nozzleTemp: "200–220°C",
+    bedTemp: "50–60°C",
+    difficulty: "Easy",
+    bestFor: "Decorative prints, displays, awards, and premium-looking parts.",
+    notes:
+      "Metallic PLA is great when you want a more eye-catching finish.",
+  },
+
+  petg: {
+    displayName: "PETG",
+    nozzleTemp: "230–250°C",
+    bedTemp: "70–80°C",
+    difficulty: "Medium",
+    bestFor: "Functional parts, brackets, outdoor-friendly prints, and durable items.",
+    notes:
+      "PETG is stronger and more flexible than PLA, making it a great choice for practical parts.",
+  },
+
+  "petg-hf": {
+    displayName: "PETG HF",
+    nozzleTemp: "230–260°C",
+    bedTemp: "70–80°C",
+    difficulty: "Medium",
+    bestFor: "Fast functional prints, stronger parts, and production work.",
+    notes:
+      "High-flow PETG is built for faster printing while keeping good strength.",
+  },
+
+  silk: {
+    displayName: "Silk PLA",
+    nozzleTemp: "200–220°C",
+    bedTemp: "50–60°C",
+    difficulty: "Easy",
+    bestFor: "Decorative prints, gifts, display pieces, and colorful designs.",
+    notes:
+      "Silk PLA gives prints a glossy finish and is best for visual impact.",
+  },
+};
 ];
 export const products = [
   {
