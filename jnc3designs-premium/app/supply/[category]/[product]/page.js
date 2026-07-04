@@ -6,11 +6,13 @@ function getStockText(stock) {
   return `${stock} Rolls Available`;
 }
 
-export default function ProductPage({ params }) {
+export default async function ProductPage({ params }) {
+  const { category, product: productSlug } = await params;
+
   const product = products.find(
     (item) =>
-      item.category === params.category &&
-      item.slug === params.product
+      item.category === category &&
+      item.slug === productSlug
   );
 
   if (!product) {
