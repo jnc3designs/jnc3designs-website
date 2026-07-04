@@ -106,7 +106,7 @@ export const supplyCategories = [
       "Silk PLA gives prints a glossy finish and is best for visual impact.",
   },
 };
-];
+
 export const products = [
   {
   id: 1,
