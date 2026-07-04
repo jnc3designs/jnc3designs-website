@@ -34,6 +34,7 @@ export const supplyCategories = [
     slug: "silk",
     description: "Glossy specialty filament for decorative prints.",
   },
+  ];
   export const materialDetails = {
   pla: {
     displayName: "PLA",
