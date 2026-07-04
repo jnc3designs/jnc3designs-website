@@ -37,8 +37,16 @@ export default async function ProductPage({ params }) {
 
         <div className="product-hero">
           <div className="product-photo-placeholder">
-            <span>{product.color}</span>
-          </div>
+  {product.image ? (
+    <img
+      src={product.image}
+      alt={product.name}
+      className="product-detail-image"
+    />
+  ) : (
+    <span>{product.color}</span>
+  )}
+</div>
 
           <div className="product-info">
             <p className="product-category-badge">
