@@ -11,7 +11,26 @@ function getStockText(stock) {
   if (stock === 1) return "Only 1 Roll Left";
   return `${stock} Rolls Available`;
 }
+function getColorSwatch(color) {
+  const name = color.toLowerCase();
 
+  if (name.includes("white")) return "#f5f5f5";
+  if (name.includes("black")) return "#111111";
+  if (name.includes("blue")) return "#1e6bff";
+  if (name.includes("red")) return "#d71920";
+  if (name.includes("green")) return "#2fb344";
+  if (name.includes("orange")) return "#f97316";
+  if (name.includes("purple")) return "#7c3aed";
+  if (name.includes("magenta")) return "#d946ef";
+  if (name.includes("brown") || name.includes("khaki")) return "#8b5e34";
+  if (name.includes("gray") || name.includes("grey")) return "#808080";
+  if (name.includes("maroon")) return "#800000";
+  if (name.includes("transparent")) return "rgba(255,255,255,0.25)";
+  if (name.includes("rainbow")) return "linear-gradient(135deg, red, orange, yellow, green, blue, purple)";
+  if (name.includes("dual")) return "linear-gradient(135deg, #111, #d71920)";
+
+  return "#4f7cff";
+}
 export default async function ProductPage({ params }) {
   const { category, product: productSlug } = await params;
 
@@ -21,6 +40,10 @@ export default async function ProductPage({ params }) {
       item.slug === productSlug
   );
   const material = materialDetails[product?.category];
+  
+  const relatedColors = products.filter(
+  (item) => item.category === product?.category
+);
 
   if (!product) {
     return (
@@ -163,6 +186,28 @@ export default async function ProductPage({ params }) {
           for makers, businesses, schools, and general 3D printing projects.
         </p>
       </section>
+            <section className="section">
+  <h2>Available {product.material} Colors</h2>
+
+  <div className="color-swatch-grid">
+    {relatedColors.map((item) => (
+      <a
+        key={item.id}
+        href={`/supply/${item.category}/${item.slug}`}
+        className={`color-swatch-card ${
+          item.slug === product.slug ? "active-swatch" : ""
+        }`}
+      >
+        <span
+          className="color-swatch-dot"
+          style={{ background: getColorSwatch(item.color) }}
+        ></span>
+
+        <span>{item.color}</span>
+      </a>
+    ))}
+  </div>
+</section>
     </main>
   );
 }
