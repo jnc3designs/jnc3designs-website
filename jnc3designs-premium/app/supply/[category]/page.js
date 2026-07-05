@@ -1,13 +1,15 @@
 import { supplyCategories, products } from "../../../data/catalog";
 import ProductCard from "../../../components/ProductCard";
 
-export default function CategoryPage({ params }) {
+export default async function CategoryPage({ params }) {
+  const { category: categorySlug } = await params;
+
   const category = supplyCategories.find(
-    (item) => item.slug === params.category
+    (item) => item.slug === categorySlug
   );
 
   const categoryProducts = products.filter(
-    (product) => product.category === params.category
+    (product) => product.category === categorySlug
   );
 
   if (!category) {
