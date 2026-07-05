@@ -1,5 +1,11 @@
 import { products, materialDetails } from "../../../../data/catalog";
 
+function getStockBadge(stock) {
+  if (stock <= 0) return "⚫ Out of Stock";
+  if (stock === 1) return "🔴 Only 1 Left";
+  if (stock <= 3) return "🟡 Low Stock";
+  return "🟢 In Stock";
+}
 function getStockText(stock) {
   if (stock <= 0) return "Out of Stock";
   if (stock === 1) return "Only 1 Roll Left";
@@ -63,8 +69,8 @@ export default async function ProductPage({ params }) {
             <h2>${product.price.toFixed(2)}</h2>
 
             <p className="hero-subnote">
-              {getStockText(product.stock)} • Local Pickup in Midland, TX
-            </p>
+  {getStockBadge(product.stock)} • {getStockText(product.stock)} • Local Pickup in Midland, TX
+</p>
 
             <div className="hero-buttons">
               <a href="#filament-order" className="button-primary">
@@ -93,16 +99,38 @@ export default async function ProductPage({ params }) {
           <li>1kg spool</li>
         </ul>
       </section>
-                  <section className="section">
+   <section className="section">
   <h2>Material Specs</h2>
 
-  <ul className="feature-list">
-    <li>Nozzle Temp: {material?.nozzleTemp}</li>
-    <li>Bed Temp: {material?.bedTemp}</li>
-    <li>Difficulty: {material?.difficulty}</li>
-    <li>Best For: {material?.bestFor}</li>
-    <li>{material?.notes}</li>
-  </ul>
+  <div className="spec-grid">
+    <div className="spec-card">
+      <span>🔥</span>
+      <h3>Nozzle Temp</h3>
+      <p>{material?.nozzleTemp}</p>
+    </div>
+
+    <div className="spec-card">
+      <span>🛏️</span>
+      <h3>Bed Temp</h3>
+      <p>{material?.bedTemp}</p>
+    </div>
+
+    <div className="spec-card">
+      <span>⭐</span>
+      <h3>Difficulty</h3>
+      <p>{material?.difficulty}</p>
+    </div>
+
+    <div className="spec-card">
+      <span>🧩</span>
+      <h3>Best For</h3>
+      <p>{material?.bestFor}</p>
+    </div>
+  </div>
+
+  <p style={{ opacity: 0.85, marginTop: "24px", maxWidth: "900px" }}>
+    {material?.notes}
+  </p>
 </section>
 
       <section className="section">
