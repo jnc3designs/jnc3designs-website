@@ -596,3 +596,22 @@ font-size:120px;
 .color-swatch-card span:last-child {
   line-height: 1.2;
 }
+.hero-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(79,124,255,.18);
+  border: 1px solid rgba(79,124,255,.4);
+  color: #9ec2ff;
+  font-size: .85rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: .03em;
+}
+
+.hero-rating {
+  margin: 10px 0 18px;
+  color: #ffd54a;
+  font-weight: 700;
+  font-size: 1rem;
+}
