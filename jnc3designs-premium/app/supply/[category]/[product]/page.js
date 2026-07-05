@@ -83,9 +83,7 @@ export default async function ProductPage({ params }) {
               Official ZYLtech Engineering Filament
             </p>
   
-  <p className="hero-badge">
-  Official ZYLtech Engineering Filament
-</p>
+
 
             <h1>{product.name}</h1>
 
