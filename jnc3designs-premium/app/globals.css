@@ -547,3 +547,35 @@ font-size:120px;
 .spec-card p {
   opacity: 0.8;
 }
+.color-swatch-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.color-swatch-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.color-swatch-card:hover,
+.color-swatch-card.active-swatch {
+  border-color: #4f7cff;
+  background: rgba(79,124,255,0.16);
+}
+
+.color-swatch-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+}
