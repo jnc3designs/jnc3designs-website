@@ -82,8 +82,16 @@ export default async function ProductPage({ params }) {
             <p className="product-category-badge">
               Official ZYLtech Engineering Filament
             </p>
+  
+  <p className="hero-badge">
+  Official ZYLtech Engineering Filament
+</p>
 
             <h1>{product.name}</h1>
+
+  <p className="hero-rating">
+  ★★★★★ Premium Printing Material
+</p>
 
             <p style={{ opacity: 0.85 }}>
               {product.description}
