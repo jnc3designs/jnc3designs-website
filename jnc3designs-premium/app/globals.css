@@ -548,34 +548,51 @@ font-size:120px;
   opacity: 0.8;
 }
 .color-swatch-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 22px;
 }
 
 .color-swatch-card {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.05);
+  gap: 12px;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
   border: 1px solid rgba(255,255,255,0.12);
   color: inherit;
   text-decoration: none;
   font-weight: 700;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 }
 
-.color-swatch-card:hover,
+.color-swatch-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(79,124,255,0.55);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+  background: linear-gradient(145deg, rgba(79,124,255,0.14), rgba(255,255,255,0.055));
+}
+
 .color-swatch-card.active-swatch {
   border-color: #4f7cff;
-  background: rgba(79,124,255,0.16);
+  box-shadow: 0 0 0 2px rgba(79,124,255,0.35), 0 14px 35px rgba(79,124,255,0.18);
+  background: linear-gradient(145deg, rgba(79,124,255,0.20), rgba(255,255,255,0.06));
 }
 
 .color-swatch-dot {
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.25);
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.28);
+  box-shadow:
+    inset 0 1px 8px rgba(255,255,255,0.35),
+    inset 0 -8px 14px rgba(0,0,0,0.18),
+    0 8px 18px rgba(0,0,0,0.25);
+  flex-shrink: 0;
+}
+
+.color-swatch-card span:last-child {
+  line-height: 1.2;
 }
