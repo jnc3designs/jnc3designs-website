@@ -61,9 +61,15 @@ export default async function ProductPage({ params }) {
   return (
     <main>
       <section className="section">
-        <a href={`/supply/${product.category}`} className="underline">
-          ← Back to {product.material}
-        </a>
+        <nav className="breadcrumbs">
+  <a href="/">Home</a>
+  <span>›</span>
+  <a href="/supply">JNC3 Supply</a>
+  <span>›</span>
+  <a href={`/supply/${product.category}`}>{product.material}</a>
+  <span>›</span>
+  <span>{product.color}</span>
+</nav>
 
         <div className="product-hero">
           <div className="product-photo-placeholder">
