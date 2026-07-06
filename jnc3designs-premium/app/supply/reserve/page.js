@@ -2,6 +2,15 @@
 
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Badge from "../../../components/Badge";
+
+function getStockText(stock) {
+  const count = Number(stock);
+
+  if (!count) return "Stock availability will be confirmed";
+  if (count === 1) return "Only 1 Roll Available";
+  return `${count} Rolls Available`;
+}
 
 function ReserveForm() {
   const params = useSearchParams();
@@ -10,44 +19,75 @@ function ReserveForm() {
   const material = params.get("material") || "";
   const color = params.get("color") || "";
   const price = params.get("price") || "";
+  const stock = params.get("stock") || "";
+  const image = params.get("image") || "";
 
   return (
     <main className="section">
-      <h1>Reserve Filament</h1>
+      <h1>Reserve Your Filament</h1>
 
-      <p style={{ opacity: 0.8, marginBottom: "30px" }}>
-        Complete the form below and we'll reserve your filament for local pickup.
+      <p style={{ opacity: 0.8, marginBottom: "30px", maxWidth: "850px" }}>
+        We’ll hold your filament for local pickup in Midland, TX. No payment is
+        required through this form.
       </p>
 
-      <form className="reserve-form">
-        <label>Product</label>
-        <input value={product} readOnly />
+      <div className="reserve-layout">
+        <div className="reserve-summary">
+          {image && (
+            <img src={image} alt={product} className="reserve-image" />
+          )}
 
-        <label>Material</label>
-        <input value={material} readOnly />
+          <Badge>⭐ Official ZYLtech Engineering Filament</Badge>
 
-        <label>Color</label>
-        <input value={color} readOnly />
+          <h2 style={{ marginTop: "18px" }}>{product}</h2>
 
-        <label>Price</label>
-        <input value={price ? `$${price}` : ""} readOnly />
+          <p style={{ opacity: 0.75 }}>
+            {material} • {color}
+          </p>
 
-        <label>Your Name</label>
-        <input placeholder="John Smith" />
+          <p className="reserve-price">
+            {price ? `$${price}` : "Price confirmed at pickup"}
+          </p>
 
-        <label>Phone Number</label>
-        <input placeholder="432-555-1234" />
+          <p className="reserve-stock">📦 {getStockText(stock)}</p>
 
-        <label>Quantity</label>
-        <input type="number" defaultValue={1} min={1} />
+          <p style={{ opacity: 0.85 }}>
+            📍 Local Pickup
+            <br />
+            Midland, Texas
+          </p>
+        </div>
 
-        <label>Notes</label>
-        <textarea rows={5} placeholder="Anything you'd like us to know..." />
+        <form className="reserve-form">
+          <label>Product</label>
+          <input value={product} readOnly />
 
-        <button className="button-primary">
-          Reserve Pickup
-        </button>
-      </form>
+          <label>Material</label>
+          <input value={material} readOnly />
+
+          <label>Color</label>
+          <input value={color} readOnly />
+
+          <label>Price</label>
+          <input value={price ? `$${price}` : ""} readOnly />
+
+          <label>Your Name</label>
+          <input placeholder="John Smith" />
+
+          <label>Phone Number</label>
+          <input placeholder="432-555-1234" />
+
+          <label>Quantity</label>
+          <input type="number" defaultValue={1} min={1} />
+
+          <label>Notes</label>
+          <textarea rows={5} placeholder="Anything you'd like us to know..." />
+
+          <button className="button-primary" type="button">
+            Reserve My Filament
+          </button>
+        </form>
+      </div>
     </main>
   );
 }
