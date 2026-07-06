@@ -57,7 +57,7 @@ export default function ProductCard({ product }) {
 
       <div className="product-bottom">
         <a
-  href={`/supply/reserve?product=${encodeURIComponent(product.name)}&material=${encodeURIComponent(product.material)}&color=${encodeURIComponent(product.color)}&price=${product.price}`}
+  href={`/supply/reserve?product=${encodeURIComponent(product.name)}&material=${encodeURIComponent(product.material)}&color=${encodeURIComponent(product.color)}&price=${product.price}&stock=${product.stock}&image=${encodeURIComponent(product.image)}`}
   className="button-primary"
 >
   Reserve
