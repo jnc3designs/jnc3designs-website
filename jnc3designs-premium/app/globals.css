@@ -615,3 +615,25 @@ font-size:120px;
   font-weight: 700;
   font-size: 1rem;
 }
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: #4f7cff;
+}
+
+.breadcrumbs span {
+  color: rgba(255,255,255,0.65);
+}
