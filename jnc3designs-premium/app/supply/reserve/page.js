@@ -58,32 +58,49 @@ function ReserveForm() {
           </p>
         </div>
 
-        <form className="reserve-form">
+        <form
+          className="reserve-form"
+          action="https://formspree.io/f/xbdvbkzy"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Filament Reservation - JNC3 Supply"
+          />
+
           <label>Product</label>
-          <input value={product} readOnly />
+          <input name="Product" value={product} readOnly />
 
           <label>Material</label>
-          <input value={material} readOnly />
+          <input name="Material" value={material} readOnly />
 
           <label>Color</label>
-          <input value={color} readOnly />
+          <input name="Color" value={color} readOnly />
 
           <label>Price</label>
-          <input value={price ? `$${price}` : ""} readOnly />
+          <input name="Price" value={price ? `$${price}` : ""} readOnly />
 
           <label>Your Name</label>
-          <input placeholder="John Smith" />
+          <input name="Name" placeholder="John Smith" required />
 
           <label>Phone Number</label>
-          <input placeholder="432-555-1234" />
+          <input name="Phone" placeholder="432-555-1234" required />
+
+          <label>Email</label>
+          <input name="Email" type="email" placeholder="you@email.com" />
 
           <label>Quantity</label>
-          <input type="number" defaultValue={1} min={1} />
+          <input name="Quantity" type="number" defaultValue={1} min={1} required />
 
           <label>Notes</label>
-          <textarea rows={5} placeholder="Anything you'd like us to know..." />
+          <textarea
+            name="Notes"
+            rows={5}
+            placeholder="Anything you'd like us to know..."
+          />
 
-          <button className="button-primary" type="button">
+          <button className="button-primary" type="submit">
             Reserve My Filament
           </button>
         </form>
