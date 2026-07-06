@@ -109,9 +109,9 @@ export default async function ProductPage({ params }) {
 </p>
 
             <div className="hero-buttons">
-              <a href="#filament-order" className="button-primary">
-                Reserve Pickup
-              </a>
+             <a href="/supply#filament-order" className="button-primary">
+  Reserve Pickup
+</a>
 
               <a
                 href={product.square || "#filament-order"}
