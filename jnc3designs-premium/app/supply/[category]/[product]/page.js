@@ -110,7 +110,7 @@ export default async function ProductPage({ params }) {
 
             <div className="hero-buttons">
 <a
-  href={`/supply/reserve?product=${encodeURIComponent(product.name)}&material=${encodeURIComponent(product.material)}&color=${encodeURIComponent(product.color)}&price=${product.price}`}
+  href={`/supply/reserve?product=${encodeURIComponent(product.name)}&material=${encodeURIComponent(product.material)}&color=${encodeURIComponent(product.color)}&price=${product.price}&stock=${product.stock}&image=${encodeURIComponent(product.image)}`}
   className="button-primary"
 >
   Reserve Pickup
