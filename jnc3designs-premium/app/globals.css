@@ -719,3 +719,40 @@ font-size:120px;
 
     min-height:140px;
 }
+.reserve-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 50px;
+  align-items: start;
+}
+
+.reserve-summary {
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.reserve-image {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 24px;
+}
+
+.reserve-price {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 18px 0 8px;
+}
+
+.reserve-stock {
+  color: #ffd84a;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 850px) {
+  .reserve-layout {
+    grid-template-columns: 1fr;
+  }
+}
