@@ -686,3 +686,36 @@ font-size:120px;
   color:#ffffff;
   border-color:rgba(255,255,255,.12);
 }
+.reserve-form{
+    max-width:700px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.reserve-form label{
+    font-weight:700;
+}
+
+.reserve-form input,
+.reserve-form textarea{
+
+    background:#11131d;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:12px;
+
+    padding:14px;
+
+    font-size:1rem;
+}
+
+.reserve-form textarea{
+
+    resize:vertical;
+
+    min-height:140px;
+}
