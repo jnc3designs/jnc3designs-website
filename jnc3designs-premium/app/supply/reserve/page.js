@@ -1,8 +1,9 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function ReservePage() {
+function ReserveForm() {
   const params = useSearchParams();
 
   const product = params.get("product") || "";
@@ -19,7 +20,6 @@ export default function ReservePage() {
       </p>
 
       <form className="reserve-form">
-
         <label>Product</label>
         <input value={product} readOnly />
 
@@ -30,7 +30,7 @@ export default function ReservePage() {
         <input value={color} readOnly />
 
         <label>Price</label>
-        <input value={`$${price}`} readOnly />
+        <input value={price ? `$${price}` : ""} readOnly />
 
         <label>Your Name</label>
         <input placeholder="John Smith" />
@@ -42,16 +42,20 @@ export default function ReservePage() {
         <input type="number" defaultValue={1} min={1} />
 
         <label>Notes</label>
-        <textarea
-          rows={5}
-          placeholder="Anything you'd like us to know..."
-        />
+        <textarea rows={5} placeholder="Anything you'd like us to know..." />
 
         <button className="button-primary">
           Reserve Pickup
         </button>
-
       </form>
     </main>
+  );
+}
+
+export default function ReservePage() {
+  return (
+    <Suspense fallback={<main className="section">Loading...</main>}>
+      <ReserveForm />
+    </Suspense>
   );
 }
