@@ -110,6 +110,29 @@ export default function SupplyPage() {
     ))}
   </div>
 </section>
+      <section id="filament-order" className="section">
+  <h2>Reserve Filament for Pickup</h2>
+
+  <p style={{ opacity: 0.8, marginBottom: "20px" }}>
+    Ready to reserve filament? Message JNC3Designs with the material, color,
+    and quantity you need. Local pickup available in Midland, TX.
+  </p>
+
+  <div className="hero-buttons">
+    <a
+      href="https://www.facebook.com/profile.php?id=61579552738924"
+      target="_blank"
+      rel="noreferrer"
+      className="button-primary"
+    >
+      Message on Facebook
+    </a>
+
+    <a href="tel:4328940429" className="button-primary">
+      Call 432-894-0429
+    </a>
+  </div>
+</section>
     </main>
   );
 }
