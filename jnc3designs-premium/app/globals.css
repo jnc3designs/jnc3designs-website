@@ -637,3 +637,52 @@ font-size:120px;
 .breadcrumbs span {
   color: rgba(255,255,255,0.65);
 }
+.jnc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  font-size: .85rem;
+
+  font-weight: 700;
+
+  letter-spacing: .03em;
+
+  border: 1px solid transparent;
+
+  transition: .25s;
+}
+
+.jnc-badge-blue{
+  background:rgba(79,124,255,.18);
+  color:#9ec2ff;
+  border-color:rgba(79,124,255,.45);
+}
+
+.jnc-badge-green{
+  background:rgba(52,199,89,.16);
+  color:#84f2a6;
+  border-color:rgba(52,199,89,.35);
+}
+
+.jnc-badge-yellow{
+  background:rgba(255,214,10,.15);
+  color:#ffe37a;
+  border-color:rgba(255,214,10,.35);
+}
+
+.jnc-badge-red{
+  background:rgba(255,69,58,.15);
+  color:#ff9b95;
+  border-color:rgba(255,69,58,.35);
+}
+
+.jnc-badge-dark{
+  background:rgba(255,255,255,.06);
+  color:#ffffff;
+  border-color:rgba(255,255,255,.12);
+}
