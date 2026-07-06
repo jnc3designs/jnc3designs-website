@@ -28,9 +28,13 @@ export default async function CategoryPage({ params }) {
   return (
     <main>
       <section className="section">
-        <a href="/supply" className="underline">
-          ← Back to JNC3 Supply
-        </a>
+        <nav className="breadcrumbs">
+  <a href="/">Home</a>
+  <span>›</span>
+  <a href="/supply">JNC3 Supply</a>
+  <span>›</span>
+  <span>{category.name}</span>
+</nav>
 
         <h1>{category.name} Filament</h1>
 
