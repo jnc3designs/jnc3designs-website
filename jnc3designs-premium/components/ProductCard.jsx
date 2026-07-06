@@ -56,9 +56,12 @@ export default function ProductCard({ product }) {
       </div>
 
       <div className="product-bottom">
-        <a href="#filament-order" className="button-primary">
-          Reserve
-        </a>
+        <a
+  href={`/supply/reserve?product=${encodeURIComponent(product.name)}&material=${encodeURIComponent(product.material)}&color=${encodeURIComponent(product.color)}&price=${product.price}`}
+  className="button-primary"
+>
+  Reserve
+</a>
 
         <a
           href={product.square || "#filament-order"}
