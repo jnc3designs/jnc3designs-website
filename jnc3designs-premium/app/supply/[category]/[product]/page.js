@@ -1,4 +1,5 @@
 import { products, materialDetails } from "../../../../data/catalog";
+import Badge from "../../../../components/Badge";
 
 function getStockBadge(stock) {
   if (stock <= 0) return "⚫ Out of Stock";
