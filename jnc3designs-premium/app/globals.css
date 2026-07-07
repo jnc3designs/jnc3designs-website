@@ -756,3 +756,37 @@ font-size:120px;
     grid-template-columns: 1fr;
   }
 }
+.success-page {
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 64px;
+  margin-bottom: 18px;
+}
+
+.success-message {
+  opacity: 0.85;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.success-local {
+  margin-top: 18px;
+  font-weight: 800;
+  color: #9ec2ff;
+}
+
+.success-help {
+  margin-top: 40px;
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.success-help p {
+  opacity: 0.85;
+  max-width: 760px;
+  margin: 0 auto;
+}
