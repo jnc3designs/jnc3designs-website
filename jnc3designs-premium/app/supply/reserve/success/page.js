@@ -30,6 +30,29 @@ export default function ReservationSuccessPage() {
           </div>
         </div>
 
+            <section className="section">
+  <h2>Need Help?</h2>
+
+  <p style={{ opacity: 0.85, maxWidth: "800px" }}>
+    Have a question about pickup, availability, or which filament is best for
+    your project? Reach out anytime — we’re happy to help.
+  </p>
+
+  <div className="hero-buttons" style={{ marginTop: "20px" }}>
+    <a href="tel:4328940429" className="button-primary">
+      Call 432-894-0429
+    </a>
+
+    <a
+      href="https://www.facebook.com/profile.php?id=61579552738924"
+      target="_blank"
+      rel="noreferrer"
+      className="button-primary"
+    >
+      Message on Facebook
+    </a>
+  </div>
+</section>
         <div className="hero-buttons" style={{ marginTop: "30px" }}>
           <a href="/supply" className="button-primary">
             Back to JNC3 Supply
