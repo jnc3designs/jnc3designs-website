@@ -1,4 +1,40 @@
+:root {
 
+  /* Brand */
+
+  --jnc-primary: #2563eb;
+  --jnc-primary-hover: #1e40af;
+
+  /* Backgrounds */
+
+  --jnc-bg: #070A12;
+  --jnc-surface: rgba(255,255,255,.05);
+  --jnc-surface-hover: rgba(255,255,255,.08);
+
+  /* Text */
+
+  --jnc-text: #ffffff;
+  --jnc-text-muted: rgba(255,255,255,.72);
+
+  /* Borders */
+
+  --jnc-border: rgba(255,255,255,.10);
+
+  /* Border Radius */
+
+  --jnc-radius-sm: 12px;
+  --jnc-radius: 18px;
+  --jnc-radius-lg: 24px;
+
+  /* Shadows */
+
+  --jnc-shadow: 0 12px 30px rgba(0,0,0,.35);
+
+  /* Animation */
+
+  --jnc-speed: .25s ease;
+
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
