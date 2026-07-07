@@ -1,3 +1,5 @@
+import JNCCard from "../../../../components/JNCCard";
+
 export default function ReservationSuccessPage() {
   return (
     <main className="section">
@@ -17,23 +19,23 @@ export default function ReservationSuccessPage() {
         </p>
 
         <div className="spec-grid" style={{ marginTop: "34px" }}>
-          <div className="spec-card">
+          <JNCCard className="spec-card">
             <span>📦</span>
             <h3>Reservation Submitted</h3>
             <p>Your request has been sent to JNC3Designs.</p>
-          </div>
+          </JNCCard>
 
-          <div className="spec-card">
+          <JNCCard className="spec-card">
             <span>📍</span>
             <h3>Local Pickup</h3>
             <p>Pickup is available in Midland, Texas.</p>
-          </div>
+          </JNCCard>
 
-          <div className="spec-card">
+          <JNCCard className="spec-card">
             <span>📞</span>
             <h3>We’ll Contact You</h3>
             <p>We’ll reach out to confirm details and pickup timing.</p>
-          </div>
+          </JNCCard>
         </div>
 
         <section className="success-help">
