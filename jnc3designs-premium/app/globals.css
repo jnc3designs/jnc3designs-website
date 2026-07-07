@@ -826,3 +826,28 @@ font-size:120px;
   max-width: 760px;
   margin: 0 auto;
 }
+/* =====================================================
+   JNC Platform UI - Card
+===================================================== */
+
+.jnc-card {
+
+  background: var(--jnc-surface);
+
+  border: 1px solid var(--jnc-border);
+
+  border-radius: var(--jnc-radius);
+
+  box-shadow: var(--jnc-shadow);
+
+  transition: all var(--jnc-speed);
+
+}
+
+.jnc-card-hover:hover {
+
+  transform: translateY(-4px);
+
+  border-color: var(--jnc-primary);
+
+}
