@@ -48,18 +48,13 @@ export default function ReservationSuccessPage() {
           </p>
 
           <div className="hero-buttons" style={{ marginTop: "22px" }}>
-            <a href="tel:4328940429" className="button-primary">
-              Call 432-894-0429
-            </a>
+            <JNCButton href="tel:4328940429">
+  Call 432-894-0429
+</JNCButton>
 
-            <a
-              href="https://www.facebook.com/profile.php?id=61579552738924"
-              target="_blank"
-              rel="noreferrer"
-              className="button-primary"
-            >
-              Message on Facebook
-            </a>
+<JNCButton href="https://www.facebook.com/profile.php?id=61579552738924">
+  Message on Facebook
+</JNCButton>
           </div>
         </section>
 
