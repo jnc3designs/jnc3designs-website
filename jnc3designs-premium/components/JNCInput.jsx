@@ -12,11 +12,7 @@ export default function JNCInput({
 }) {
   return (
     <div className="jnc-input-group" style={style}>
-      {label && (
-        <label className="jnc-label">
-          {label}
-        </label>
-      )}
+      {label && <label className="jnc-label">{label}</label>}
 
       {rows ? (
         <textarea
