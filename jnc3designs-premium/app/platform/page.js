@@ -1,15 +1,16 @@
 import Badge from "../../components/Badge";
 import JNCButton from "../../components/JNCButton";
 import JNCCard from "../../components/JNCCard";
+import JNCInput from "../../components/JNCInput";
 
-export default function PlatformLab() {
+export default function PlatformPage() {
   return (
     <main className="section">
-      <h1>JNC Platform Lab</h1>
 
-      <p style={{ opacity: 0.8, maxWidth: "800px" }}>
-        Internal development page used to build and test reusable JNC Platform
-        UI components before they are added throughout the website.
+      <h1>⚒️ JNC Forge</h1>
+
+      <p style={{opacity:.8,maxWidth:"760px"}}>
+        Build Once. Improve Forever.
       </p>
 
       <section className="section">
@@ -17,33 +18,15 @@ export default function PlatformLab() {
         <h2>Buttons</h2>
 
         <div className="hero-buttons">
-          <JNCButton>Primary Button</JNCButton>
+
+          <JNCButton>
+            Primary
+          </JNCButton>
 
           <JNCButton variant="outline">
-            Outline Button
+            Outline
           </JNCButton>
-        </div>
 
-      </section>
-
-      <section className="section">
-
-        <h2>Badges</h2>
-
-        <div className="hero-buttons">
-          <Badge>Official Reseller</Badge>
-
-          <Badge color="green">
-            In Stock
-          </Badge>
-
-          <Badge color="yellow">
-            Low Stock
-          </Badge>
-
-          <Badge color="red">
-            Out of Stock
-          </Badge>
         </div>
 
       </section>
@@ -52,12 +35,59 @@ export default function PlatformLab() {
 
         <h2>Cards</h2>
 
-        <JNCCard style={{ padding: "30px" }}>
-          <h3>JNC Card</h3>
+        <JNCCard style={{padding:"30px"}}>
+
+          <h3>Platform Card</h3>
 
           <p>
-            Every future card on the platform should feel consistent.
+            This is our reusable card component.
           </p>
+
+        </JNCCard>
+
+      </section>
+
+      <section className="section">
+
+        <h2>Badges</h2>
+
+        <div className="hero-buttons">
+
+          <Badge>
+            Official Reseller
+          </Badge>
+
+        </div>
+
+      </section>
+
+      <section className="section">
+
+        <h2>Inputs</h2>
+
+        <JNCCard style={{padding:"30px"}}>
+
+          <JNCInput
+            label="Customer Name"
+            placeholder="John Smith"
+          />
+
+          <div style={{height:"18px"}} />
+
+          <JNCInput
+            label="Email"
+            type="email"
+            placeholder="john@email.com"
+          />
+
+          <div style={{height:"18px"}} />
+
+          <JNCInput
+            label="Notes"
+            rows={4}
+            placeholder="Tell us about your project..."
+          />
+
         </JNCCard>
 
       </section>
