@@ -63,13 +63,13 @@ export default function ReservationSuccessPage() {
         </section>
 
         <div className="hero-buttons" style={{ marginTop: "34px" }}>
-          <a href="/supply" className="button-primary">
-            Back to JNC3 Supply
-          </a>
+          <JNCButton href="/supply">
+  Back to JNC3 Supply
+</JNCButton>
 
-          <a href="/gallery" className="button-primary">
-            View Gallery
-          </a>
+<JNCButton href="/gallery">
+  View Gallery
+</JNCButton>
         </div>
       </section>
     </main>
