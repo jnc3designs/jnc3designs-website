@@ -1,4 +1,5 @@
 import JNCCard from "../../../../components/JNCCard";
+import JNCButton from "../../../../components/JNCButton";
 
 export default function ReservationSuccessPage() {
   return (
