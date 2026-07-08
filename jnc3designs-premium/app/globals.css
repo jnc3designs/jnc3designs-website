@@ -894,3 +894,51 @@ font-size:120px;
   color: var(--jnc-text);
   transform: translateY(-3px);
 }
+/* =====================================================
+   JNC Platform UI - Input
+===================================================== */
+
+.jnc-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.jnc-label {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--jnc-text);
+}
+
+.jnc-input {
+  width: 100%;
+  padding: 14px 16px;
+
+  background: var(--jnc-surface);
+
+  border: 1px solid var(--jnc-border);
+
+  border-radius: var(--jnc-radius-sm);
+
+  color: var(--jnc-text);
+
+  transition: all var(--jnc-speed);
+
+  font-size: 1rem;
+}
+
+.jnc-input::placeholder {
+  color: var(--jnc-text-muted);
+}
+
+.jnc-input:focus {
+  outline: none;
+
+  border-color: var(--jnc-primary);
+
+  box-shadow: 0 0 0 3px rgba(37,99,235,.20);
+}
+
+.jnc-input[readonly] {
+  opacity: .75;
+}
