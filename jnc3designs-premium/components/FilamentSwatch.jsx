@@ -1,20 +1,20 @@
+import { filamentSwatches } from "../data/swatches";
+
 export default function FilamentSwatch({
   color,
-  name,
-  size = 42,
+  size = 64,
+  className = "",
 }) {
+  const swatchColor = filamentSwatches[color] || "#4f7cff";
+
   return (
     <div
-      title={name}
+      className={`filament-swatch ${className}`}
+      title={color}
       style={{
         width: size,
         height: size,
-        borderRadius: "50%",
-        background: color,
-        border: "2px solid rgba(255,255,255,.18)",
-        boxShadow: "0 6px 18px rgba(0,0,0,.30)",
-        transition: "all var(--jnc-speed)",
-        cursor: "pointer",
+        background: swatchColor,
       }}
     />
   );
