@@ -1,88 +1,11 @@
 import Image from "next/image";
+import HeroSection from "../components/HeroSection";
       
 export default function Home() {
   return (
     <main>
 
-      <section className="section">
-        <h1 style={{fontSize: "42px"}}>Custom 3D Printing in Midland, TX - JNC3Designs LLC</h1>
-        <p style={{ opacity: 0.8 }}>
-  Custom 3D prints, branded keychains, tumbler toppers and bulk promotional orders made locally in Midland, TX. Fast turnaround. Bulk discounts available.
-</p>
-
-<p style={{ marginTop: "20px", opacity: 0.8 }}>
-  Serving Midland, Odessa and the Permian Basin.
-</p>
-
-<p style={{ marginTop: "10px", opacity: 0.85 }}>
-  Need supplies? Check out tools and materials we recommend.
-</p>
-
-<a
-  href="https://overture3d.com/?aff=145&utm_source=affiliate&utm_medium=referral&utm_campaign=affiliate"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: "inline-block",
-    marginTop: "8px",
-    fontWeight: "600",
-    color: "#4f7cff"
-  }}
->
-  Shop Supplies →
-</a>
-    <p style={{ fontSize: "12px", opacity: 0.6, marginTop: "8px" }}>
-  *Some links may be affiliate links, meaning we may earn a small commission at no extra cost to you.
-</p>
-    <p className="hero-subnote">
-  Official ZYLtech Engineering Filament Reseller • Local Inventory Available in Midland, TX
-</p>
-      <div className="hero-buttons" style={{ marginTop: "20px" }}>
-  <a href="#filament-order" className="button-primary">
-    Submit Order
-  </a>
-
-  <a
-    href="https://www.facebook.com/profile.php?id=61579552738924"
-    target="_blank"
-    rel="noreferrer"
-    className="button-primary"
-  >
-    Message to Reserve
-  </a>
-
-  <a href="tel:4328940429" className="button-primary">
-  Call Now
-</a>
-          <a href="/projects" className="button-primary">
-  Customer Projects →
-</a>
-</div>
-
-      
-            <p className="mt-6 text-sm opacity-80">
-  Follow us:{" "}
-  <a
-    href="https://www.facebook.com/profile.php?id=61579552738924"
-    target="_blank"
-    rel="noreferrer"
-    className="ml-2 underline"
-  >
-    Facebook
-  </a>
-  <span className="mx-2">|</span>
-  <a
-    href="https://www.instagram.com/jnc3designs/"
-    target="_blank"
-    rel="noreferrer"
-    className="underline"
-  >
-    Instagram
-  </a>
-</p>
-
-
-      </section>
+      <HeroSection />
 
       <section className="section">
         <h2>Bulk Orders for Gyms, Oilfield Crews & Small Businesses</h2>
