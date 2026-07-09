@@ -3,26 +3,7 @@ import JNCCard from "./JNCCard";
 import InventoryBadge from "./InventoryBadge";
 import FilamentSwatch from "./FilamentSwatch";
 
-function getProductSwatch(color) {
-  const name = color.toLowerCase();
 
-  if (name.includes("white")) return "#f5f5f5";
-  if (name.includes("black")) return "#111111";
-  if (name.includes("blue")) return "#1e6bff";
-  if (name.includes("red")) return "#d71920";
-  if (name.includes("green")) return "#2fb344";
-  if (name.includes("orange")) return "#f97316";
-  if (name.includes("purple")) return "#7c3aed";
-  if (name.includes("magenta")) return "#d946ef";
-  if (name.includes("brown") || name.includes("khaki")) return "#8b5e34";
-  if (name.includes("gray") || name.includes("grey")) return "#808080";
-  if (name.includes("maroon")) return "#800000";
-  if (name.includes("transparent")) return "rgba(255,255,255,0.25)";
-  if (name.includes("rainbow")) return "linear-gradient(135deg, red, orange, yellow, green, blue, purple)";
-  if (name.includes("dual")) return "linear-gradient(135deg, #111, #d71920)";
-
-  return "#4f7cff";
-}
 
 export default function ProductCard({ product }) {
   const reserveHref = `/supply/reserve?product=${encodeURIComponent(
