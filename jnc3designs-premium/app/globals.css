@@ -942,3 +942,28 @@ font-size:120px;
 .jnc-input[readonly] {
   opacity: .75;
 }
+.product-card {
+  padding: 24px;
+}
+
+.product-card-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.product-card-link:visited {
+  color: inherit;
+}
+
+.product-card .jnc-badge {
+  margin: 16px 0;
+}
+
+.product-card h3 {
+  margin-top: 0;
+}
+
+.product-card h2 {
+  margin-top: 18px;
+}
