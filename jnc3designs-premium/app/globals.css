@@ -967,3 +967,10 @@ font-size:120px;
 .product-card h2 {
   margin-top: 18px;
 }
+.filament-swatch {
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,0.12),
+    0 8px 18px rgba(0,0,0,0.25);
+}
