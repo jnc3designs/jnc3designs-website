@@ -1,6 +1,7 @@
 import JNCButton from "./JNCButton";
 import JNCCard from "./JNCCard";
 import InventoryBadge from "./InventoryBadge";
+import FilamentSwatch from "./FilamentSwatch";
 
 function getProductSwatch(color) {
   const name = color.toLowerCase();
@@ -38,10 +39,11 @@ export default function ProductCard({ product }) {
         href={`/supply/${product.category}/${product.slug}`}
         className="product-card-link"
       >
-        <div
-          className="product-swatch"
-          style={{ background: product.swatch || getProductSwatch(product.color) }}
-        />
+        <FilamentSwatch
+    color={product.color}
+    size={90}
+    className="product-swatch"
+/>
 
         <h3>{product.name}</h3>
 
