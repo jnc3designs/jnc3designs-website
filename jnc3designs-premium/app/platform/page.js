@@ -4,6 +4,7 @@ import JNCCard from "../../components/JNCCard";
 import JNCInput from "../../components/JNCInput";
 import InventoryBadge from "../../components/InventoryBadge";
 import MaterialHighlights from "../../components/MaterialHighlights";
+import ForgeStatus from "../../components/ForgeStatus";
 
 export default function PlatformPage() {
   return (
