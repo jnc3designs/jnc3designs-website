@@ -11,6 +11,10 @@ export default function PlatformPage() {
     <main className="section">
       <h1>⚒️ JNC Forge</h1>
 
+    <p className="hero-copy">
+  Engineering Dashboard
+</p>
+
       <p style={{ opacity: 0.8, maxWidth: "760px" }}>
         Build Once. Improve Forever.
       </p>
