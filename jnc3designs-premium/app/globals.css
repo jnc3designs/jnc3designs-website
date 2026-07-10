@@ -1126,3 +1126,28 @@ font-size:120px;
   color: var(--jnc-text-muted);
   line-height: 1.5;
 }
+.forge-status{
+    padding:28px;
+    border:1px solid var(--jnc-border);
+    border-radius:20px;
+    background:var(--jnc-surface);
+}
+
+.forge-status h2{
+    margin-bottom:20px;
+}
+
+.forge-status ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    gap:14px;
+}
+
+.forge-status li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:1rem;
+}
