@@ -14,6 +14,8 @@ export default function PlatformPage() {
       <p style={{ opacity: 0.8, maxWidth: "760px" }}>
         Build Once. Improve Forever.
       </p>
+          
+       <ForgeStatus />   
 
       <section className="section">
         <h2>Buttons</h2>
