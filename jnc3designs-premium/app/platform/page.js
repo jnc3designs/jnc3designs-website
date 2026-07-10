@@ -73,6 +73,30 @@ export default function PlatformPage() {
           </div>
         </JNCCard>
       </section>
+              <section className="section">
+
+  <h2>Material Intelligence</h2>
+
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
+      gap: "24px",
+      marginTop: "24px",
+    }}
+  >
+
+    <MaterialHighlights material="pla" />
+
+    <MaterialHighlights material="petg" />
+
+    <MaterialHighlights material="asa" />
+
+    <MaterialHighlights material="petg-cf" />
+
+  </div>
+
+</section>
     </main>
   );
 }
