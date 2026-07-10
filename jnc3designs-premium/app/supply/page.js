@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { supplyCategories, products } from "../../data/catalog";
 import ProductCard from "../../components/ProductCard";
+import SupplyHero from "../../components/SupplyHero";
 
 export default function SupplyPage() {
     const [activeCategory, setActiveCategory] = useState("all");
