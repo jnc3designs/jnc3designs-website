@@ -28,11 +28,11 @@ export default function SupplyHero() {
           Browse Inventory
         </JNCButton>
 
-        <JNCButton href="/supply/reserve" variant="outline">
+        <JNCButton href="/supply/reserve">
           Reserve Filament
         </JNCButton>
 
-        <JNCButton href="tel:4328940429" variant="outline">
+        <JNCButton href="tel:4328940429">
           Ask About Availability
         </JNCButton>
       </div>
