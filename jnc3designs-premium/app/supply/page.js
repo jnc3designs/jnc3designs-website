@@ -23,7 +23,7 @@ export default function SupplyPage() {
   return (
     <main>
       <section className="section">
-        <h1>JNC3 Supply</h1>
+        <SupplyHero />
 
         <p style={{ opacity: 0.85, maxWidth: "900px" }}>
           West Texas' local source for 3D printing filament. JNC3Designs is an
@@ -66,7 +66,7 @@ export default function SupplyPage() {
     ))}
   </div>
 </section>
-    <section className="section">
+    <section id="inventory" className="section">
   <h2>Browse All Inventory</h2>
 
   <p style={{ opacity: 0.8, marginBottom: "20px" }}>
