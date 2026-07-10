@@ -22,19 +22,7 @@ export default function SupplyPage() {
   });
   return (
     <main>
-      <section className="section">
-        <SupplyHero />
-
-        <p style={{ opacity: 0.85, maxWidth: "900px" }}>
-          West Texas' local source for 3D printing filament. JNC3Designs is an
-          official ZYLtech Engineering Filament reseller serving Midland,
-          Odessa, and the Permian Basin.
-        </p>
-
-        <p className="hero-subnote">
-          Local Pickup Available • Midland, TX • Message for Current Inventory
-        </p>
-      </section>
+      <SupplyHero />
 
       <section className="section">
         <h2>Shop by Material</h2>
