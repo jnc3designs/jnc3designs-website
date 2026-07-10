@@ -1100,3 +1100,29 @@ font-size:120px;
   justify-content: center;
   margin-top: 30px;
 }
+/* =====================================================
+   JNC Platform UI - Material Highlights
+===================================================== */
+
+.material-highlights {
+  padding: 24px;
+}
+
+.material-highlights h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.4rem;
+}
+
+.material-highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.material-highlight-list li {
+  color: var(--jnc-text-muted);
+  line-height: 1.5;
+}
