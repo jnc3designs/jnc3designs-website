@@ -1151,3 +1151,42 @@ font-size:120px;
     gap:12px;
     font-size:1rem;
 }
+/* =====================================================
+   Product Detail Page 2.0
+===================================================== */
+
+.product-detail-price {
+  margin: 22px 0 18px;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+}
+
+.product-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 8px;
+}
+
+.product-image-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.product-recommendation {
+  padding: 28px;
+}
+
+.product-recommendation h2 {
+  margin: 18px 0 10px;
+}
+
+.product-recommendation p {
+  max-width: 900px;
+  margin-bottom: 0;
+  color: var(--jnc-text-muted);
+  line-height: 1.7;
+}
