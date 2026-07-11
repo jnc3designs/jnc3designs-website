@@ -38,6 +38,7 @@ export default function ProductCard({ product }) {
         <MaterialHighlights
   material={product.category}
   showTitle={false}
+  featureLimit={2}
 />
 
         <h2>${product.price.toFixed(2)}</h2>
