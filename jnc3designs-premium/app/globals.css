@@ -1365,3 +1365,18 @@ font-size:120px;
     opacity:.82;
     line-height:1.7;
 }
+/* =====================================================
+   Operations
+===================================================== */
+
+.operations-intro{
+    opacity:.82;
+    margin-bottom:36px;
+    max-width:700px;
+}
+
+.operations-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+}
