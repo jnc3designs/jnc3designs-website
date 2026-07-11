@@ -3,6 +3,7 @@ import InventorySummary from "../../components/InventorySummary";
 import JNCCard from "../../components/JNCCard";
 import DailyBrief from "../../components/DailyBrief";
 import CustomerHub from "../../components/CustomerHub";
+import OrderTimeline from "../../../components/OrderTimeline";
 
 export default function OperationsPage() {
   return (
@@ -70,6 +71,7 @@ export default function OperationsPage() {
           </JNCCard>
         </div>
       </section>
+                <OrderTimeline currentStage="Quote Requested" />
                 
 <DailyBrief />
       <InventorySummary />
