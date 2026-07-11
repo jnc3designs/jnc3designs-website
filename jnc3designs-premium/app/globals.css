@@ -1289,3 +1289,25 @@ font-size:120px;
 .forge-release-card li{
     color:var(--jnc-text-muted);
 }
+/* =====================================================
+   Trust Panel
+===================================================== */
+
+.trust-panel{
+    padding:32px;
+}
+
+.trust-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;
+    margin-top:24px;
+}
+
+.trust-item{
+    padding:16px;
+    border-radius:var(--jnc-radius-sm);
+    background:var(--jnc-surface);
+    border:1px solid var(--jnc-border);
+    font-weight:600;
+}
