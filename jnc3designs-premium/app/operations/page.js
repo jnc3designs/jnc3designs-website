@@ -1,60 +1,75 @@
-import JNCCard from "../../components/JNCCard";
 import Badge from "../../components/Badge";
+import InventorySummary from "../../components/InventorySummary";
+import JNCCard from "../../components/JNCCard";
 
 export default function OperationsPage() {
   return (
-    <main className="section">
+    <main>
+      <section className="section">
+        <Badge color="blue">⚙️ Internal Business System</Badge>
 
-      <h1>⚙️ JNC Operations</h1>
+        <h1>JNC Operations</h1>
 
-      <p className="operations-intro">
-        The operating system for JNC3Designs.
-      </p>
+        <p className="operations-intro">
+          The operating system for JNC3Designs. Track inventory, orders,
+          production, customers, and the work that needs your attention.
+        </p>
 
-      <div className="operations-grid">
+        <div className="operations-grid">
+          <JNCCard className="operations-module-card" hover={false}>
+            <Badge color="blue">📦 Orders</Badge>
 
-        <JNCCard hover={false}>
-          <Badge color="blue">📦 Orders</Badge>
+            <h3>Order Queue</h3>
 
-          <h3>Order Queue</h3>
+            <p>Track customer orders from quote through final pickup.</p>
 
-          <p>
-            Track customer orders from quote to pickup.
-          </p>
-        </JNCCard>
+            <span className="operations-coming-soon">
+              Module coming in a future forging
+            </span>
+          </JNCCard>
 
-        <JNCCard hover={false}>
-          <Badge color="green">🧵 Inventory</Badge>
+          <JNCCard className="operations-module-card" hover={false}>
+            <Badge color="green">🧵 Inventory</Badge>
 
-          <h3>Inventory</h3>
+            <h3>Inventory</h3>
 
-          <p>
-            Monitor filament, supplies, and stock levels.
-          </p>
-        </JNCCard>
+            <p>
+              Monitor filament quantities and identify products that need to be
+              restocked.
+            </p>
 
-        <JNCCard hover={false}>
-          <Badge color="orange">🖨️ Production</Badge>
+            <span className="operations-active-module">
+              Live inventory connected
+            </span>
+          </JNCCard>
 
-          <h3>Print Queue</h3>
+          <JNCCard className="operations-module-card" hover={false}>
+            <Badge color="yellow">🖨️ Production</Badge>
 
-          <p>
-            Manage printers and active print jobs.
-          </p>
-        </JNCCard>
+            <h3>Print Queue</h3>
 
-        <JNCCard hover={false}>
-          <Badge color="purple">👥 Customers</Badge>
+            <p>Manage printers, active jobs, deadlines, and maintenance.</p>
 
-          <h3>Customer Hub</h3>
+            <span className="operations-coming-soon">
+              Module coming in a future forging
+            </span>
+          </JNCCard>
 
-          <p>
-            View customer history, notes, and relationships.
-          </p>
-        </JNCCard>
+          <JNCCard className="operations-module-card" hover={false}>
+            <Badge color="dark">👥 Customers</Badge>
 
-      </div>
+            <h3>Customer Hub</h3>
 
+            <p>View customer history, notes, feedback, and follow-ups.</p>
+
+            <span className="operations-coming-soon">
+              Module coming in a future forging
+            </span>
+          </JNCCard>
+        </div>
+      </section>
+
+      <InventorySummary />
     </main>
   );
 }
