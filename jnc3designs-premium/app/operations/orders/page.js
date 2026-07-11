@@ -1,5 +1,6 @@
 import Badge from "../../../components/Badge";
 import JNCCard from "../../../components/JNCCard";
+import OrderTimeline from "../../../components/OrderTimeline";
 
 export default function OrdersPage() {
   return (
