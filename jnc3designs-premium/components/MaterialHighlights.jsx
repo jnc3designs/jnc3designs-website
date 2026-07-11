@@ -5,6 +5,7 @@ import JNCCard from "./JNCCard";
 export default function MaterialHighlights({
   material,
   showTitle = true,
+  featureLimit,
   className = "",
 }) {
   const info = materialInfo[material];
@@ -12,6 +13,11 @@ export default function MaterialHighlights({
   if (!info) {
     return null;
   }
+
+  const visibleFeatures =
+    typeof featureLimit === "number"
+      ? info.features.slice(0, featureLimit)
+      : info.features;
 
   return (
     <JNCCard
@@ -23,7 +29,7 @@ export default function MaterialHighlights({
       <Badge>{info.badge}</Badge>
 
       <ul className="material-highlight-list">
-        {info.features.map((feature) => (
+        {visibleFeatures.map((feature) => (
           <li key={feature}>✓ {feature}</li>
         ))}
       </ul>
