@@ -1,37 +1,11 @@
 import { products, materialDetails } from "../../../../data/catalog";
 import Badge from "../../../../components/Badge";
+import FilamentSwatch from "../../../../components/FilamentSwatch";
+import InventoryBadge from "../../../../components/InventoryBadge";
+import JNCButton from "../../../../components/JNCButton";
+import JNCCard from "../../../../components/JNCCard";
+import MaterialHighlights from "../../../../components/MaterialHighlights";
 
-function getStockBadge(stock) {
-  if (stock <= 0) return "⚫ Out of Stock";
-  if (stock === 1) return "🔴 Only 1 Left";
-  if (stock <= 3) return "🟡 Low Stock";
-  return "🟢 In Stock";
-}
-function getStockText(stock) {
-  if (stock <= 0) return "Out of Stock";
-  if (stock === 1) return "Only 1 Roll Left";
-  return `${stock} Rolls Available`;
-}
-function getColorSwatch(color) {
-  const name = color.toLowerCase();
-
-  if (name.includes("white")) return "#f5f5f5";
-  if (name.includes("black")) return "#111111";
-  if (name.includes("blue")) return "#1e6bff";
-  if (name.includes("red")) return "#d71920";
-  if (name.includes("green")) return "#2fb344";
-  if (name.includes("orange")) return "#f97316";
-  if (name.includes("purple")) return "#7c3aed";
-  if (name.includes("magenta")) return "#d946ef";
-  if (name.includes("brown") || name.includes("khaki")) return "#8b5e34";
-  if (name.includes("gray") || name.includes("grey")) return "#808080";
-  if (name.includes("maroon")) return "#800000";
-  if (name.includes("transparent")) return "rgba(255,255,255,0.25)";
-  if (name.includes("rainbow")) return "linear-gradient(135deg, red, orange, yellow, green, blue, purple)";
-  if (name.includes("dual")) return "linear-gradient(135deg, #111, #d71920)";
-
-  return "#4f7cff";
-}
 export default async function ProductPage({ params }) {
   const { category, product: productSlug } = await params;
 
@@ -40,190 +14,264 @@ export default async function ProductPage({ params }) {
       item.category === category &&
       item.slug === productSlug
   );
-  const material = materialDetails[product?.category];
-  
-  const relatedColors = products.filter(
-  (item) => item.category === product?.category
-);
 
   if (!product) {
     return (
       <main>
         <section className="section">
           <h1>Product Not Found</h1>
-          <a href="/supply" className="button-primary">
+
+          <JNCButton href="/supply">
             Back to JNC3 Supply
-          </a>
+          </JNCButton>
         </section>
       </main>
     );
   }
 
+  const material = materialDetails[product.category];
+
+  const relatedColors = products.filter(
+    (item) => item.category === product.category
+  );
+
+  const reserveHref =
+    `/supply/reserve?product=${encodeURIComponent(product.name)}` +
+    `&material=${encodeURIComponent(product.material)}` +
+    `&color=${encodeURIComponent(product.color)}` +
+    `&price=${product.price}` +
+    `&stock=${product.stock}` +
+    `&image=${encodeURIComponent(product.image || "")}`;
+
+  const squareHref = product.square || reserveHref;
+
   return (
     <main>
       <section className="section">
         <nav className="breadcrumbs">
-  <a href="/">Home</a>
-  <span>›</span>
-  <a href="/supply">JNC3 Supply</a>
-  <span>›</span>
-  <a href={`/supply/${product.category}`}>{product.material}</a>
-  <span>›</span>
-  <span>{product.color}</span>
-</nav>
+          <a href="/">Home</a>
+          <span>›</span>
+          <a href="/supply">JNC3 Supply</a>
+          <span>›</span>
+          <a href={`/supply/${product.category}`}>
+            {product.material}
+          </a>
+          <span>›</span>
+          <span>{product.color}</span>
+        </nav>
 
         <div className="product-hero">
-          <div className="product-photo-placeholder">
-  {product.image ? (
-    <img
-      src={product.image}
-      alt={product.name}
-      className="product-detail-image"
-    />
-  ) : (
-    <span>{product.color}</span>
-  )}
-</div>
+          <JNCCard
+            className="product-photo-placeholder"
+            hover={false}
+          >
+            {product.image ? (
+              <img
+                src={product.image}
+                alt={product.name}
+                className="product-detail-image"
+              />
+            ) : (
+              <div className="product-image-fallback">
+                <FilamentSwatch
+                  color={product.color}
+                  size={120}
+                />
+
+                <span>{product.color}</span>
+              </div>
+            )}
+          </JNCCard>
 
           <div className="product-info">
-           <Badge>
-  ⭐ Official ZYLtech Engineering Filament
-</Badge>
-  
-
+            <Badge>
+              ⭐ Official ZYLtech Engineering Filament
+            </Badge>
 
             <h1>{product.name}</h1>
 
-  <p className="hero-rating">
-  ★★★★★ Premium Printing Material
-</p>
-
-            <p style={{ opacity: 0.85 }}>
-              {product.description}
+            <p className="hero-rating">
+              ★★★★★ Premium Printing Material
             </p>
 
-            <h2>${product.price.toFixed(2)}</h2>
+            <p style={{ opacity: 0.85, lineHeight: 1.7 }}>
+              {product.description ||
+                material?.notes ||
+                `${product.name} is available for local pickup through JNC3 Supply.`}
+            </p>
 
-            <p className="hero-subnote">
-  {getStockBadge(product.stock)} • {getStockText(product.stock)} • Local Pickup in Midland, TX
-</p>
+            <p className="product-detail-price">
+              ${product.price.toFixed(2)}
+            </p>
+
+            <div className="product-status-row">
+              <InventoryBadge stock={product.stock} />
+
+              <Badge color="dark">
+                📍 Local Pickup in Midland, TX
+              </Badge>
+            </div>
 
             <div className="hero-buttons">
-<a
-  href={`/supply/reserve?product=${encodeURIComponent(product.name)}&material=${encodeURIComponent(product.material)}&color=${encodeURIComponent(product.color)}&price=${product.price}&stock=${product.stock}&image=${encodeURIComponent(product.image)}`}
-  className="button-primary"
->
-  Reserve Pickup
-</a>
+              <JNCButton href={reserveHref}>
+                Reserve Pickup
+              </JNCButton>
 
-              <a
-                href={product.square || "#filament-order"}
-                className="button-primary"
-              >
+              <JNCButton href={squareHref}>
                 Buy with Square
-              </a>
+              </JNCButton>
             </div>
           </div>
         </div>
       </section>
 
       <section className="section">
+        <h2>Why Choose This Material?</h2>
+
+        <MaterialHighlights
+          material={product.category}
+          showTitle={false}
+        />
+      </section>
+
+      <section className="section">
         <h2>Product Details</h2>
 
-        <ul className="feature-list">
-          <li>Material: {product.material}</li>
-          <li>Color: {product.color}</li>
-          <li>Brand: {product.brand}</li>
-          <li>1.75mm filament</li>
-          <li>1kg spool</li>
-        </ul>
+        <div className="spec-grid">
+          <JNCCard className="spec-card" hover={false}>
+            <span>🧵</span>
+            <h3>Material</h3>
+            <p>{product.material}</p>
+          </JNCCard>
+
+          <JNCCard className="spec-card" hover={false}>
+            <span>🎨</span>
+            <h3>Color</h3>
+            <p>{product.color}</p>
+          </JNCCard>
+
+          <JNCCard className="spec-card" hover={false}>
+            <span>🏷️</span>
+            <h3>Brand</h3>
+            <p>{product.brand}</p>
+          </JNCCard>
+
+          <JNCCard className="spec-card" hover={false}>
+            <span>📦</span>
+            <h3>Spool</h3>
+            <p>1kg • 1.75mm</p>
+          </JNCCard>
+        </div>
       </section>
-   <section className="section">
-  <h2>Material Specs</h2>
-
-  <div className="spec-grid">
-    <div className="spec-card">
-      <span>🔥</span>
-      <h3>Nozzle Temp</h3>
-      <p>{material?.nozzleTemp}</p>
-    </div>
-
-    <div className="spec-card">
-      <span>🛏️</span>
-      <h3>Bed Temp</h3>
-      <p>{material?.bedTemp}</p>
-    </div>
-
-    <div className="spec-card">
-      <span>⭐</span>
-      <h3>Difficulty</h3>
-      <p>{material?.difficulty}</p>
-    </div>
-
-    <div className="spec-card">
-      <span>🧩</span>
-      <h3>Best For</h3>
-      <p>{material?.bestFor}</p>
-    </div>
-  </div>
-
-  <p style={{ opacity: 0.85, marginTop: "24px", maxWidth: "900px" }}>
-    {material?.notes}
-  </p>
-</section>
 
       <section className="section">
-        <h2>Recommended Uses</h2>
+        <h2>Material Specifications</h2>
 
-        <ul className="feature-list">
-          {product.applications?.map((item) => (
-            <li key={item}>{item}</li>
+        <div className="spec-grid">
+          <JNCCard className="spec-card" hover={false}>
+            <span>🔥</span>
+            <h3>Nozzle Temperature</h3>
+            <p>{material?.nozzleTemp || "Confirm with manufacturer"}</p>
+          </JNCCard>
+
+          <JNCCard className="spec-card" hover={false}>
+            <span>🛏️</span>
+            <h3>Bed Temperature</h3>
+            <p>{material?.bedTemp || "Confirm with manufacturer"}</p>
+          </JNCCard>
+
+          <JNCCard className="spec-card" hover={false}>
+            <span>⭐</span>
+            <h3>Difficulty</h3>
+            <p>{material?.difficulty || "Varies by printer"}</p>
+          </JNCCard>
+
+          <JNCCard className="spec-card" hover={false}>
+            <span>🧩</span>
+            <h3>Best For</h3>
+            <p>{material?.bestFor || "General 3D printing"}</p>
+          </JNCCard>
+        </div>
+
+        {material?.notes && (
+          <p
+            style={{
+              opacity: 0.85,
+              marginTop: "24px",
+              maxWidth: "900px",
+              lineHeight: 1.7,
+            }}
+          >
+            {material.notes}
+          </p>
+        )}
+      </section>
+
+      {product.applications?.length > 0 && (
+        <section className="section">
+          <h2>Recommended Uses</h2>
+
+          <ul className="feature-list">
+            {product.applications.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {product.printerCompatibility?.length > 0 && (
+        <section className="section">
+          <h2>Compatible Printers</h2>
+
+          <ul className="feature-list">
+            {product.printerCompatibility.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section className="section">
+        <JNCCard
+          className="product-recommendation"
+          hover={false}
+        >
+          <Badge color="blue">
+            💡 JNC3Designs Recommendation
+          </Badge>
+
+          <h2>{product.name}</h2>
+
+          <p>
+            This material is a dependable option for makers, businesses,
+            schools, prototypes, and everyday printing projects. Local pickup
+            also means less waiting when you need to keep your printers moving.
+          </p>
+        </JNCCard>
+      </section>
+
+      <section className="section">
+        <h2>Available {product.material} Colors</h2>
+
+        <div className="color-swatch-grid">
+          {relatedColors.map((item) => (
+            <a
+              key={item.id}
+              href={`/supply/${item.category}/${item.slug}`}
+              className={`color-swatch-card ${
+                item.slug === product.slug ? "active-swatch" : ""
+              }`}
+            >
+              <FilamentSwatch
+                color={item.color}
+                size={42}
+              />
+
+              <span>{item.color}</span>
+            </a>
           ))}
-        </ul>
+        </div>
       </section>
-
-      <section className="section">
-        <h2>Compatible Printers</h2>
-
-        <ul className="feature-list">
-          {product.printerCompatibility?.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="section">
-        <h2>JNC3Designs Recommendation</h2>
-
-        <p style={{ opacity: 0.85, maxWidth: "900px" }}>
-          {product.name} is a great option for customers who want dependable
-          everyday printing, clean detail, and reliable performance. This is the
-          type of material we like keeping in stock locally because it works well
-          for makers, businesses, schools, and general 3D printing projects.
-        </p>
-      </section>
-            <section className="section">
-  <h2>Available {product.material} Colors</h2>
-
-  <div className="color-swatch-grid">
-    {relatedColors.map((item) => (
-      <a
-        key={item.id}
-        href={`/supply/${item.category}/${item.slug}`}
-        className={`color-swatch-card ${
-          item.slug === product.slug ? "active-swatch" : ""
-        }`}
-      >
-        <span
-          className="color-swatch-dot"
-          style={{ background: getColorSwatch(item.color) }}
-        ></span>
-
-        <span>{item.color}</span>
-      </a>
-    ))}
-  </div>
-</section>
     </main>
   );
 }
