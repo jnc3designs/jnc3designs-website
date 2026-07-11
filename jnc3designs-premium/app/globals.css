@@ -1311,3 +1311,35 @@ font-size:120px;
     border:1px solid var(--jnc-border);
     font-weight:600;
 }
+/* =====================================================
+   Blueprint
+===================================================== */
+
+.blueprint-copy{
+    max-width:800px;
+    opacity:.82;
+    margin-bottom:34px;
+    line-height:1.7;
+}
+
+.blueprint-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+}
+
+.blueprint-card{
+    padding:26px;
+}
+
+.blueprint-card ul{
+    margin-top:22px;
+    padding-left:0;
+    list-style:none;
+    display:grid;
+    gap:12px;
+}
+
+.blueprint-card li{
+    color:var(--jnc-text-muted);
+}
