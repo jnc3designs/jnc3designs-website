@@ -2,6 +2,7 @@ import JNCButton from "./JNCButton";
 import JNCCard from "./JNCCard";
 import InventoryBadge from "./InventoryBadge";
 import FilamentSwatch from "./FilamentSwatch";
+import MaterialHighlights from "./MaterialHighlights";
 
 
 
@@ -34,8 +35,10 @@ export default function ProductCard({ product }) {
 
         <InventoryBadge stock={product.stock} />
 
-        <p style={{ opacity: 0.8 }}>Color: {product.color}</p>
-        <p style={{ opacity: 0.8 }}>Material: {product.material}</p>
+        <MaterialHighlights
+  material={product.category}
+  showTitle={false}
+/>
 
         <h2>${product.price.toFixed(2)}</h2>
       </a>
