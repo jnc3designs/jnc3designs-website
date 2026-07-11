@@ -7,6 +7,7 @@ import MaterialHighlights from "../../components/MaterialHighlights";
 import ForgeStatus from "../../components/ForgeStatus";
 import ForgeJournal from "../../components/ForgeJournal";
 import Blueprint from "../../components/Blueprint";
+import EngineeringPrinciples from "../../components/EngineeringPrinciples";
 
 export default function PlatformPage() {
   return (
@@ -108,6 +109,7 @@ export default function PlatformPage() {
 
 </section>
     <ForgeJournal />
+    <EngineeringPrinciples />
     </main>
   );
 }
