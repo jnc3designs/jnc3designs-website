@@ -5,6 +5,7 @@ import JNCInput from "../../components/JNCInput";
 import InventoryBadge from "../../components/InventoryBadge";
 import MaterialHighlights from "../../components/MaterialHighlights";
 import ForgeStatus from "../../components/ForgeStatus";
+import ForgeJournal from "../../components/ForgeJournal";
 
 export default function PlatformPage() {
   return (
@@ -104,6 +105,7 @@ export default function PlatformPage() {
   </div>
 
 </section>
+    <ForgeJournal />
     </main>
   );
 }
