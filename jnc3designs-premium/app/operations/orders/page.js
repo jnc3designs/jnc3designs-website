@@ -51,6 +51,7 @@ export default function OrdersPage() {
         </JNCCard>
 
       </div>
+    <OrderTimeline currentStage="Quote Requested" />
 
     </main>
   );
