@@ -1580,3 +1580,37 @@ font-size:120px;
     }
 
 }
+/* =====================================================
+   Order Timeline
+===================================================== */
+
+.order-timeline{
+    margin-top:32px;
+    padding:30px;
+}
+
+.timeline-list{
+    display:grid;
+    gap:14px;
+    margin-top:24px;
+}
+
+.timeline-step{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 18px;
+    border:1px solid var(--jnc-border);
+    border-radius:var(--jnc-radius-sm);
+    background:var(--jnc-surface);
+}
+
+.timeline-step.complete{
+    border-color:#4caf50;
+}
+
+.timeline-icon{
+    width:24px;
+    text-align:center;
+    font-weight:bold;
+}
