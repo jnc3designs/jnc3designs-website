@@ -1380,3 +1380,122 @@ font-size:120px;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:24px;
 }
+/* =====================================================
+   JNC Operations - Inventory Overview
+===================================================== */
+
+.operations-module-card {
+  padding: 26px;
+}
+
+.operations-module-card h3 {
+  margin: 18px 0 10px;
+}
+
+.operations-module-card p {
+  color: var(--jnc-text-muted);
+  line-height: 1.6;
+}
+
+.operations-active-module,
+.operations-coming-soon {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.operations-active-module {
+  color: #84f2a6;
+}
+
+.operations-coming-soon {
+  color: var(--jnc-text-muted);
+}
+
+.operations-section-heading h2 {
+  margin: 18px 0 8px;
+}
+
+.operations-section-heading p,
+.operations-muted {
+  color: var(--jnc-text-muted);
+}
+
+.operations-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 28px 0;
+}
+
+.operations-stat-card {
+  padding: 24px;
+}
+
+.operations-stat-card > span {
+  font-size: 2rem;
+}
+
+.operations-stat-card strong {
+  display: block;
+  margin-top: 14px;
+  font-size: 2rem;
+}
+
+.operations-stat-card p {
+  margin-bottom: 0;
+  color: var(--jnc-text-muted);
+}
+
+.inventory-attention-card {
+  padding: 28px;
+}
+
+.inventory-attention-card h3 {
+  margin-top: 0;
+}
+
+.inventory-attention-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.inventory-attention-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid var(--jnc-border);
+  border-radius: var(--jnc-radius-sm);
+  background: var(--jnc-surface);
+}
+
+.inventory-attention-item div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.inventory-attention-item span {
+  color: var(--jnc-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 850px) {
+  .operations-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .operations-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-attention-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
