@@ -1,6 +1,7 @@
 import Badge from "../../components/Badge";
 import InventorySummary from "../../components/InventorySummary";
 import JNCCard from "../../components/JNCCard";
+import DailyBrief from "../../components/DailyBrief";
 
 export default function OperationsPage() {
   return (
@@ -68,7 +69,8 @@ export default function OperationsPage() {
           </JNCCard>
         </div>
       </section>
-
+                
+<DailyBrief />
       <InventorySummary />
     </main>
   );
