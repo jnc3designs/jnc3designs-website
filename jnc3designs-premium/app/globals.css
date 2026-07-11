@@ -1343,3 +1343,25 @@ font-size:120px;
 .blueprint-card li{
     color:var(--jnc-text-muted);
 }
+/* =====================================================
+   Engineering Principles
+===================================================== */
+
+.principles-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+}
+
+.principle-card{
+    padding:28px;
+}
+
+.principle-card h3{
+    margin-bottom:12px;
+}
+
+.principle-card p{
+    opacity:.82;
+    line-height:1.7;
+}
