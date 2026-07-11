@@ -71,7 +71,7 @@ export default function OperationsPage() {
           </JNCCard>
         </div>
       </section>
-                <OrderTimeline currentStage="Quote Requested" />
+                
                 
 <DailyBrief />
       <InventorySummary />
