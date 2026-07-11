@@ -6,6 +6,7 @@ import InventoryBadge from "../../components/InventoryBadge";
 import MaterialHighlights from "../../components/MaterialHighlights";
 import ForgeStatus from "../../components/ForgeStatus";
 import ForgeJournal from "../../components/ForgeJournal";
+import Blueprint from "../../components/Blueprint";
 
 export default function PlatformPage() {
   return (
@@ -20,7 +21,8 @@ export default function PlatformPage() {
         Build Once. Improve Forever.
       </p>
           
-       <ForgeStatus />   
+       <ForgeStatus />
+          <Blueprint />
 
       <section className="section">
         <h2>Buttons</h2>
