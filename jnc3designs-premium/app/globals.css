@@ -1499,3 +1499,28 @@ font-size:120px;
     flex-direction: column;
   }
 }
+/* =====================================================
+   Daily Brief
+===================================================== */
+
+.daily-brief-card{
+    padding:32px;
+}
+
+.daily-brief-copy{
+    opacity:.82;
+    margin-bottom:26px;
+}
+
+.daily-brief-list{
+    display:grid;
+    gap:14px;
+}
+
+.daily-brief-item{
+    padding:16px 18px;
+    border-radius:var(--jnc-radius-sm);
+    border:1px solid var(--jnc-border);
+    background:var(--jnc-surface);
+    font-weight:600;
+}
