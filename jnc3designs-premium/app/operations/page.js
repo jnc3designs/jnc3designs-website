@@ -2,6 +2,7 @@ import Badge from "../../components/Badge";
 import InventorySummary from "../../components/InventorySummary";
 import JNCCard from "../../components/JNCCard";
 import DailyBrief from "../../components/DailyBrief";
+import CustomerHub from "../../components/CustomerHub";
 
 export default function OperationsPage() {
   return (
@@ -72,6 +73,7 @@ export default function OperationsPage() {
                 
 <DailyBrief />
       <InventorySummary />
+                <CustomerHub />
     </main>
   );
 }
