@@ -1756,3 +1756,34 @@ font-size:120px;
     color:var(--jnc-text-muted);
 
 }
+/* =====================================================
+   Priority Center
+===================================================== */
+
+.priority-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:22px;
+
+    margin-top:26px;
+
+}
+
+.priority-grid .jnc-card{
+
+    padding:28px;
+
+}
+
+.priority-grid strong{
+
+    display:block;
+
+    font-size:2.2rem;
+
+    margin:16px 0;
+
+}
