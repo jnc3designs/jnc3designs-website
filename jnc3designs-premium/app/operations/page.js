@@ -14,12 +14,11 @@ export default function OperationsPage() {
           ⚙️ Internal Business System
         </Badge>
 
-        <h1>JNC Operations</h1>
+        <h1>Mission Control</h1>
 
         <p className="operations-intro">
-          The operating system for JNC3Designs. Track inventory, orders,
-          production, customers, and the work that needs your attention.
-        </p>
+Mission Control gives you a real-time view of your business, helping you prioritize work, monitor production, track inventory, and stay ahead of customer needs.
+</p>
 
         <div className="operations-grid">
           <OperationsModuleCard
