@@ -3,6 +3,7 @@ import CustomerHub from "../../components/CustomerHub";
 import DailyBrief from "../../components/DailyBrief";
 import InventorySummary from "../../components/InventorySummary";
 import OperationsModuleCard from "../../components/OperationsModuleCard";
+import BusinessMetrics from "../../components/BusinessMetrics";
 
 export default function OperationsPage() {
   return (
@@ -56,6 +57,7 @@ export default function OperationsPage() {
       </section>
 
       <DailyBrief />
+              <BusinessMetrics />
 
       <InventorySummary />
 
