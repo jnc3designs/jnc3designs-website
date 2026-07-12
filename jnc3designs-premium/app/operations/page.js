@@ -4,6 +4,7 @@ import DailyBrief from "../../components/DailyBrief";
 import InventorySummary from "../../components/InventorySummary";
 import OperationsModuleCard from "../../components/OperationsModuleCard";
 import BusinessMetrics from "../../components/BusinessMetrics";
+import PriorityCenter from "../../components/PriorityCenter";
 
 export default function OperationsPage() {
   return (
@@ -58,6 +59,7 @@ export default function OperationsPage() {
 
       <DailyBrief />
               <BusinessMetrics />
+              <PriorityCenter />
 
       <InventorySummary />
 
