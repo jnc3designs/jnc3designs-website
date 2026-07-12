@@ -1834,3 +1834,36 @@ font-size:120px;
     margin:0;
 
 }
+/* =====================================================
+   Capacity
+===================================================== */
+
+.capacity-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+    margin-top:24px;
+
+}
+
+.capacity-grid .jnc-card{
+
+    padding:28px;
+
+    text-align:center;
+
+}
+
+.capacity-grid strong{
+
+    display:block;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+
+}
