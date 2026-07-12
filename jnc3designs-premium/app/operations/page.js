@@ -5,6 +5,7 @@ import InventorySummary from "../../components/InventorySummary";
 import OperationsModuleCard from "../../components/OperationsModuleCard";
 import BusinessMetrics from "../../components/BusinessMetrics";
 import PriorityCenter from "../../components/PriorityCenter";
+import PrintFarmStatus from "../../components/PrintFarmStatus";
 
 export default function OperationsPage() {
   return (
@@ -65,6 +66,7 @@ Mission Control gives you a real-time view of your business, helping you priorit
       <DailyBrief />
               <BusinessMetrics />
               <PriorityCenter />
+    <PrintFarmStatus />
 
       <InventorySummary />
 
