@@ -49,12 +49,14 @@ export default function OperationsPage() {
           />
 
           <OperationsModuleCard
-            badge="👥 Customers"
-            badgeColor="dark"
-            title="Customer Hub"
-            description="View customer history, notes, feedback, and follow-ups."
-            status="active"
-          />
+  badge="👥 Customers"
+  badgeColor="dark"
+  title="Customer Hub"
+  description="View customer history, notes, feedback, and follow-ups."
+  href="/operations/customers"
+  buttonText="Open Customers"
+  status="active"
+/>
         </div>
       </section>
 
