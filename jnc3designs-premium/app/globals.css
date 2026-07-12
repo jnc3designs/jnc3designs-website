@@ -1614,3 +1614,81 @@ font-size:120px;
     text-align:center;
     font-weight:bold;
 }
+/* =====================================================
+   JNC Operations - Order Queue
+===================================================== */
+
+.order-queue-list {
+  display: grid;
+  gap: 26px;
+  margin-top: 28px;
+}
+
+.order-queue-card {
+  padding: 28px;
+}
+
+.order-queue-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.order-queue-header h3,
+.order-queue-header p {
+  margin: 0;
+}
+
+.order-queue-header p {
+  margin-top: 7px;
+  color: var(--jnc-text-muted);
+}
+
+.order-number-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.order-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.order-detail-grid > div {
+  display: grid;
+  gap: 7px;
+  padding: 16px;
+  border: 1px solid var(--jnc-border);
+  border-radius: var(--jnc-radius-sm);
+  background: var(--jnc-surface);
+}
+
+.order-detail-grid span {
+  color: var(--jnc-text-muted);
+  font-size: 0.85rem;
+}
+
+.order-empty-state {
+  padding: 32px;
+}
+
+@media (max-width: 800px) {
+  .order-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .order-queue-header {
+    flex-direction: column;
+  }
+
+  .order-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
