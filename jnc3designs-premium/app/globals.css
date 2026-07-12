@@ -1787,3 +1787,13 @@ font-size:120px;
     margin:16px 0;
 
 }
+/* =====================================================
+   Operations Header
+===================================================== */
+
+.operations-header-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:26px;
+}
