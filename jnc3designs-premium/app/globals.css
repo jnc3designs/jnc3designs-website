@@ -1797,3 +1797,40 @@ font-size:120px;
     flex-wrap:wrap;
     margin-top:26px;
 }
+/* =====================================================
+   Print Farm
+===================================================== */
+
+.printfarm-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:22px;
+
+    margin-top:24px;
+
+}
+
+.printer-card{
+
+    padding:26px;
+
+}
+
+.printer-details{
+
+    display:grid;
+
+    gap:16px;
+
+    margin-top:22px;
+
+}
+
+.printer-details p{
+
+    margin:0;
+
+}
