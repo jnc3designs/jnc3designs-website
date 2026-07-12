@@ -33,13 +33,14 @@ export default function OperationsPage() {
           />
 
           <OperationsModuleCard
-            badge="🧵 Inventory"
-            badgeColor="green"
-            title="Inventory"
-            description="Monitor filament quantities and products that need restocking."
-            status="active"
-          />
-
+  badge="🧵 Inventory"
+  badgeColor="green"
+  title="Inventory"
+  description="Monitor filament quantities and products that need restocking."
+  href="/operations/inventory"
+  buttonText="Open Inventory"
+  status="active"
+/>
           <OperationsModuleCard
             badge="🖨️ Production"
             badgeColor="yellow"
