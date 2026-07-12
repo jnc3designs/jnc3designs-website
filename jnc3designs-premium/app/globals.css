@@ -1692,3 +1692,26 @@ font-size:120px;
     grid-template-columns: 1fr;
   }
 }
+/* =====================================================
+   JNC Operations - Module Navigation
+===================================================== */
+
+.operations-module-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+@media (max-width: 560px) {
+  .operations-module-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .operations-module-footer .jnc-button {
+    width: 100%;
+  }
+}
