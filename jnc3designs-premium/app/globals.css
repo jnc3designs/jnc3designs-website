@@ -1867,3 +1867,58 @@ font-size:120px;
     margin-bottom:10px;
 
 }
+/* =====================================================
+   Mission Control Hero
+===================================================== */
+
+.mission-control-hero{
+
+    padding:48px 0;
+
+}
+
+.mission-control-hero h1{
+
+    font-size:3rem;
+
+    margin:18px 0;
+
+}
+
+.mission-control-hero p{
+
+    max-width:760px;
+
+    color:var(--jnc-text-muted);
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+
+}
+
+.mission-values{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+    margin-top:30px;
+
+}
+
+.mission-values span{
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    border:1px solid var(--jnc-border);
+
+    background:var(--jnc-surface);
+
+    font-weight:600;
+
+}
