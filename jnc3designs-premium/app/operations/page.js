@@ -42,11 +42,14 @@ export default function OperationsPage() {
   status="active"
 />
           <OperationsModuleCard
-            badge="🖨️ Production"
-            badgeColor="yellow"
-            title="Print Queue"
-            description="Manage printers, active jobs, deadlines, and maintenance."
-          />
+  badge="🖨️ Production"
+  badgeColor="yellow"
+  title="Production"
+  description="Manage printers, active jobs, deadlines, and maintenance."
+  href="/operations/production"
+  buttonText="Open Production"
+  status="active"
+/>
 
           <OperationsModuleCard
   badge="👥 Customers"
