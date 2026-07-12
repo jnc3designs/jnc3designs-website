@@ -7,17 +7,13 @@ import BusinessMetrics from "../../components/BusinessMetrics";
 import PriorityCenter from "../../components/PriorityCenter";
 import PrintFarmStatus from "../../components/PrintFarmStatus";
 import CapacityOverview from "../../components/CapacityOverview";
+import MissionControlHero from "../../components/MissionControlHero";
 
 export default function OperationsPage() {
   return (
     <main>
       <section className="section">
-        <Badge color="blue">
-          ⚙️ Internal Business System
-        </Badge>
-
-        <h1>Mission Control</h1>
-
+       <MissionControlHero />
         <p className="operations-intro">
 Mission Control gives you a real-time view of your business, helping you prioritize work, monitor production, track inventory, and stay ahead of customer needs.
 </p>
