@@ -8,7 +8,7 @@ import OrderQueue from "../../../components/OrderQueue";
   backHref="/operations"
   backLabel="Operations"
 />
-      </section>
+      
 
       <OrderQueue />
     </main>
