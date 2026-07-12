@@ -1,5 +1,6 @@
 import Badge from "../../../components/Badge";
 import OrderQueue from "../../../components/OrderQueue";
+import JNCButton from "../../../components/JNCButton";
 
 export default function OrdersPage() {
   return (
@@ -13,6 +14,11 @@ export default function OrdersPage() {
           Track every customer order from quote request through production,
           pickup, and completion.
         </p>
+    <div className="hero-buttons">
+  <JNCButton href="/operations">
+    ← Back to Operations
+  </JNCButton>
+</div>
       </section>
 
       <OrderQueue />
