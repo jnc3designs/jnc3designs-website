@@ -9,6 +9,7 @@ import PrintFarmStatus from "../../components/PrintFarmStatus";
 import CapacityOverview from "../../components/CapacityOverview";
 import MissionControlHero from "../../components/MissionControlHero";
 import SmartAlerts from "../../components/SmartAlerts";
+import NextActions from "../../components/NextActions";
 
 export default function OperationsPage() {
   return (
@@ -16,6 +17,7 @@ export default function OperationsPage() {
       <section className="section">
        <MissionControlHero />
     <SmartAlerts />
+    <NextActions />
         <p className="operations-intro">
 Mission Control gives you a real-time view of your business, helping you prioritize work, monitor production, track inventory, and stay ahead of customer needs.
 </p>
