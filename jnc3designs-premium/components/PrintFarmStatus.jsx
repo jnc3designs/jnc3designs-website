@@ -39,19 +39,34 @@ export default function PrintFarmStatus() {
             <div className="printer-details">
 
               <p>
-                <strong>Job:</strong><br />
-                {printer.job}
-              </p>
+  <strong>Job:</strong><br />
+  {printer.job}
+</p>
 
-              <p>
-                <strong>Material:</strong><br />
-                {printer.material}
-              </p>
+<p>
+  <strong>Material:</strong><br />
+  {printer.material}
+</p>
 
-              <p>
-                <strong>Remaining:</strong><br />
-                {printer.remaining}
-              </p>
+<p>
+  <strong>Remaining:</strong><br />
+  {printer.remaining}
+</p>
+
+<p>
+  <strong>Today's Jobs:</strong><br />
+  {printer.completedToday}
+</p>
+
+<p>
+  <strong>Utilization:</strong><br />
+  {printer.utilization}%
+</p>
+
+<p>
+  <strong>Health:</strong><br />
+  {printer.health}
+</p>
 
             </div>
 
