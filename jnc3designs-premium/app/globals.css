@@ -1959,3 +1959,26 @@ font-size:120px;
     color:var(--jnc-text-muted);
 
 }
+/* =====================================================
+   Next Actions
+===================================================== */
+
+.next-actions-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+
+    margin-top:24px;
+
+}
+
+.next-actions-grid .jnc-card{
+
+    padding:24px;
+
+    font-weight:600;
+
+}
