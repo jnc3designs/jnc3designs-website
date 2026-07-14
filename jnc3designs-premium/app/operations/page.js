@@ -10,12 +10,14 @@ import CapacityOverview from "../../components/CapacityOverview";
 import MissionControlHero from "../../components/MissionControlHero";
 import SmartAlerts from "../../components/SmartAlerts";
 import NextActions from "../../components/NextActions";
+import QuickActions from "../../components/QuickActions";
 
 export default function OperationsPage() {
   return (
     <main>
       <section className="section">
        <MissionControlHero />
+    <QuickActions />
     <SmartAlerts />
     <NextActions />
         <p className="operations-intro">
