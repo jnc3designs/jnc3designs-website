@@ -8,7 +8,7 @@ export default function OrdersPage() {
         badge="📦 Operations Module"
         title="Order Queue"
         description="Track every customer order from quote request through production, pickup, and completion."
-        backHref="/operations"
+        backHref="/admin"
         backLabel="Operations"
       />
 
