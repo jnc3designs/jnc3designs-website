@@ -9,7 +9,7 @@ export default function CustomersPage() {
         badgeColor="dark"
         title="Customer Hub"
         description="Keep customer history, preferences, notes, and relationships organized in one place."
-        backHref="/operations"
+        backHref="/admin"
         backLabel="Operations"
       />
 
