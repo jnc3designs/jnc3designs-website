@@ -1,13 +1,13 @@
-import Badge from "../../components/Badge";
-import JNCButton from "../../components/JNCButton";
-import JNCCard from "../../components/JNCCard";
-import JNCInput from "../../components/JNCInput";
-import InventoryBadge from "../../components/InventoryBadge";
-import MaterialHighlights from "../../components/MaterialHighlights";
-import ForgeStatus from "../../components/ForgeStatus";
-import ForgeJournal from "../../components/ForgeJournal";
-import Blueprint from "../../components/Blueprint";
-import EngineeringPrinciples from "../../components/EngineeringPrinciples";
+import Badge from "../../../components/Badge";
+import JNCButton from "../../../components/JNCButton";
+import JNCCard from "../../../components/JNCCard";
+import JNCInput from "../../../components/JNCInput";
+import InventoryBadge from "../../../components/InventoryBadge";
+import MaterialHighlights from "../../../components/MaterialHighlights";
+import ForgeStatus from "../../../components/ForgeStatus";
+import ForgeJournal from "../../../components/ForgeJournal";
+import Blueprint from "../../../components/Blueprint";
+import EngineeringPrinciples from "../../../components/EngineeringPrinciples";
 
 export default function PlatformPage() {
   return (
