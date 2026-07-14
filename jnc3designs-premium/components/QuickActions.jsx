@@ -17,19 +17,19 @@ export default function QuickActions() {
 
       <div className="quick-actions-grid">
 
-        <JNCButton href="/operations/orders">
+        <JNCButton href="/admin/orders">
           📦 Orders
         </JNCButton>
 
-        <JNCButton href="/operations/inventory">
+        <JNCButton href="/admin/inventory">
           🧵 Inventory
         </JNCButton>
 
-        <JNCButton href="/operations/customers">
+        <JNCButton href="/admin/customers">
           👥 Customers
         </JNCButton>
 
-        <JNCButton href="/operations/production">
+        <JNCButton href="/admin/production">
           🖨️ Print Farm
         </JNCButton>
 
