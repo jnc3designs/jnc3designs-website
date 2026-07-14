@@ -6,6 +6,9 @@ export const printers = [
     material: "ASA",
     job: "Demo Industrial Adapter",
     remaining: "2h 15m",
+    utilization: 92,
+    completedToday: 4,
+    health: "Excellent",
   },
   {
     id: 2,
@@ -14,6 +17,9 @@ export const printers = [
     material: "PETG-CF",
     job: "Demo Customer Project",
     remaining: "5h 42m",
+    utilization: 81,
+    completedToday: 3,
+    health: "Excellent",
   },
   {
     id: 3,
@@ -22,6 +28,9 @@ export const printers = [
     material: "PLA",
     job: "Waiting for Next Job",
     remaining: "--",
+    utilization: 38,
+    completedToday: 2,
+    health: "Ready",
   },
   {
     id: 4,
@@ -30,5 +39,8 @@ export const printers = [
     material: "-",
     job: "Future Expansion",
     remaining: "--",
+    utilization: 0,
+    completedToday: 0,
+    health: "Future",
   },
 ];
