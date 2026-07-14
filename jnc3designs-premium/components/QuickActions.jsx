@@ -32,6 +32,10 @@ export default function QuickActions() {
         <JNCButton href="/admin/production">
           🖨️ Print Farm
         </JNCButton>
+        
+        <JNCButton href="/admin/forge">
+  ⚒️ JNC Forge
+</JNCButton>
 
       </div>
 
