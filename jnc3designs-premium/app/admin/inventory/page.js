@@ -9,7 +9,7 @@ export default function InventoryPage() {
         badgeColor="green"
         title="Inventory"
         description="Monitor current filament quantities and quickly identify products that need to be restocked."
-        backHref="/operations"
+        backHref="/admin"
         backLabel="Operations"
       />
 
