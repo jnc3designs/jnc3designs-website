@@ -11,6 +11,7 @@ import MissionControlHero from "../../components/MissionControlHero";
 import SmartAlerts from "../../components/SmartAlerts";
 import NextActions from "../../components/NextActions";
 import QuickActions from "../../components/QuickActions";
+import JNCAssistant from "../../components/JNCAssistant";
 
 export default function OperationsPage() {
   return (
@@ -20,6 +21,7 @@ export default function OperationsPage() {
     <QuickActions />
     <SmartAlerts />
     <NextActions />
+    <JNCAssistant />
         <p className="operations-intro">
 Mission Control gives you a real-time view of your business, helping you prioritize work, monitor production, track inventory, and stay ahead of customer needs.
 </p>
