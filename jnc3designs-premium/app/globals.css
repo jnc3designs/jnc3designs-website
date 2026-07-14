@@ -1982,3 +1982,18 @@ font-size:120px;
     font-weight:600;
 
 }
+/* =====================================================
+   Quick Actions
+===================================================== */
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.quick-actions-grid .jnc-button {
+  width: 100%;
+  justify-content: center;
+}
