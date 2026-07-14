@@ -1997,3 +1997,26 @@ font-size:120px;
   width: 100%;
   justify-content: center;
 }
+/* =====================================================
+   JNC Assistant
+===================================================== */
+
+.assistant-card{
+
+    padding:30px;
+
+}
+
+.assistant-card blockquote{
+
+    margin-top:24px;
+
+    padding-left:18px;
+
+    border-left:4px solid var(--jnc-accent);
+
+    font-style:italic;
+
+    opacity:.85;
+
+}
