@@ -10,7 +10,7 @@ export default function ProductionPage() {
         badgeColor="yellow"
         title="Production"
         description="Monitor printer activity, production jobs, maintenance, and print workflow."
-        backHref="/operations"
+        backHref="/admin"
         backLabel="Operations"
       />
 
