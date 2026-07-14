@@ -34,7 +34,7 @@ Mission Control gives you a real-time view of your business, helping you priorit
             badgeColor="blue"
             title="Order Queue"
             description="Track customer orders from quote through final pickup."
-            href="/operations/orders"
+            href="/admin/orders"
             buttonText="Open Orders"
             status="active"
           />
@@ -44,7 +44,7 @@ Mission Control gives you a real-time view of your business, helping you priorit
   badgeColor="green"
   title="Inventory"
   description="Monitor filament quantities and products that need restocking."
-  href="/operations/inventory"
+  href="/admin/inventory"
   buttonText="Open Inventory"
   status="active"
 />
@@ -53,7 +53,7 @@ Mission Control gives you a real-time view of your business, helping you priorit
   badgeColor="yellow"
   title="Production"
   description="Manage printers, active jobs, deadlines, and maintenance."
-  href="/operations/production"
+  href="/admin/production"
   buttonText="Open Production"
   status="active"
 />
@@ -63,7 +63,7 @@ Mission Control gives you a real-time view of your business, helping you priorit
   badgeColor="dark"
   title="Customer Hub"
   description="View customer history, notes, feedback, and follow-ups."
-  href="/operations/customers"
+  href="/admin/customers"
   buttonText="Open Customers"
   status="active"
 />
