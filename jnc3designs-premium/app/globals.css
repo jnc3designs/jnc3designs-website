@@ -2061,3 +2061,37 @@ font-size:120px;
     }
 
 }
+/* =====================================================
+   Mission Control Owner Menu
+===================================================== */
+
+.mission-control-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+/* =====================================================
+   Mission Control Owner Controls
+===================================================== */
+
+.mission-owner-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.owner-signout-button {
+  border: 1px solid var(--jnc-border);
+  border-radius: 999px;
+  background: var(--jnc-surface);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 16px;
+}
+
+.owner-signout-button:hover {
+  border-color: var(--jnc-accent);
+}
