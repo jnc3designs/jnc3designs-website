@@ -1,81 +1,66 @@
-import { printers } from "../data/printers";
-import Badge from "./Badge";
-import JNCCard from "./JNCCard";
-
 export default function PrintFarmStatus() {
+  const printers = [
+    {
+      name: "P1S",
+      status: "Printing",
+      detail: "3h 12m remaining",
+      progress: 68,
+      color: "#22c55e",
+    },
+    {
+      name: "X1C",
+      status: "Idle",
+      detail: "Ready",
+      progress: 0,
+      color: "#3b82f6",
+    },
+    {
+      name: "P2S",
+      status: "Printing",
+      detail: "47m remaining",
+      progress: 91,
+      color: "#22c55e",
+    },
+    {
+      name: "H2D",
+      status: "Offline",
+      detail: "Coming Soon",
+      progress: 0,
+      color: "#9ca3af",
+    },
+  ];
+
   return (
-    <section className="section">
+  <section className="print-farm-card">
+    <h2>🖨 Print Farm Status</h2>
 
-      <Badge color="yellow">
-        🖨️ Print Farm
-      </Badge>
+    <div className="printer-grid">
+      {printers.map((printer) => (
+        <div className="printer-card" key={printer.name}>
+          <div
+            className="printer-status-dot"
+            style={{ backgroundColor: printer.color }}
+          />
 
-      <h2>Printer Status</h2>
+          <h3>{printer.name}</h3>
 
-      <div className="printfarm-grid">
+          <p className="printer-status">
+            {printer.status}
+          </p>
 
-        {printers.map((printer) => (
-
-          <JNCCard
-            key={printer.id}
-            className="printer-card"
-            hover={false}
-          >
-
-            <h3>{printer.name}</h3>
-
-            <Badge
-              color={
-                printer.status === "Printing"
-                  ? "green"
-                  : printer.status === "Idle"
-                  ? "blue"
-                  : "dark"
-              }
-            >
-              {printer.status}
-            </Badge>
-
-            <div className="printer-details">
-
-              <p>
-  <strong>Job:</strong><br />
-  {printer.job}
-</p>
-
-<p>
-  <strong>Material:</strong><br />
-  {printer.material}
-</p>
-
-<p>
-  <strong>Remaining:</strong><br />
-  {printer.remaining}
-</p>
-
-<p>
-  <strong>Today's Jobs:</strong><br />
-  {printer.completedToday}
-</p>
-
-<p>
-  <strong>Utilization:</strong><br />
-  {printer.utilization}%
-</p>
-
-<p>
-  <strong>Health:</strong><br />
-  {printer.health}
-</p>
-
-            </div>
-
-          </JNCCard>
-
-        ))}
-
-      </div>
-
-    </section>
+          <small>{printer.detail}</small>
+          <div className="printer-progress">
+  <div
+    className="printer-progress-fill"
+    style={{
+      width: `${printer.progress}%`,
+      backgroundColor: printer.color,
+    }}
+  />
+</div>
+        </div>
+      ))}
+    </div>
+  </section>
   );
 }

@@ -14,6 +14,7 @@ import QuickActions from "../../components/QuickActions";
 import JNCAssistant from "../../components/JNCAssistant";
 import ActivityTimeline from "../../components/ActivityTimeline";
 
+
 export default function OperationsPage() {
   return (
     <main>
@@ -24,6 +25,7 @@ export default function OperationsPage() {
     <NextActions />
     <JNCAssistant />
     <ActivityTimeline />
+    <PrintFarmStatus />
         <p className="operations-intro">
 Mission Control gives you a real-time view of your business, helping you prioritize work, monitor production, track inventory, and stay ahead of customer needs.
 </p>
@@ -73,7 +75,7 @@ Mission Control gives you a real-time view of your business, helping you priorit
       <DailyBrief />
               <BusinessMetrics />
               <PriorityCenter />
-    <PrintFarmStatus />
+    
     <CapacityOverview />
 
       <InventorySummary />
