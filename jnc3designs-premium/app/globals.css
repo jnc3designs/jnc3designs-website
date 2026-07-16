@@ -2153,3 +2153,9 @@ font-size:120px;
   border-radius: inherit;
   transition: width 0.3s ease;
 }
+.printer-progress-text {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
