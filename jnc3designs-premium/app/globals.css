@@ -2165,3 +2165,9 @@ font-size:120px;
   font-size: 0.9rem;
   font-weight: 600;
 }
+.printer-finish {
+  margin-top: 8px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 600;
+}

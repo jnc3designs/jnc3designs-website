@@ -7,6 +7,7 @@ export default function PrintFarmStatus() {
       progress: 68,
       job: "2\" NPT Adapter",
       material: "ASA • Black",
+      finish: "8:42 PM",
       color: "#22c55e",
     },
     {
@@ -16,6 +17,7 @@ export default function PrintFarmStatus() {
       progress: 0,
       job: "Waiting for Job",
       material: "PLA • White",
+      finish: "6:42 PM",
       color: "#3b82f6",
     },
     {
@@ -25,6 +27,7 @@ export default function PrintFarmStatus() {
       progress: 91,
       job: "Veteran Pen Set",
       material: "PETG • Gray",
+      finish: "5:42 PM",
       color: "#22c55e",
     },
     {
@@ -34,6 +37,7 @@ export default function PrintFarmStatus() {
       progress: 0,
       job: "Offline",
       material: "--",
+      finish: "__",
       color: "#9ca3af",
     },
   ];
@@ -76,6 +80,9 @@ export default function PrintFarmStatus() {
 </p>
 <p className="printer-material">
   🧵 {printer.material}
+</p>
+<p className="printer-finish">
+  🕒 Estimated Finish: {printer.finish}
 </p>
         </div>
       ))}
