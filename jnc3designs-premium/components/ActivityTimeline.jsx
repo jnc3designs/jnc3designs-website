@@ -3,6 +3,16 @@ import Badge from "./Badge";
 import JNCCard from "./JNCCard";
 
 export default function ActivityTimeline() {
+
+  const activities = [...activity]
+    .sort((a, b) => new Date(b.occurredAt) - new Date(a.occurredAt));
+
+  const formatTime = (timestamp) =>
+    new Date(timestamp).toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+    });
+
   return (
     <section className="section">
 
@@ -14,7 +24,7 @@ export default function ActivityTimeline() {
 
       <div className="activity-list">
 
-        {activity.map((item) => (
+        {activities.map((item) => (
 
           <JNCCard
             key={item.id}
@@ -36,7 +46,7 @@ export default function ActivityTimeline() {
 
               </div>
 
-              <small>{item.time}</small>
+              <small>{formatTime(item.occurredAt)}</small>
 
             </div>
 
