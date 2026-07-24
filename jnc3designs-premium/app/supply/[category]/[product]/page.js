@@ -117,9 +117,22 @@ export default async function ProductPage({ params }) {
                 Reserve Pickup
               </JNCButton>
 
-              <JNCButton href={squareHref}>
-                Buy with Square
-              </JNCButton>
+              {product.stock > 0 ? (
+  <JNCButton href={squareHref}>
+    Buy with Square
+  </JNCButton>
+) : (
+  <span
+    className="button-primary"
+    style={{
+      opacity: 0.5,
+      cursor: "not-allowed",
+      pointerEvents: "none",
+    }}
+  >
+    Out of Stock
+  </span>
+)}
             </div>
           </div>
         </div>
