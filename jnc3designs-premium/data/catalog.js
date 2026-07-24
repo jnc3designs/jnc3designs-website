@@ -118,7 +118,7 @@ export const products = [
   brand: "ZYLtech",
   price: 17.95,
   stock: 2,
-  square: "",
+  square: "https://square.link/u/C8yKQW7n",
   image: "/filament/pla/ceramic-white.jpg",
   description:
     "Premium PLA for clean, reliable everyday printing with a smooth finish.",
