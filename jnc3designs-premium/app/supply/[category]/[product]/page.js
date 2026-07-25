@@ -5,6 +5,7 @@ import InventoryBadge from "../../../../components/InventoryBadge";
 import JNCButton from "../../../../components/JNCButton";
 import JNCCard from "../../../../components/JNCCard";
 import MaterialHighlights from "../../../../components/MaterialHighlights";
+import { canPurchase } from "../../../../data/inventory";
 
 export default async function ProductPage({ params }) {
   const { category, product: productSlug } = await params;
@@ -117,7 +118,7 @@ export default async function ProductPage({ params }) {
                 Reserve Pickup
               </JNCButton>
 
-              {product.stock > 0 ? (
+              {canPurchase(product.stock) ? (
   <JNCButton href={squareHref}>
     Buy with Square
   </JNCButton>
