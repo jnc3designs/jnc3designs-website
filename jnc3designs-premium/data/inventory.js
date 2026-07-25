@@ -1,23 +1,32 @@
 export function getInventoryStatus(stock) {
-  if (stock <= 0) return "out";
-  if (stock === 1) return "critical";
-  if (stock <= 3) return "low";
+  const count = Number(stock);
+
+  if (count <= 0) return "out";
+  if (count === 1) return "critical";
+  if (count <= 3) return "low";
+
   return "in";
 }
 
 export function getInventoryBadge(stock) {
-  switch (getInventoryStatus(stock)) {
+  const count = Number(stock);
+
+  switch (getInventoryStatus(count)) {
     case "out":
-      return "⚫ Out of Stock";
+      return "🔴 Out of Stock";
+
     case "critical":
-      return "🔴 Only 1 Left";
+      return "🔴 Only 1 Roll Left";
+
     case "low":
-      return "🟡 Low Stock";
+      return `🟡 Low Stock • ${count} Rolls`;
+
+    case "in":
     default:
-      return "🟢 In Stock";
+      return `🟢 In Stock • ${count} Rolls`;
   }
 }
 
 export function canPurchase(stock) {
-  return stock > 0;
+  return Number(stock) > 0;
 }
