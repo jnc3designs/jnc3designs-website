@@ -1,31 +1,17 @@
-import { orders } from "../data/orders";
+import { getOrderStats } from "../lib/orderStats";
 import JNCCard from "./JNCCard";
 import Badge from "./Badge";
 
 export default function BusinessMetrics() {
-
-  const activeOrders = orders.filter(
-    order => order.stage !== "Completed"
-  ).length;
-
-  const completedOrders = orders.filter(
-    order => order.stage === "Completed"
-  ).length;
-
-  const totalRevenue = orders.reduce(
-    (sum, order) => sum + Number(order.total),
-    0
-  );
-
-  const depositsReceived = orders.reduce(
-    (sum, order) => sum + Number(order.amountPaid),
-    0
-  );
+  const {
+    activeOrders,
+    completedOrders,
+    totalSales,
+    paymentsReceived,
+  } = getOrderStats();
 
   return (
-
     <section className="section">
-
       <Badge color="orange">
         📈 Business Metrics
       </Badge>
@@ -33,7 +19,6 @@ export default function BusinessMetrics() {
       <h2>Business Snapshot</h2>
 
       <div className="metrics-grid">
-
         <JNCCard hover={false}>
           <strong>{activeOrders}</strong>
           <p>Active Orders</p>
@@ -46,22 +31,18 @@ export default function BusinessMetrics() {
 
         <JNCCard hover={false}>
           <strong>
-            ${totalRevenue.toFixed(2)}
+            ${totalSales.toFixed(2)}
           </strong>
           <p>Total Sales</p>
         </JNCCard>
 
         <JNCCard hover={false}>
           <strong>
-            ${depositsReceived.toFixed(2)}
+            ${paymentsReceived.toFixed(2)}
           </strong>
           <p>Payments Received</p>
         </JNCCard>
-
       </div>
-
     </section>
-
   );
-
 }
