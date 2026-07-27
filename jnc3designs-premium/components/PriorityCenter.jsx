@@ -1,14 +1,14 @@
 import { getOrderStats } from "../lib/orderStats";
-import { products } from "../data/catalog";
+import { getInventoryStats } from "../lib/inventoryStats";
 import Badge from "./Badge";
 import JNCCard from "./JNCCard";
 
 export default function PriorityCenter() {
   const { rushOrders } = getOrderStats();
 
-  const lowInventory = products.filter(
-    (product) => Number(product.stock) <= 3
-  );
+  const {
+    lowInventoryProducts,
+  } = getInventoryStats();
 
   return (
     <section className="section">
@@ -32,7 +32,7 @@ export default function PriorityCenter() {
         <JNCCard hover={false}>
           <h3>🧵 Low Inventory</h3>
 
-          <strong>{lowInventory.length}</strong>
+          <strong>{lowInventoryProducts}</strong>
 
           <p>
             Products needing restock.
