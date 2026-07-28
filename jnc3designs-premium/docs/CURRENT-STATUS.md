@@ -82,3 +82,89 @@ Every Forge must do at least one of the following:
 ## Next Step
 
 Create the Forge Ledger and record the confirmed history from Forge #059 forward.
+
+# Current Development Status
+
+## Mission Control
+
+Current dashboard components
+
+- MissionControlHero
+- QuickActions
+- SmartAlerts
+- NextActions
+- JNCAssistant
+- ActivityTimeline
+- PrintFarmStatus
+- BusinessMetrics
+- PriorityCenter
+- CapacityOverview
+- InventorySummary
+- CustomerHub
+- DailyBrief
+
+---
+
+## Business Engines
+
+Completed
+
+✅ orderStats.js
+
+Used by:
+
+- BusinessMetrics
+- PriorityCenter
+
+---
+
+✅ inventoryStats.js
+
+Used by:
+
+- PriorityCenter
+- InventorySummary
+
+---
+
+## Current Architecture
+
+Business logic is being migrated from UI components into reusable engines located in:
+
+lib/
+
+UI components should remain presentation-focused whenever possible.
+
+---
+
+## Last Completed Forge
+
+Forge #070
+
+Created:
+
+docs/START-HERE.md
+
+Purpose:
+
+Established a standardized onboarding and engineering workflow for JNC OS.
+
+---
+
+## Next Planned Forge
+
+Inspect:
+
+components/DailyBrief.jsx
+
+Objective:
+
+Determine whether duplicated business logic exists.
+
+If present:
+
+Move calculations into an existing business engine.
+
+Otherwise:
+
+Leave the component unchanged.
