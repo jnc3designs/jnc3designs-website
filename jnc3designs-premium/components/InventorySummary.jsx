@@ -1,25 +1,22 @@
-import { products } from "../data/catalog";
+import { getInventoryStats } from "../lib/inventoryStats";
 import Badge from "./Badge";
 import InventoryBadge from "./InventoryBadge";
 import JNCCard from "./JNCCard";
 
 export default function InventorySummary() {
-  const totalProducts = products.length;
+  const {
+    totalProducts,
+    totalUnits,
+    lowInventoryProducts,
+    outOfStockProducts,
+    lowInventoryProductsList,
+    outOfStockProductsList,
+  } = getInventoryStats();
 
-  const totalRolls = products.reduce(
-    (total, product) => total + Number(product.stock || 0),
-    0
-  );
-
-  const lowStockProducts = products.filter(
-    (product) => Number(product.stock) > 0 && Number(product.stock) <= 3
-  );
-
-  const outOfStockProducts = products.filter(
-    (product) => Number(product.stock) <= 0
-  );
-
-  const inventoryAttention = [...outOfStockProducts, ...lowStockProducts]
+  const inventoryAttention = [
+    ...outOfStockProductsList,
+    ...lowInventoryProductsList,
+  ]
     .sort((a, b) => Number(a.stock) - Number(b.stock))
     .slice(0, 6);
 
@@ -47,19 +44,19 @@ export default function InventorySummary() {
 
         <JNCCard className="operations-stat-card" hover={false}>
           <span>🧵</span>
-          <strong>{totalRolls}</strong>
+          <strong>{totalUnits}</strong>
           <p>Total Rolls Available</p>
         </JNCCard>
 
         <JNCCard className="operations-stat-card" hover={false}>
           <span>🟡</span>
-          <strong>{lowStockProducts.length}</strong>
+          <strong>{lowInventoryProducts}</strong>
           <p>Low-Stock Products</p>
         </JNCCard>
 
         <JNCCard className="operations-stat-card" hover={false}>
           <span>🔴</span>
-          <strong>{outOfStockProducts.length}</strong>
+          <strong>{outOfStockProducts}</strong>
           <p>Out-of-Stock Products</p>
         </JNCCard>
       </div>
