@@ -65,3 +65,45 @@ The platform needs permanent documentation inside the repository so future devel
 ## Next Brick
 
 Complete the permanent documentation system before beginning external integrations.
+
+# Forge #070
+
+## Title
+Project Documentation Standard
+
+## Type
+🟢 Foundation Forge
+
+## Objective
+Establish a standardized documentation workflow that allows JNC OS development to continue seamlessly across sessions while keeping project status synchronized with the codebase.
+
+## Files Created
+
+- docs/START-HERE.md
+
+## Files Modified
+
+- docs/CURRENT-STATUS.md
+- docs/FORGE-LEDGER.md
+
+## Summary
+
+Created a single onboarding document that defines:
+
+- Reading order for project documentation
+- Forge workflow
+- Engineering rules
+- Documentation standards
+- Current architecture overview
+
+Updated CURRENT-STATUS.md to reflect the current state of Mission Control and identify the next planned Forge.
+
+## Result
+
+JNC OS now has a permanent project onboarding process.
+
+Future development can resume quickly from any new chat by referencing the project documentation.
+
+## Status
+
+✅ Complete
