@@ -1,6 +1,6 @@
-import { orders } from "../data/orders";
-import { products } from "../data/catalog";
 import { printers } from "../data/printers";
+import { getOrderStats } from "../lib/orderStats";
+import { getInventoryStats } from "../lib/inventoryStats";
 
 import Badge from "./Badge";
 import JNCCard from "./JNCCard";
@@ -8,28 +8,32 @@ import JNCCard from "./JNCCard";
 export default function SmartAlerts() {
   const alerts = [];
 
-  // Rush Orders
-  const rushOrders = orders.filter(
-    (order) => order.priority === "Rush"
-  );
+  const { rushOrders } = getOrderStats();
 
-  if (rushOrders.length > 0) {
+  const {
+    lowInventoryProducts,
+    outOfStockProducts,
+  } = getInventoryStats();
+
+  // Rush Orders
+  if (rushOrders > 0) {
     alerts.push({
       type: "warning",
-      title: `${rushOrders.length} Rush Order${rushOrders.length > 1 ? "s" : ""}`,
+      title: `${rushOrders} Rush Order${rushOrders > 1 ? "s" : ""}`,
       message: "Review these jobs before starting new production.",
     });
   }
 
-  // Low Stock
-  const lowStock = products.filter(
-    (product) => Number(product.stock) <= 3
-  );
+  // Low Inventory
+  const inventoryAttention =
+    lowInventoryProducts + outOfStockProducts;
 
-  if (lowStock.length > 0) {
+  if (inventoryAttention > 0) {
     alerts.push({
       type: "inventory",
-      title: `${lowStock.length} Low Inventory Item${lowStock.length > 1 ? "s" : ""}`,
+      title: `${inventoryAttention} Low Inventory Item${
+        inventoryAttention > 1 ? "s" : ""
+      }`,
       message: "Consider placing a filament restock order.",
     });
   }
@@ -42,7 +46,9 @@ export default function SmartAlerts() {
   if (idlePrinters.length > 0) {
     alerts.push({
       type: "printer",
-      title: `${idlePrinters.length} Printer Available`,
+      title: `${idlePrinters.length} Printer${
+        idlePrinters.length > 1 ? "s" : ""
+      } Available`,
       message: "Production capacity is available for another job.",
     });
   }
@@ -57,7 +63,6 @@ export default function SmartAlerts() {
 
   return (
     <section className="section">
-
       <Badge color="red">
         🚨 Smart Alerts
       </Badge>
@@ -65,25 +70,18 @@ export default function SmartAlerts() {
       <h2>Mission Control Alerts</h2>
 
       <div className="smart-alert-grid">
-
         {alerts.map((alert, index) => (
-
           <JNCCard
             key={index}
             className="smart-alert-card"
             hover={false}
           >
-
             <h3>{alert.title}</h3>
 
             <p>{alert.message}</p>
-
           </JNCCard>
-
         ))}
-
       </div>
-
     </section>
   );
 }
