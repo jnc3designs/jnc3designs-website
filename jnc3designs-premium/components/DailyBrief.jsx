@@ -1,32 +1,28 @@
-import { products } from "../data/catalog";
+import { getInventoryStats } from "../lib/inventoryStats";
 import Badge from "./Badge";
 import JNCCard from "./JNCCard";
 
 export default function DailyBrief() {
-  const lowStock = products.filter(
-    (item) => Number(item.stock) > 0 && Number(item.stock) <= 3
-  ).length;
-
-  const outOfStock = products.filter(
-    (item) => Number(item.stock) <= 0
-  ).length;
-
-  const totalProducts = products.length;
+  const {
+    lowInventoryProducts,
+    outOfStockProducts,
+    totalProducts,
+  } = getInventoryStats();
 
   const messages = [];
 
-  if (outOfStock > 0) {
+  if (outOfStockProducts > 0) {
     messages.push(
-      `Restock ${outOfStock} out-of-stock product${
-        outOfStock > 1 ? "s" : ""
+      `Restock ${outOfStockProducts} out-of-stock product${
+        outOfStockProducts > 1 ? "s" : ""
       }.`
     );
   }
 
-  if (lowStock > 0) {
+  if (lowInventoryProducts > 0) {
     messages.push(
-      `Review ${lowStock} low-stock product${
-        lowStock > 1 ? "s" : ""
+      `Review ${lowInventoryProducts} low-stock product${
+        lowInventoryProducts > 1 ? "s" : ""
       }.`
     );
   }
@@ -39,12 +35,10 @@ export default function DailyBrief() {
 
   return (
     <section className="section">
-
       <JNCCard
         className="daily-brief-card"
         hover={false}
       >
-
         <Badge color="blue">
           ☀️ Daily Brief
         </Badge>
@@ -56,7 +50,6 @@ export default function DailyBrief() {
         </p>
 
         <div className="daily-brief-list">
-
           {messages.map((message) => (
             <div
               key={message}
@@ -65,11 +58,8 @@ export default function DailyBrief() {
               ✓ {message}
             </div>
           ))}
-
         </div>
-
       </JNCCard>
-
     </section>
   );
 }
