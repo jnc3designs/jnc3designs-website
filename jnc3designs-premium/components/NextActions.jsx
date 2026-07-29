@@ -1,6 +1,6 @@
-import { orders } from "../data/orders";
 import { printers } from "../data/printers";
 import { products } from "../data/catalog";
+import { getOrderStats } from "../lib/orderStats";
 
 import Badge from "./Badge";
 import JNCCard from "./JNCCard";
@@ -8,13 +8,15 @@ import JNCCard from "./JNCCard";
 export default function NextActions() {
   const actions = [];
 
-  const rush = orders.find(
-    (order) => order.priority === "Rush"
-  );
+  const {
+    activeRushOrdersList,
+  } = getOrderStats();
 
-  if (rush) {
+  const rushOrder = activeRushOrdersList[0];
+
+  if (rushOrder) {
     actions.push(
-      `Review rush order ${rush.id}.`
+      `Review rush order ${rushOrder.id}.`
     );
   }
 
@@ -46,7 +48,6 @@ export default function NextActions() {
 
   return (
     <section className="section">
-
       <Badge color="green">
         ✅ Next Actions
       </Badge>
@@ -54,22 +55,15 @@ export default function NextActions() {
       <h2>Recommended Next Steps</h2>
 
       <div className="next-actions-grid">
-
         {actions.map((action) => (
-
           <JNCCard
             key={action}
             hover={false}
           >
-
             {action}
-
           </JNCCard>
-
         ))}
-
       </div>
-
     </section>
   );
 }
