@@ -2,169 +2,53 @@
 
 ## Current Forge
 
-Forge #060 — JNC OS Permanent Memory
-
 ## Last Completed Forge
 
-Forge #059 — Estimated Finish Time
+Forge #073
 
-## Current Objective
+### Title
 
-Create a permanent project memory system inside the repository so the project can continue accurately across future chats, devices, and development sessions.
+Mission Control Audit – Next Actions
 
-## Production Status
+### Completed
 
-- Public website: Live
-- JNC OS Mission Control: Live
-- Authentication: Active
-- Latest verified deployment: Forge #059
+- Extended the Orders Engine to expose reusable active order collections.
+- Connected NextActions.jsx to the shared Orders Engine.
+- Preserved local printer logic pending a future Production Engine.
+- Preserved critical inventory threshold logic (≤2) because it differs from the standard inventory statistics.
 
-## Current Platform Modules
+### Current Business Engines
 
-- Mission Control
-- Daily Brief
-- Business Snapshot
-- Priority Center
-- Smart Alerts
-- Recommended Next Steps
-- JNC Assistant
-- Recent Activity
-- Orders
-- Inventory
-- Customers
-- Print Farm
-- Print Farm Capacity
-- Customer Relationships
+Orders Engine Consumers
 
-## Current Print Farm
-
-- Bambu Lab P1S
-- Bambu Lab X1C
-- Bambu Lab P2S
-- Bambu Lab H2D — Planned
-
-## Current Integration Goals
-
-- Live printer data
-- Square synchronization
-- Google Sheets review and possible migration
-- Persistent database
-- Automated business workflows
-
-## Current Development Rule
-
-Every Forge must do at least one of the following:
-
-- Improve usability
-- Improve visual polish
-- Add meaningful business functionality
-- Protect the architecture
-- Preserve project knowledge
-
-## Forge Process
-
-1. Build
-2. Save
-3. Verify
-4. Update documentation
-5. Commit
-6. Push
-7. Verify on Vercel
-
-## Known Issues
-
-- Permanent project documentation is not yet complete.
-- Mission Control printer data is currently static.
-- Square is not yet connected.
-- Google Sheets is not yet connected to JNC OS.
-- A permanent database has not yet been selected.
-
-## Next Step
-
-Create the Forge Ledger and record the confirmed history from Forge #059 forward.
-
-# Current Development Status
-
-## Mission Control
-
-Current dashboard components
-
-- MissionControlHero
-- QuickActions
+- BusinessMetrics
+- PriorityCenter
 - SmartAlerts
 - NextActions
-- JNCAssistant
-- ActivityTimeline
-- PrintFarmStatus
-- BusinessMetrics
+
+Inventory Engine Consumers
+
 - PriorityCenter
-- CapacityOverview
 - InventorySummary
-- CustomerHub
 - DailyBrief
+- SmartAlerts
 
----
+- ## Next Planned Forge
 
-## Business Engines
-
-Completed
-
-✅ orderStats.js
-
-Used by:
-
-- BusinessMetrics
-- PriorityCenter
-
----
-
-✅ inventoryStats.js
-
-Used by:
-
-- PriorityCenter
-- InventorySummary
-
----
-
-## Current Architecture
-
-Business logic is being migrated from UI components into reusable engines located in:
-
-lib/
-
-UI components should remain presentation-focused whenever possible.
-
----
-
-## Last Completed Forge
-
-Forge #070
-
-Created:
-
-docs/START-HERE.md
-
-Purpose:
-
-Established a standardized onboarding and engineering workflow for JNC OS.
-
----
-
-## Next Planned Forge
+Forge #074
 
 Inspect:
 
-components/DailyBrief.jsx
+components/PrintFarmStatus.jsx
 
 Objective:
 
-Determine whether duplicated business logic exists.
+Determine whether printer-related business logic has reached the point where a shared Production Engine is justified.
 
-If present:
+If duplicated:
 
-Move calculations into an existing business engine.
+Create a Production Engine.
 
 Otherwise:
 
-Leave the component unchanged.
+Leave printer logic local.
