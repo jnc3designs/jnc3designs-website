@@ -89,3 +89,12 @@ One brick.
 One Forge.
 
 One improvement at a time.
+
+Promote duplication, not speculation.
+
+Meaning:
+
+If two or more components share business logic, promote it into a shared engine.
+If only one component owns the logic, keep it local until evidence says otherwise.
+
+That principle has guided the last several Forges and has kept the codebase both clean and appropriately simple.
