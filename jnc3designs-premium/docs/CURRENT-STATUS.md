@@ -14,6 +14,24 @@ Architecture Status
 
 Stable
 
+## Architecture Snapshot
+
+Presentation Layer
+- Mission Control Components
+- Admin Pages
+
+Business Engines
+- Orders Engine
+- Inventory Engine
+
+Shared Data
+- Orders
+- Products
+- Printers
+
+Live Integrations
+- None (planned)
+
 ## Last Completed Forge
 
 Forge #074
