@@ -107,3 +107,40 @@ Future development can resume quickly from any new chat by referencing the proje
 ## Status
 
 ✅ Complete
+
+# Forge #073
+
+## Title
+
+Mission Control Audit – Next Actions
+
+## Type
+
+🟢 Foundation Forge
+
+## Objective
+
+Audit NextActions.jsx and remove duplicated business logic while preserving existing behavior.
+
+## Files Modified
+
+- lib/orderStats.js
+- components/NextActions.jsx
+
+## Summary
+
+Extended the Orders Engine to expose reusable collections of active, completed, and active rush orders.
+
+Migrated NextActions.jsx to consume the shared Orders Engine instead of directly querying the orders dataset.
+
+Printer logic intentionally remained local because a Production Engine has not yet been justified.
+
+Critical inventory lookup (≤2) also remained local because it represents different business logic than the Inventory Engine's standard low-stock threshold.
+
+## Result
+
+Mission Control now contains another consumer of the shared Orders Engine while avoiding unnecessary abstractions.
+
+## Status
+
+✅ Complete
