@@ -2,6 +2,18 @@
 
 ## Current Forge
 
+JNC OS Version
+
+v0.31
+
+Current Milestone
+
+Mission Control Audit
+
+Architecture Status
+
+Stable
+
 ## Last Completed Forge
 
 Forge #073
