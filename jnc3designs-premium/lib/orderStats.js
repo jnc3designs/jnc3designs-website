@@ -27,13 +27,13 @@ function isRushOrder(order) {
 export function getOrderStats(orderList = orders) {
   const safeOrders = Array.isArray(orderList) ? orderList : [];
 
-  const activeOrders = safeOrders.filter(
+  const activeOrdersList = safeOrders.filter(
     (order) => !isCompletedOrder(order)
   );
 
-  const completedOrders = safeOrders.filter(isCompletedOrder);
+  const completedOrdersList = safeOrders.filter(isCompletedOrder);
 
-  const rushOrders = activeOrders.filter(isRushOrder);
+  const activeRushOrdersList = activeOrdersList.filter(isRushOrder);
 
   const totalSales = safeOrders.reduce(
     (sum, order) => sum + Number(order.total || 0),
@@ -54,11 +54,14 @@ export function getOrderStats(orderList = orders) {
 
   return {
     totalOrders: safeOrders.length,
-    activeOrders: activeOrders.length,
-    completedOrders: completedOrders.length,
-    rushOrders: rushOrders.length,
+    activeOrders: activeOrdersList.length,
+    completedOrders: completedOrdersList.length,
+    rushOrders: activeRushOrdersList.length,
     totalSales,
     paymentsReceived,
     balanceDue,
+    activeOrdersList,
+    completedOrdersList,
+    activeRushOrdersList,
   };
 }
