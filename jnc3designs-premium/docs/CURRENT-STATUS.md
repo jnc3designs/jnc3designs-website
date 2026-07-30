@@ -81,3 +81,10 @@ Audit the Customer Hub to determine whether customer-related business logic shou
 
 The decision will be based on duplicated business logic, not assumptions.
 
+Last Completed Forge: Forge #076 – Printer Fleet Engine
+Note that printerStats.js is now the third business engine.
+Update the current architecture snapshot to include:
+Orders Engine
+Inventory Engine
+Printer Fleet Engine
+Next Planned Forge: Mission Control Architecture Review.
