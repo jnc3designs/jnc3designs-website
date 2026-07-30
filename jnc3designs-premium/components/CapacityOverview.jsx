@@ -1,24 +1,14 @@
-import { printers } from "../data/printers";
 import Badge from "./Badge";
 import JNCCard from "./JNCCard";
+import { getPrinterStats } from "../lib/printerStats";
 
 export default function CapacityOverview() {
-  const printing = printers.filter(
-    (p) => p.status === "Printing"
-  ).length;
-
-  const idle = printers.filter(
-    (p) => p.status === "Idle"
-  ).length;
-
-  const future = printers.filter(
-    (p) => p.status === "Future"
-  ).length;
-
-  const utilization =
-    Math.round(
-      (printing / (printing + idle || 1)) * 100
-    );
+  const {
+    printingPrinters,
+    idlePrinters,
+    futurePrinters,
+    activeCapacityPercentage,
+  } = getPrinterStats();
 
   return (
     <section className="section">
@@ -32,23 +22,23 @@ export default function CapacityOverview() {
       <div className="capacity-grid">
 
         <JNCCard hover={false}>
-          <strong>{printing}</strong>
+          <strong>{printingPrinters}</strong>
           <p>Printing</p>
         </JNCCard>
 
         <JNCCard hover={false}>
-          <strong>{idle}</strong>
+          <strong>{idlePrinters}</strong>
           <p>Available</p>
         </JNCCard>
 
         <JNCCard hover={false}>
-          <strong>{future}</strong>
+          <strong>{futurePrinters}</strong>
           <p>Future Printers</p>
         </JNCCard>
 
         <JNCCard hover={false}>
-          <strong>{utilization}%</strong>
-          <p>Current Utilization</p>
+          <strong>{activeCapacityPercentage}%</strong>
+          <p>Active Capacity</p>
         </JNCCard>
 
       </div>
