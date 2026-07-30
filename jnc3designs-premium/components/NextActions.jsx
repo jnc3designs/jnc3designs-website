@@ -1,6 +1,7 @@
 import { printers } from "../data/printers";
 import { products } from "../data/catalog";
 import { getOrderStats } from "../lib/orderStats";
+import { getPrinterStats } from "../lib/printerStats";
 
 import Badge from "./Badge";
 import JNCCard from "./JNCCard";
@@ -20,9 +21,9 @@ export default function NextActions() {
     );
   }
 
-  const idlePrinter = printers.find(
-    (printer) => printer.status === "Idle"
-  );
+  const { idlePrintersList } = getPrinterStats();
+
+const idlePrinter = idlePrintersList[0];
 
   if (idlePrinter) {
     actions.push(
