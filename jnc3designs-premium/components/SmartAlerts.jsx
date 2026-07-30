@@ -1,7 +1,7 @@
 import { printers } from "../data/printers";
 import { getOrderStats } from "../lib/orderStats";
 import { getInventoryStats } from "../lib/inventoryStats";
-
+import { getPrinterStats } from "../lib/printerStats";
 import Badge from "./Badge";
 import JNCCard from "./JNCCard";
 
@@ -39,9 +39,7 @@ export default function SmartAlerts() {
   }
 
   // Idle Printers
-  const idlePrinters = printers.filter(
-    (printer) => printer.status === "Idle"
-  );
+  const { idlePrinters } = getPrinterStats();
 
   if (idlePrinters.length > 0) {
     alerts.push({
