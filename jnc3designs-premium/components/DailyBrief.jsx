@@ -1,37 +1,9 @@
-import { getInventoryStats } from "../lib/inventoryStats";
 import Badge from "./Badge";
 import JNCCard from "./JNCCard";
+import { getDailyMission } from "../lib/dailyMission";
 
 export default function DailyBrief() {
-  const {
-    lowInventoryProducts,
-    outOfStockProducts,
-    totalProducts,
-  } = getInventoryStats();
-
-  const messages = [];
-
-  if (outOfStockProducts > 0) {
-    messages.push(
-      `Restock ${outOfStockProducts} out-of-stock product${
-        outOfStockProducts > 1 ? "s" : ""
-      }.`
-    );
-  }
-
-  if (lowInventoryProducts > 0) {
-    messages.push(
-      `Review ${lowInventoryProducts} low-stock product${
-        lowInventoryProducts > 1 ? "s" : ""
-      }.`
-    );
-  }
-
-  if (totalProducts > 0) {
-    messages.push(
-      "Review new customer reservations before the next market."
-    );
-  }
+  const mission = getDailyMission();
 
   return (
     <section className="section">
@@ -40,22 +12,28 @@ export default function DailyBrief() {
         hover={false}
       >
         <Badge color="blue">
-          ☀️ Daily Brief
+          🎯 Today's Mission
         </Badge>
 
         <h2>Good Morning, Jared</h2>
 
         <p className="daily-brief-copy">
-          Here's what deserves your attention today.
+          Focus on these priorities before moving on to new work.
         </p>
 
         <div className="daily-brief-list">
-          {messages.map((message) => (
+          {mission.map((item) => (
             <div
-              key={message}
+              key={`${item.priority}-${item.title}`}
               className="daily-brief-item"
             >
-              ✓ {message}
+              <strong>
+                {item.icon} {item.title}
+              </strong>
+
+              <br />
+
+              {item.action}
             </div>
           ))}
         </div>
