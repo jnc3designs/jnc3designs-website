@@ -1,3 +1,24 @@
+BUILD ONCE. IMPROVE FOREVER.
+
+One Forge.
+One Purpose.
+One Better Business.
+
+Mission
+
+JNC OS exists to make JNC3Designs easier to operate.
+
+Engineering Principles
+
+• Build real solutions, not flashy features.
+• Live data over placeholder data.
+• One source of truth.
+• Recommendations must be explainable.
+• Replace, don't redesign.
+• Promote duplication, not speculation.
+• Every screen answers a question.
+• Mission Control should reduce stress.
+• Documentation is part of the product.
 # The Forging Philosophy
 
 JNC OS is built one Forge at a time.
