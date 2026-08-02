@@ -9,15 +9,20 @@ export function getDailyMission() {
 
   const mission = [];
 
-  // Highest Priority — Rush Orders
-  if (orderStats.rushOrders > 0) {
+  // Highest Priority — Specific Active Rush Order
+  const firstRushOrder = orderStats.activeRushOrdersList[0];
+
+  if (firstRushOrder) {
+    const customerName =
+      firstRushOrder.customer || "the customer";
+
     mission.push({
       priority: 1,
       icon: "🚨",
-      title: "Rush Orders",
-      action: `Complete ${orderStats.rushOrders} rush order${
-        orderStats.rushOrders > 1 ? "s" : ""
-      } before starting new production.`,
+      title: `Rush Order ${firstRushOrder.id}`,
+      action:
+        `Complete rush order ${firstRushOrder.id} for ` +
+        `${customerName} before starting new production.`,
     });
   }
 
@@ -33,25 +38,30 @@ export function getDailyMission() {
     });
   }
 
-  // Inventory
-  if (inventoryStats.lowInventoryProducts > 0) {
+  // Out-of-Stock Inventory
+  if (inventoryStats.outOfStockProducts > 0) {
     mission.push({
       priority: 3,
-      icon: "🧵",
-      title: "Inventory",
-      action: `Restock ${inventoryStats.lowInventoryProducts} low inventory product${
-        inventoryStats.lowInventoryProducts > 1 ? "s" : ""
+      icon: "📦",
+      title: "Out of Stock",
+      action: `Replace ${
+        inventoryStats.outOfStockProducts
+      } out-of-stock product${
+        inventoryStats.outOfStockProducts > 1 ? "s" : ""
       }.`,
     });
   }
 
-  if (inventoryStats.outOfStockProducts > 0) {
+  // Low Inventory
+  if (inventoryStats.lowInventoryProducts > 0) {
     mission.push({
       priority: 4,
-      icon: "📦",
-      title: "Out of Stock",
-      action: `Replace ${inventoryStats.outOfStockProducts} out-of-stock product${
-        inventoryStats.outOfStockProducts > 1 ? "s" : ""
+      icon: "🧵",
+      title: "Inventory",
+      action: `Restock ${
+        inventoryStats.lowInventoryProducts
+      } low-inventory product${
+        inventoryStats.lowInventoryProducts > 1 ? "s" : ""
       }.`,
     });
   }
@@ -62,13 +72,15 @@ export function getDailyMission() {
       priority: 5,
       icon: "🖨️",
       title: "Printer Capacity",
-      action: `Assign work to ${printerStats.idlePrinters} available printer${
+      action: `Assign work to ${
+        printerStats.idlePrinters
+      } available printer${
         printerStats.idlePrinters > 1 ? "s" : ""
       }.`,
     });
   }
 
-  // Business running smoothly
+  // Business Running Smoothly
   if (mission.length === 0) {
     mission.push({
       priority: 99,
@@ -79,5 +91,7 @@ export function getDailyMission() {
     });
   }
 
-  return mission.sort((a, b) => a.priority - b.priority);
+  return mission.sort(
+    (a, b) => a.priority - b.priority
+  );
 }
