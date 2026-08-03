@@ -88,3 +88,5 @@ Orders Engine
 Inventory Engine
 Printer Fleet Engine
 Next Planned Forge: Mission Control Architecture Review.
+
+live telemetry is now flowing from the P1S into the Bridge and being written to persistent state.
