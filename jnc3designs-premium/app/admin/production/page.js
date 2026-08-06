@@ -1,6 +1,7 @@
 import OperationsHeader from "../../../components/OperationsHeader";
 import JNCCard from "../../../components/JNCCard";
 import Badge from "../../../components/Badge";
+import LivePrinterStatus from "../../../components/LivePrinterStatus";
 
 export default function ProductionPage() {
   return (
@@ -9,27 +10,31 @@ export default function ProductionPage() {
         badge="🖨️ Operations Module"
         badgeColor="yellow"
         title="Production"
-        description="Monitor printer activity, production jobs, maintenance, and print workflow."
+        description="Monitor live printer activity, production jobs, maintenance, and print workflow."
         backHref="/admin"
         backLabel="Operations"
       />
 
       <section className="section">
-
         <Badge color="yellow">
-          🏗 Production Workspace
+          🏗 Live Production Workspace
+        </Badge>
+
+        <h2>Print Farm Activity</h2>
+
+        <p className="operations-muted">
+          Current printer information synchronized through JNC Bridge.
+        </p>
+
+        <LivePrinterStatus />
+      </section>
+
+      <section className="section">
+        <Badge color="blue">
+          📋 Production Management
         </Badge>
 
         <div className="operations-grid">
-
-          <JNCCard hover={false}>
-            <h3>🖨️ Active Printers</h3>
-
-            <p>
-              This module will monitor printer availability and current jobs.
-            </p>
-          </JNCCard>
-
           <JNCCard hover={false}>
             <h3>📋 Print Queue</h3>
 
@@ -53,9 +58,7 @@ export default function ProductionPage() {
               Future print statistics and printer utilization.
             </p>
           </JNCCard>
-
         </div>
-
       </section>
     </main>
   );
