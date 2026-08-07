@@ -121,8 +121,13 @@ export default function LivePrinterStatus() {
 
     loadPrinterState();
 
+    const interval = setInterval(() => {
+      loadPrinterState();
+    }, 5000);
+
     return () => {
       isMounted = false;
+      clearInterval(interval);
     };
   }, []);
 
