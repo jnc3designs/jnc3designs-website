@@ -224,7 +224,7 @@ export default function LivePrinterStatus() {
               {progress}% Complete
             </p>
 
-            <div className="customer-stats">
+            <div className="live-printer-stats">
               <div>
                 <strong>
                   {printer.currentLayer ?? 0}
