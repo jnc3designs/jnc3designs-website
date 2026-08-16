@@ -168,7 +168,7 @@ export default function LivePrinterStatus() {
   }
 
   return (
-    <div className="operations-grid">
+    <div className="live-printer-grid">
       {printers.map((printer) => {
         const progress = Math.min(
           Math.max(
