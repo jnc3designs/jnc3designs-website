@@ -1,7 +1,9 @@
 import { printers } from "../data/printers";
 
 function normalizeText(value) {
-  return String(value || "").trim().toLowerCase();
+  return String(value || "")
+    .trim()
+    .toLowerCase();
 }
 
 export function getPrinterHealth(
@@ -12,7 +14,8 @@ export function getPrinterHealth(
     return "offline";
   }
 
-  const lastSeenTime = new Date(lastSeen).getTime();
+  const lastSeenTime =
+    new Date(lastSeen).getTime();
 
   if (Number.isNaN(lastSeenTime)) {
     return "offline";
@@ -33,7 +36,8 @@ export function getPrinterHealth(
 }
 
 export function getOperationalState(state) {
-  const normalizedState = normalizeText(state);
+  const normalizedState =
+    normalizeText(state);
 
   if (normalizedState === "running") {
     return "printing";
@@ -64,45 +68,53 @@ export function mergePrinterFleet(
   livePrinters = [],
   printerRegistry = printers
 ) {
-  const safeLivePrinters = Array.isArray(
-    livePrinters
-  )
-    ? livePrinters
-    : [];
+  const safeLivePrinters =
+    Array.isArray(livePrinters)
+      ? livePrinters
+      : [];
 
-  const safeRegistry = Array.isArray(
-    printerRegistry
-  )
-    ? printerRegistry
-    : [];
+  const safeRegistry =
+    Array.isArray(printerRegistry)
+      ? printerRegistry
+      : [];
 
-  return safeRegistry.map((registeredPrinter) => {
-    const livePrinter = safeLivePrinters.find(
-      (printer) =>
-        normalizeText(printer.name) ===
-        normalizeText(registeredPrinter.name)
-    );
+  return safeRegistry.map(
+    (registeredPrinter) => {
+      const livePrinter =
+        safeLivePrinters.find(
+          (printer) =>
+            normalizeText(printer.name) ===
+            normalizeText(
+              registeredPrinter.name
+            )
+        );
 
-    if (!livePrinter) {
+      if (!livePrinter) {
+        return {
+          ...registeredPrinter,
+          connectionHealth: "offline",
+          operationalState: "unknown",
+          live: null,
+        };
+      }
+
       return {
         ...registeredPrinter,
-        connectionHealth: "offline",
-        operationalState: "unknown",
-        live: null,
+
+        connectionHealth:
+          getPrinterHealth(
+            livePrinter.lastSeen
+          ),
+
+        operationalState:
+          getOperationalState(
+            livePrinter.state
+          ),
+
+        live: livePrinter,
       };
     }
-
-    return {
-      ...registeredPrinter,
-      connectionHealth: getPrinterHealth(
-        livePrinter.lastSeen
-      ),
-      operationalState: getOperationalState(
-        livePrinter.state
-      ),
-      live: livePrinter,
-    };
-  });
+  );
 }
 
 export function getPrinterStats(
@@ -114,45 +126,62 @@ export function getPrinterStats(
     printerRegistry
   );
 
-  const livePrintersList = fleet.filter(
-    (printer) =>
-      printer.connectionHealth === "live"
-  );
+  const livePrintersList =
+    fleet.filter(
+      (printer) =>
+        printer.connectionHealth ===
+        "live"
+    );
 
-  const stalePrintersList = fleet.filter(
-    (printer) =>
-      printer.connectionHealth === "stale"
-  );
+  const stalePrintersList =
+    fleet.filter(
+      (printer) =>
+        printer.connectionHealth ===
+        "stale"
+    );
 
-  const offlinePrintersList = fleet.filter(
-    (printer) =>
-      printer.connectionHealth === "offline"
-  );
+  const offlinePrintersList =
+    fleet.filter(
+      (printer) =>
+        printer.connectionHealth ===
+        "offline"
+    );
 
-  const printingPrintersList = fleet.filter(
-    (printer) =>
-      printer.connectionHealth === "live" &&
-      printer.operationalState === "printing"
-  );
+  const printingPrintersList =
+    fleet.filter(
+      (printer) =>
+        printer.connectionHealth ===
+          "live" &&
+        printer.operationalState ===
+          "printing"
+    );
 
-  const readyPrintersList = fleet.filter(
-    (printer) =>
-      printer.connectionHealth === "live" &&
-      printer.operationalState === "ready"
-  );
+  const readyPrintersList =
+    fleet.filter(
+      (printer) =>
+        printer.connectionHealth ===
+          "live" &&
+        printer.operationalState ===
+          "ready"
+    );
 
-  const pausedPrintersList = fleet.filter(
-    (printer) =>
-      printer.connectionHealth === "live" &&
-      printer.operationalState === "paused"
-  );
+  const pausedPrintersList =
+    fleet.filter(
+      (printer) =>
+        printer.connectionHealth ===
+          "live" &&
+        printer.operationalState ===
+          "paused"
+    );
 
-  const attentionPrintersList = fleet.filter(
-    (printer) =>
-      printer.connectionHealth === "live" &&
-      printer.operationalState ===
-        "needs-attention"
-  );
+  const attentionPrintersList =
+    fleet.filter(
+      (printer) =>
+        printer.connectionHealth ===
+          "live" &&
+        printer.operationalState ===
+          "needs-attention"
+    );
 
   const operationalPrinters =
     livePrintersList.length;
@@ -161,38 +190,63 @@ export function getPrinterStats(
     operationalPrinters === 0
       ? 0
       : Math.round(
-          (printingPrintersList.length /
-            operationalPrinters) *
-            100
+          (
+            printingPrintersList.length /
+            operationalPrinters
+          ) * 100
         );
 
   return {
     totalPrinters: fleet.length,
 
-    livePrinters: livePrintersList.length,
-    stalePrinters: stalePrintersList.length,
+    // Existing Mission Control contract
+    printingPrinters:
+      printingPrintersList.length,
+
+    idlePrinters:
+      readyPrintersList.length,
+
+    futurePrinters: 0,
+
     offlinePrinters:
       offlinePrintersList.length,
 
-    printingPrinters:
-      printingPrintersList.length,
+    operationalPrinters,
+
+    activeCapacityPercentage,
+
+    printingPrintersList,
+
+    // Backward-compatible name
+    idlePrintersList:
+      readyPrintersList,
+
+    futurePrintersList: [],
+
+    offlinePrintersList,
+
+    // Live fleet intelligence
+    livePrinters:
+      livePrintersList.length,
+
+    stalePrinters:
+      stalePrintersList.length,
+
     readyPrinters:
       readyPrintersList.length,
+
     pausedPrinters:
       pausedPrintersList.length,
+
     attentionPrinters:
       attentionPrintersList.length,
 
-    operationalPrinters,
-    activeCapacityPercentage,
-
-    fleet,
     livePrintersList,
     stalePrintersList,
-    offlinePrintersList,
-    printingPrintersList,
     readyPrintersList,
     pausedPrintersList,
     attentionPrintersList,
+
+    fleet,
   };
 }

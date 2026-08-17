@@ -41,12 +41,12 @@ export default function SmartAlerts() {
   // Idle Printers
   const { idlePrinters } = getPrinterStats();
 
-  if (idlePrinters.length > 0) {
-    alerts.push({
-      type: "printer",
-      title: `${idlePrinters.length} Printer${
-        idlePrinters.length > 1 ? "s" : ""
-      } Available`,
+if (idlePrinters > 0) {
+  alerts.push({
+    type: "printer",
+    title: `${idlePrinters} Printer${
+      idlePrinters > 1 ? "s" : ""
+    } Available`,
       message: "Production capacity is available for another job.",
     });
   }
