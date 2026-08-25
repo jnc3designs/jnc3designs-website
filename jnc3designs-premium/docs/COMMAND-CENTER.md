@@ -4,175 +4,382 @@
 
 A one-screen operational briefing that helps run JNC3Designs each day.
 
-## Core Principles
+The Command Center should surface what needs attention, what capacity is available, and what action should happen next.
+
+---
+
+# Current JNC OS Version
+
+v0.32
+
+## Current Milestone
+
+Live Fleet Intelligence
+
+## Next Major Direction
+
+Production Queue Intelligence
+
+---
+
+# Core Principles
 
 - Action over information
 - One source of truth
 - Surface exceptions first
 - Recommendations over raw data
 - Live operational data when available
-
-## Sections
-
-1. Today's Priorities
-2. Business Health
-3. Production
-4. Growth
-5. JNC Assistant
+- Business engines calculate and interpret data
+- Components present decisions clearly
+- Physical systems connect through controlled integration layers
 
 ---
 
-# Current Live Integrations
+# Command Center Sections
 
-## Bambu Printer Telemetry
+1. Today's Mission
+2. Business Health
+3. Production
+4. Inventory
+5. Smart Alerts
+6. Next Actions
+7. Growth
+8. JNC Assistant
 
-Status:
+---
 
-LIVE
+# Live Production Integration
 
-JNC OS now receives real production telemetry from physical Bambu printers through JNC Bridge.
+## Status
 
-Current live printer:
+LIVE — Multi-Printer Fleet
+
+JNC OS receives real production telemetry from the physical JNC3Designs printer fleet through JNC Bridge.
+
+Current live printer fleet:
 
 - Bambu P1S
+- Bambu P2S
+- Bambu X1C
+- Bambu H2D
 
-Current telemetry includes:
+---
 
-- Printer state
-- Active print job
-- Print progress
-- Remaining time
-- Current and total layers
-- Nozzle temperature
-- Bed temperature
-- Last cloud synchronization
+# Live Telemetry Flow
 
-Current flow:
-
-Bambu Printer  
-→ Local MQTT  
-→ JNC Bridge  
-→ Persistent Bridge State  
-→ Cloud Publisher  
-→ JNC OS API  
-→ Production Dashboard
-
+```text
+Bambu Printer Fleet
+        │
+        ▼
+   Local MQTT
+        │
+        ▼
+    JNC Bridge
+        │
+        ▼
+ Fleet State Engine
+        │
+        ▼
+Persistent Bridge State
+        │
+        ▼
+ Cloud Publisher
+        │
+        ▼
+ JNC OS Bridge API
+        │
+        ▼
+Printer Fleet Engine
+        │
+        ▼
+Mission Control
 Production route:
 
-`/admin/production`
+/admin/production
 
 Printer API:
 
-`/api/bridge/printers`
+/api/bridge/printers
 
-The Production Dashboard automatically checks for updated cloud telemetry every five seconds.
+Live printer interfaces automatically refresh telemetry.
 
----
+Printer Fleet Intelligence
 
-# Printer Fleet Expansion
+The Printer Fleet Engine interprets raw telemetry before Mission Control uses it.
 
-Current JNC3Designs printer fleet:
+Primary module:
 
-- Bambu P1S — Live
-- Bambu P2S — Pending Integration
-- Bambu X1C — Pending Integration
-- Bambu H2D — Planned
+lib/printerStats.js
 
-Current architecture work is focused on expanding JNC Bridge from a single-printer connection into a multi-printer fleet architecture.
+Connection Health
 
-The Production UI already consumes a printer collection and is being designed to scale without requiring a separate dashboard for each printer.
+Supported states:
 
----
+Live
+Stale
+Offline
+Operational State
 
-# Future Integrations
+Supported states:
 
-- Square
-- Website orders
-- Google Sheets
-- Marketing analytics
-- Production queue
-- Printer maintenance tracking
-- Production metrics
-- Notifications and operational alerts
+Printing
+Ready
+Paused
+Needs Attention
+Unknown
 
----
+Connection health and operational state are evaluated separately.
 
-# Daily Mission
+This prevents old telemetry from being mistaken for current printer activity.
 
-## Purpose
+Mission Control Live Production Systems
+Print Farm Status
+
+Displays current physical printer conditions.
+
+Current live information can include:
+
+Printer name
+Connection health
+Operational state
+Active job
+Print progress
+Remaining time
+Layer progress
+Material
+Production status
+Capacity Overview
+
+Uses live fleet telemetry to calculate current production capacity.
+
+Current intelligence includes:
+
+Printing printers
+Available printers
+Offline or stale printers
+Active production capacity
+
+Capacity is based on live fleet state rather than demonstration data.
+
+Smart Alerts
+
+Smart Alerts combines business conditions and physical production conditions.
+
+Current alert sources include:
+
+Rush orders
+Inventory conditions
+Printer availability
+Printer attention states
+Paused printers
+Stale telemetry
+Offline printers
+
+The goal is to surface exceptions before they become operational problems.
+
+Next Actions
+
+Next Actions recommends specific work based on current conditions.
+
+Current recommendation sources include:
+
+Rush orders
+Low inventory
+Printer availability
+Printer errors
+Printer pauses
+Stale telemetry
+Offline printers
+
+When a printer is live and available, Mission Control can recommend assigning the next production job to that printer.
+
+Daily Mission
+Purpose
 
 Provide a 30-second operational briefing at the start of the day.
 
-## Sections
+Today's Mission combines business priorities and live production conditions.
 
-1. Today's Priorities
-2. Print Farm
-3. Inventory Watch
-4. Business Snapshot
-5. JNC Assistant Recommendation
+Current priority sources include:
 
-## Design Principle
+Rush orders
+Outstanding payments
+Out-of-stock inventory
+Low inventory
+Printer errors
+Paused printers
+Offline printers
+Stale telemetry
+Available printer capacity
+Full production capacity
+Design Principle
 
-Every section must either:
+Every Daily Mission item should do at least one of the following:
 
-- identify work that needs attention,
-- highlight a developing risk,
-- or recommend a next action.
+identify work requiring attention
+highlight a developing risk
+surface available capacity
+recommend a next action
 
-Live integrations should enhance these decisions rather than simply add more information.
+Live integrations should improve decisions rather than simply add more information.
 
----
+Production Workspace
 
-# Production Direction
+Route:
 
-The Print Farm section is transitioning from demonstration printer data to real production telemetry.
+/admin/production
 
-Current milestone:
+Current
+Print Farm Activity
 
-**Physical Production → JNC OS**
+LIVE
 
-Future Command Center production intelligence should build on the live telemetry foundation rather than create a separate printer-data system.
+Displays real printer telemetry through JNC Bridge.
 
-Potential future operational signals include:
+Planned
+Production Queue
 
-- Printer offline
-- Print paused
-- Print completed
-- Print failure
-- Remaining production time
-- Printer availability
-- Queue pressure
-- Maintenance due
-- Production capacity
+Future scheduling and queued-job management.
 
----
+Maintenance
 
-# Current Infrastructure Requirement
+Future tracking for:
 
-JNC Bridge currently runs locally and must remain active for new printer telemetry to reach JNC OS.
+Nozzle changes
+Lubrication
+Maintenance intervals
+Service history
+Production Metrics
+
+Future intelligence may include:
+
+Printer utilization
+Production hours
+Completed jobs
+Material usage
+Fleet performance
+JNC Bridge
+
+JNC Bridge is the physical printer integration layer for JNC OS.
+
+It is maintained as a separate Git repository:
+
+jnc-printer-bridge
+
+Responsibilities include:
+
+Local printer communication
+MQTT connections
+Multi-printer telemetry
+Fleet state
+Per-printer lastSeen
+Persistent Bridge state
+Cloud publishing
+
+The JNC3Designs website should never communicate directly with the physical printers.
+
+Current Infrastructure Requirement
+
+JNC Bridge currently runs on local JNC3Designs infrastructure.
 
 If JNC Bridge stops:
 
-- Physical printers continue operating normally.
-- JNC OS retains the last synchronized printer state.
-- New telemetry does not reach the cloud until the Bridge resumes.
+Physical printers continue operating normally.
+JNC OS retains the last synchronized telemetry.
+Printer health eventually becomes stale or offline.
+New telemetry does not reach JNC OS until the Bridge resumes.
 
-Future infrastructure should move JNC Bridge toward an always-on service or dedicated Bridge host.
+Future infrastructure should move JNC Bridge to an always-on host.
 
----
+Potential options include:
 
-# Current Development Priority
+Mini PC
+Home server
+Dedicated JNC Bridge host
+Current Milestone
 
-## Forge #112 — Multi-Printer Architecture
+Mission Control has progressed beyond printer monitoring.
 
-Objective:
+JNC OS now:
 
-Expand the working JNC Bridge architecture so the full JNC3Designs printer fleet can report through the same live production pipeline.
+receives live multi-printer telemetry
+interprets printer health
+understands operational state
+calculates production capacity
+detects availability
+surfaces printer issues
+incorporates production conditions into business priorities
 
-Engineering priority:
+Mission Control is beginning to operate as a real command center rather than a passive dashboard.
 
-Preserve the known-good P1S integration while adding fleet capability incrementally.
+Next Development Priority
+Production Queue Intelligence
 
----
+The next major Command Center objective is connecting order priority with live printer availability.
+
+Target direction:
+
+Orders
+   │
+   ▼
+Production Priority
+   │
+   ▼
+Production Queue
+   │
+   ▼
+Job Requirements
+   │
+   ▼
+Printer Capability
+   │
+   ▼
+Live Printer Availability
+   │
+   ▼
+Recommended Assignment
+   │
+   ▼
+Live Production
+
+Future scheduling intelligence may consider:
+
+Rush status
+Due date
+Order priority
+Material
+Build volume
+Printer capability
+Nozzle requirements
+Estimated print duration
+Current workload
+Printer availability
+
+The Production Queue should build on the existing Orders Engine and Printer Fleet Engine.
+
+Future Integrations
+
+Potential future Command Center integrations include:
+
+Square
+Website orders
+Google Sheets
+Marketing analytics
+Production queue
+Printer maintenance
+Production metrics
+Notifications
+Customer communications
+AI-assisted production planning
+Command Center Principle
+
+Every section must either:
+
+identify work that needs attention
+highlight a developing risk
+show meaningful capacity
+recommend a next action
+
+If it does none of those, reconsider whether it belongs in Mission Control.
 
 BUILD ONCE. IMPROVE FOREVER.

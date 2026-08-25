@@ -357,7 +357,7 @@ The Production dashboard evolved from a live-data viewer into a continuously upd
 
 ## Status
 
-🚧 In Progress
+✅ Complete
 
 ## Type
 
@@ -367,40 +367,450 @@ The Production dashboard evolved from a live-data viewer into a continuously upd
 
 Evolve JNC Bridge from a single-printer connection into a fleet-ready architecture without breaking the working P1S telemetry pipeline.
 
-## Current Physical Printer Fleet
+## Completed
+
+- Converted JNC Bridge from a single-printer architecture into a multi-printer fleet architecture.
+- Preserved the known-good P1S telemetry pipeline during the transition.
+- Established shared fleet state management.
+- Added independent printer telemetry handling.
+- Added per-printer `lastSeen` tracking.
+- Preserved cloud publishing through the existing JNC OS Bridge API.
+- Prepared JNC OS to consume multiple live printer records through one shared telemetry architecture.
+- Verified live telemetry across the JNC3Designs printer fleet.
+
+## Printer Fleet
 
 - Bambu P1S
 - Bambu P2S
 - Bambu X1C
-- Bambu H2D — planned addition
+- Bambu H2D
 
-## Current State
+## Architecture Established
 
-- Bambu P1S is connected to JNC Bridge and reporting live telemetry.
-- P2S integration is pending.
-- X1C integration is pending.
-- H2D integration is pending.
-- Production UI already consumes a `printers` array and is structurally prepared to render multiple printer records.
-- JNC Bridge configuration is still based on a single `config.printer` object and requires conversion to fleet configuration.
+Physical Printer Fleet  
+→ Local MQTT Connections  
+→ JNC Bridge  
+→ Fleet State Engine  
+→ Persistent Bridge State  
+→ Cloud Publisher  
+→ JNC OS Bridge API
 
-## Next Technical Objective
+## Engineering Principle
 
-Convert Bridge configuration from:
+The existing working P1S infrastructure was expanded incrementally rather than replaced.
 
-`config.printer`
+This preserved the known-good telemetry path while allowing JNC Bridge to evolve into fleet infrastructure.
 
-to a fleet-oriented structure such as:
+## Result
 
-`config.printers`
+JNC Bridge is no longer a single-printer proof of concept.
 
-while preserving the known-good P1S connection.
+It now provides the foundation for the JNC3Designs printer fleet to communicate with JNC OS through one shared infrastructure layer.
 
-## Engineering Rule
+---
 
-Do not redesign working live infrastructure unnecessarily.
-
-Expand the existing architecture incrementally and verify the P1S after every structural change.
+# Forge #113 — JNC Bridge Repository Foundation
 
 ## Status
 
-🚧 In Progress
+✅ Complete
+
+## Type
+
+🟢 Foundation Forge
+
+## Objective
+
+Establish JNC Bridge as an independently version-controlled infrastructure project.
+
+## Completed
+
+- Initialized Git version control for JNC Bridge.
+- Created the dedicated `jnc-printer-bridge` GitHub repository.
+- Connected the local Bridge repository to GitHub.
+- Configured SSH authentication for secure Git operations.
+- Established `main` as the tracked production branch.
+- Added repository protection for local runtime and sensitive files.
+
+## Repository Protection
+
+Sensitive and generated files are excluded from source control, including:
+
+- `.env`
+- `node_modules/`
+- `logs/`
+- `bridge-state.json`
+
+## Result
+
+JNC Bridge now has its own permanent source-control history independent from the JNC3Designs website repository.
+
+This creates a clean architectural boundary between physical printer infrastructure and JNC OS.
+
+---
+
+# Forge #114 — Printer Fleet Health Foundation
+
+## Status
+
+✅ Complete
+
+## Type
+
+🧠 Intelligence Forge
+
+## Objective
+
+Create a shared Printer Fleet Engine capable of translating raw Bridge telemetry into operational information that Mission Control can consume.
+
+## Files Modified
+
+- `lib/printerStats.js`
+- `data/printers.js`
+- `components/SmartAlerts.jsx`
+
+## Completed
+
+- Expanded `printerStats.js` into the shared Printer Fleet Engine.
+- Added printer connection-health evaluation.
+- Added operational-state normalization.
+- Added registered-printer and live-telemetry merging.
+- Added fleet-level printer collections.
+- Added production-capacity calculations.
+- Preserved the existing Mission Control printer-stat contract during the migration.
+
+## Connection Health States
+
+- Live
+- Stale
+- Offline
+
+## Operational States
+
+- Printing
+- Ready
+- Paused
+- Needs Attention
+- Unknown
+
+## Fleet Intelligence
+
+The engine can expose:
+
+- Total printers
+- Live printers
+- Stale printers
+- Offline printers
+- Printing printers
+- Ready printers
+- Paused printers
+- Printers requiring attention
+- Operational printers
+- Active production capacity
+- Individual printer collections
+- Merged fleet state
+
+## Verified
+
+- Merge conflict with concurrent printer-status development was resolved.
+- Existing Mission Control consumers remained compatible.
+- Next.js production build completed successfully.
+- Changes were rebased against the latest remote branch.
+- Deployment was pushed successfully.
+
+## Result
+
+Printer telemetry is no longer treated as raw display data.
+
+JNC OS now has a centralized intelligence layer capable of interpreting the operational condition of the physical printer fleet.
+
+---
+
+# Forge #115 — Live Print Farm Status
+
+## Status
+
+✅ Complete
+
+## Type
+
+🟣 Product Forge
+
+## Objective
+
+Replace the remaining demonstration-based Mission Control Print Farm Status with live printer fleet telemetry.
+
+## Files Modified
+
+- `components/PrintFarmStatus.jsx`
+
+## Completed
+
+- Removed the demonstration-only printer status behavior.
+- Connected Print Farm Status to the live fleet architecture.
+- Replaced the demo-data notice with live telemetry messaging.
+- Added live printer operational state.
+- Added connection-health display.
+- Added actual print progress.
+- Added active-job information.
+- Added remaining print time.
+- Preserved material and completed-job information where available.
+- Allowed Mission Control to display multiple live printers through the shared fleet architecture.
+
+## Result
+
+The main Mission Control dashboard no longer presents the printer farm as demonstration production data.
+
+Print Farm Status now represents physical production conditions synchronized through JNC Bridge.
+
+---
+
+# Forge #116 — Live Capacity Intelligence
+
+## Status
+
+✅ Complete
+
+## Type
+
+🧠 Intelligence Forge
+
+## Objective
+
+Connect Mission Control production-capacity calculations to live printer telemetry.
+
+## Files Modified
+
+- `components/CapacityOverview.jsx`
+
+## Completed
+
+- Migrated Capacity Overview to the shared Printer Fleet Engine.
+- Connected printing-printer counts to live telemetry.
+- Connected available-printer counts to live telemetry.
+- Connected active-capacity calculations to current fleet state.
+- Removed dependency on static demonstration printer status for production capacity.
+
+## Verified
+
+- Next.js production build completed successfully.
+- No build regressions were introduced.
+- Changes were committed and deployed successfully.
+
+## Result
+
+Mission Control capacity information now represents actual production conditions rather than manually configured printer states.
+
+---
+
+# Forge #117 — Live Smart Alerts
+
+## Status
+
+✅ Complete
+
+## Type
+
+🧠 Intelligence Forge
+
+## Objective
+
+Allow Smart Alerts to react to actual printer availability.
+
+## Files Modified
+
+- `components/SmartAlerts.jsx`
+
+## Completed
+
+- Connected Smart Alerts to the shared Printer Fleet Engine.
+- Replaced static printer availability logic with live telemetry.
+- Preserved existing rush-order alerts.
+- Preserved existing inventory alerts.
+- Added live production-capacity awareness.
+
+## Verified
+
+- Next.js production build completed successfully.
+- Changes were committed.
+- Changes were pushed successfully.
+
+## Result
+
+Smart Alerts can now combine business conditions with physical production capacity.
+
+Mission Control can identify when live printer capacity is available for additional work.
+
+---
+
+# Forge #118 — Live Next Actions
+
+## Status
+
+✅ Complete
+
+## Type
+
+🧠 Intelligence Forge
+
+## Objective
+
+Allow Mission Control recommendations to identify available physical printers.
+
+## Files Modified
+
+- `components/NextActions.jsx`
+
+## Completed
+
+- Connected Next Actions to live printer fleet intelligence.
+- Used the live available-printer collection instead of static printer status.
+- Preserved rush-order recommendations.
+- Preserved low-inventory recommendations.
+- Enabled printer-specific production recommendations.
+
+## Example
+
+When a printer is live and ready, Mission Control can recommend:
+
+`Assign a job to Bambu P2S.`
+
+## Verified
+
+- Next.js production build completed successfully.
+- No production build regressions were introduced.
+
+## Result
+
+Next Actions evolved from generic business recommendations into recommendations informed by the physical production floor.
+
+---
+
+# Forge #119 — Live Daily Mission Intelligence
+
+## Status
+
+✅ Complete
+
+## Type
+
+🧠 Intelligence Forge
+
+## Objective
+
+Integrate live printer fleet conditions into Today's Mission so Mission Control can prioritize business and production conditions together.
+
+## Files Modified
+
+- `lib/dailyMission.js`
+
+## Consumer
+
+- `components/DailyBrief.jsx`
+
+## Completed
+
+Daily Mission now combines:
+
+- Active rush orders
+- Outstanding balances
+- Out-of-stock inventory
+- Low inventory
+- Printer availability
+- Production capacity
+- Live printer conditions
+
+The mission system can surface production information alongside existing business priorities.
+
+## Verified
+
+- Next.js production build completed successfully.
+- Today's Mission rendered successfully in Mission Control.
+- Rush-order priority displayed correctly.
+- Outstanding-payment priority displayed correctly.
+- Inventory priority displayed correctly.
+- Full-production state displayed correctly.
+
+## Result
+
+Mission Control now combines business data with physical production state when determining the day's operational priorities.
+
+This represents the first stage of JNC OS moving from passive monitoring toward operational decision support.
+
+---
+
+# Forge #120 — Live Fleet Intelligence Milestone
+
+## Status
+
+✅ Complete
+
+## Type
+
+🏁 Milestone Forge
+
+## Objective
+
+Complete the transition from single-printer telemetry monitoring to fleet-aware Mission Control intelligence.
+
+## Systems Integrated
+
+- JNC Bridge
+- Multi-printer telemetry
+- Bridge API
+- Printer Fleet Engine
+- Print Farm Status
+- Capacity Overview
+- Smart Alerts
+- Next Actions
+- Daily Mission
+
+## Architecture
+
+Physical Printer Fleet  
+→ Local MQTT  
+→ JNC Bridge  
+→ Fleet State Engine  
+→ Cloud Publisher  
+→ JNC OS Bridge API  
+→ Printer Fleet Engine  
+→ Mission Control Intelligence
+
+## Milestone Result
+
+JNC OS can now consume physical printer telemetry, interpret fleet conditions, calculate production capacity, detect printer availability, and use those conditions when generating operational information.
+
+The system has progressed through three major stages:
+
+**Stage 1 — Demonstration Data**
+
+Mission Control displayed manually defined printer information.
+
+**Stage 2 — Live Telemetry**
+
+JNC OS received real production data from physical printers.
+
+**Stage 3 — Live Fleet Intelligence**
+
+Mission Control now interprets live fleet conditions and incorporates them into business priorities.
+
+## Next Direction
+
+Production Queue Intelligence.
+
+The next architectural objective is to connect:
+
+Orders  
+→ Production Priority  
+→ Production Queue  
+→ Printer Requirements  
+→ Live Printer Availability  
+→ Recommended Assignment
+
+This will begin transforming JNC OS from a monitoring and decision-support platform into an active production-management system.
+
+---
+
+# Forge Principle
+
+BUILD ONCE. IMPROVE FOREVER.

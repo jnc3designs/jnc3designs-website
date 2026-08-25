@@ -4,15 +4,15 @@
 
 ### JNC OS Version
 
-v0.31
+v0.32
 
 ### Current Milestone
 
-Live Production Infrastructure
+Live Fleet Intelligence
 
 ### Architecture Status
 
-Stable — Live Infrastructure Active
+Stable — Multi-Printer Live Infrastructure Active
 
 ---
 
@@ -20,10 +20,14 @@ Stable — Live Infrastructure Active
 
 ## Presentation Layer
 
-- Mission Control Components
+- Mission Control
 - Admin Pages
 - Production Dashboard
-- Live Printer Status
+- Live Print Farm Status
+- Capacity Overview
+- Smart Alerts
+- Next Actions
+- Daily Mission
 
 ## Business Engines
 
@@ -33,6 +37,7 @@ Stable — Live Infrastructure Active
 - PriorityCenter
 - SmartAlerts
 - NextActions
+- DailyMission
 
 ### Inventory Engine
 
@@ -40,180 +45,229 @@ Stable — Live Infrastructure Active
 - InventorySummary
 - DailyBrief
 - SmartAlerts
+- NextActions
+- DailyMission
 
 ### Printer Fleet Engine
 
-- printerStats.js
-- Printer fleet state analysis
-- Printer availability logic
-- Production status support
+Primary module:
+
+`lib/printerStats.js`
+
+Responsibilities:
+
+- Merge registered printers with live telemetry
+- Determine connection health
+- Determine operational state
+- Track live printers
+- Track stale printers
+- Track offline printers
+- Identify printing printers
+- Identify ready printers
+- Identify paused printers
+- Identify printers requiring attention
+- Calculate live production capacity
+- Provide fleet intelligence to Mission Control
 
 ## Shared Data
 
 - Orders
 - Products
-- Printers
+- Printer Registry
 
-## Live Integrations
+---
 
-### JNC Bridge
+# Live Printer Architecture
 
-Local bridge service connecting JNC OS to physical printers on the JNC3Designs network.
+## JNC Bridge
 
-Current supported connection:
+JNC Bridge is the local infrastructure service connecting the physical JNC3Designs printer fleet to JNC OS.
+
+JNC Bridge now supports the multi-printer architecture used by the JNC3Designs print farm.
+
+Current printer fleet:
 
 - Bambu Lab P1S
-
-Planned fleet expansion:
-
 - Bambu Lab P2S
 - Bambu Lab X1C
 - Bambu Lab H2D
 
-### Live Telemetry Pipeline
-
-Current telemetry flow:
-
-Bambu Printer  
-→ Local MQTT  
-→ JNC Bridge  
-→ Persistent Bridge State  
-→ Cloud Publisher  
-→ JNC OS API  
-→ Production Dashboard
-
-### Cloud API
-
-Endpoint:
-
-`/api/bridge/printers`
-
-The API receives printer telemetry published by JNC Bridge and exposes the latest printer state to JNC OS.
-
-### Production Dashboard
-
-Route:
-
-`/admin/production`
-
-The Production workspace now displays live printer information synchronized through JNC Bridge.
-
-Current telemetry includes:
-
-- Printer name
-- Printer state
-- Active job
-- Print progress
-- Remaining print time
-- Current layer
-- Total layers
-- Nozzle temperature
-- Bed temperature
-- Last cloud update
-
-The dashboard automatically refreshes printer information.
+JNC Bridge maintains printer telemetry and publishes fleet state to JNC OS.
 
 ---
 
-# Current Live Printer
+# Live Telemetry Pipeline
 
-## Bambu P1S
+Current architecture:
+
+Bambu Printer Fleet  
+→ Local MQTT  
+→ JNC Bridge  
+→ Fleet State Engine  
+→ Persistent Bridge State  
+→ Cloud Publisher  
+→ JNC OS Bridge API  
+→ Printer Fleet Engine  
+→ Mission Control
+
+This architecture separates physical printer communication from JNC OS business intelligence.
+
+---
+
+# JNC Bridge Responsibilities
+
+JNC Bridge currently handles:
+
+- Local Bambu MQTT connections
+- Multi-printer telemetry collection
+- Printer state normalization
+- Per-printer state storage
+- Per-printer `lastSeen` timestamps
+- Fleet state management
+- Cloud publishing
+- Local printer/fleet inspection
+
+JNC Bridge operates independently from the JNC OS website repository.
+
+---
+
+# JNC Bridge Repository
+
+JNC Bridge is maintained in its own Git repository.
+
+Repository:
+
+`jnc-printer-bridge`
+
+This separates local printer infrastructure from the main JNC3Designs website and JNC OS application.
+
+Sensitive configuration and runtime state are excluded from Git through `.gitignore`.
+
+Examples include:
+
+- `.env`
+- `node_modules/`
+- `logs/`
+- `bridge-state.json`
+
+---
+
+# JNC OS Bridge API
+
+Route:
+
+`/api/bridge/printers`
 
 Status:
 
 LIVE
 
-The P1S is currently connected to JNC Bridge and has successfully transmitted real production telemetry into JNC OS.
+The endpoint provides the cloud connection between JNC Bridge and JNC OS.
 
-Verified states include:
-
-- Printing / RUNNING
-- Ready / IDLE
-- Job progress
-- Remaining time
-- Layer progress
-- Nozzle temperature
-- Bed temperature
-
-JNC OS has successfully followed the printer through active print jobs and subsequent printer states.
+Mission Control uses this telemetry as the source for live printer intelligence.
 
 ---
 
-# Infrastructure Components
+# Printer Health Intelligence
 
-## JNC Bridge
+JNC OS now evaluates printer connection health using telemetry timestamps.
 
-Location:
+Supported connection states:
 
-Local JNC3Designs infrastructure
+## Live
 
-Responsibilities:
+Printer telemetry has been received recently.
 
-- Connect to Bambu printers through local MQTT
-- Listen for printer telemetry
-- Maintain the latest printer state
-- Provide a local printer API
-- Publish printer state to JNC OS
+## Stale
 
-## Bridge Local API
+The printer has stopped reporting within the expected live interval but has not yet exceeded the offline threshold.
 
-Current local endpoint:
+## Offline
 
-`http://localhost:3100/api/printer`
+The printer is no longer reporting valid telemetry to JNC OS.
 
-Used for inspecting the printer state directly from the machine running JNC Bridge.
-
-## Cloud Publisher
-
-The Cloud Publisher reads the current bridge state and synchronizes printer information with JNC OS.
-
-Current destination:
-
-`https://www.jnc3designs.com/api/bridge/printers`
-
-## JNC OS Production API
-
-Route:
-
-`/api/bridge/printers`
-
-Current status:
-
-LIVE
-
-The endpoint is deployed through the JNC3Designs website and receives telemetry from JNC Bridge.
+This allows Mission Control to distinguish between printer operation and communication health.
 
 ---
 
-# Recently Completed Forges
+# Printer Operational Intelligence
 
-## Forge #106 — Begin Cloud Publisher Integration
+JNC OS normalizes printer states into operational states.
 
-Established the Cloud Publisher foundation for transmitting printer state from JNC Bridge to JNC OS.
+Current operational states include:
 
-## Live Telemetry Integration
+- Printing
+- Ready
+- Paused
+- Needs Attention
+- Unknown
 
-Completed the first end-to-end telemetry path between a physical Bambu printer and JNC OS.
+Printer connection health and operational state are evaluated independently.
 
-Verified:
+Example:
 
-- MQTT printer connection
-- Live printer status
-- Persistent bridge state
-- Cloud publishing
-- JNC OS API reception
+A printer may be physically idle and operationally ready while still being considered offline if telemetry is no longer reaching JNC OS.
 
-## Forge #110 — Live Production Dashboard
+---
 
-Connected the JNC OS Production workspace to live printer telemetry.
+# Mission Control Live Fleet Integration
 
-The Production page now contains a live Print Farm Activity section displaying actual printer information.
+Mission Control now uses live printer telemetry across its primary operational intelligence systems.
 
-## Forge #111 — Live Printer Auto Refresh
+## Print Farm Status
 
-Added automatic refresh behavior to the live printer dashboard.
+Displays the live state of the printer fleet.
 
-The Production dashboard can now update printer telemetry without requiring manual browser refreshes.
+Current information can include:
+
+- Printer name
+- Operational state
+- Connection health
+- Active job
+- Print progress
+- Material
+- Remaining print time
+- Completed jobs
+
+## Capacity Overview
+
+Uses live fleet state to calculate:
+
+- Printing printers
+- Available printers
+- Active production capacity
+
+Capacity is based on current live printer telemetry rather than demonstration printer status.
+
+## Smart Alerts
+
+Smart Alerts now evaluates live printer availability.
+
+Mission Control can identify when production capacity is available instead of relying on static printer data.
+
+## Next Actions
+
+Next Actions now uses live fleet intelligence when recommending production work.
+
+When a live printer is ready, Mission Control can recommend assigning the next job to that specific printer.
+
+## Daily Mission
+
+Today's Mission now consumes live printer telemetry.
+
+Daily Mission can combine:
+
+- Rush orders
+- Outstanding payments
+- Inventory conditions
+- Printer errors
+- Paused printers
+- Offline printers
+- Stale telemetry
+- Available printer capacity
+- Full production capacity
+
+This allows Mission Control to generate business priorities using both operational business data and physical production conditions.
 
 ---
 
@@ -223,13 +277,11 @@ Route:
 
 `/admin/production`
 
-Current sections:
-
 ## Print Farm Activity
 
 LIVE
 
-Displays real printer telemetry from JNC Bridge.
+Displays actual printer telemetry from JNC Bridge.
 
 ## Print Queue
 
@@ -247,37 +299,93 @@ Future tracking for:
 - Lubrication
 - Printer maintenance
 - Maintenance schedules
+- Printer service history
 
 ## Production Metrics
 
 Planned
 
-Future production statistics and printer utilization analytics.
+Future production intelligence including:
+
+- Printer utilization
+- Completed jobs
+- Production hours
+- Material usage
+- Fleet performance
 
 ---
 
 # Printer Fleet
 
-Current JNC3Designs printer fleet planned for JNC OS integration:
+Current JNC3Designs fleet architecture:
 
-| Printer | Bridge Status |
+| Printer | JNC OS Status |
 | --- | --- |
 | Bambu P1S | LIVE |
-| Bambu P2S | Pending Integration |
-| Bambu X1C | Pending Integration |
-| Bambu H2D | Planned |
+| Bambu P2S | LIVE |
+| Bambu X1C | LIVE |
+| Bambu H2D | LIVE |
 
-The architecture is being designed for a multi-printer environment rather than a single-printer dashboard.
+The architecture is now operating as a multi-printer fleet rather than a single-printer proof of concept.
+
+---
+
+# Recently Completed Forges
+
+## Forge #106 — Begin Cloud Publisher Integration
+
+Established the Cloud Publisher foundation for transmitting printer state from JNC Bridge to JNC OS.
+
+## Live Telemetry Integration
+
+Completed the first end-to-end telemetry path between a physical Bambu printer and JNC OS.
+
+## Forge #110 — Live Production Dashboard
+
+Connected the JNC OS Production workspace to live printer telemetry.
+
+## Forge #111 — Live Printer Auto Refresh
+
+Added automatic telemetry refresh behavior to the Production dashboard.
+
+## Multi-Printer Fleet Expansion
+
+Expanded JNC Bridge beyond the original P1S proof of concept.
+
+The JNC3Designs printer fleet can now report through the shared bridge architecture.
+
+## Printer Fleet Health Foundation
+
+Added fleet-level printer intelligence including:
+
+- Live state
+- Stale state
+- Offline state
+- Operational state
+- Fleet merging
+- Capacity calculations
+
+## Mission Control Live Fleet Integration
+
+Connected live printer telemetry to:
+
+- Print Farm Status
+- Capacity Overview
+- Smart Alerts
+- Next Actions
+- Daily Mission
+
+Mission Control now uses physical production conditions when generating operational information and recommendations.
 
 ---
 
 # Current Operational Requirement
 
-JNC Bridge currently runs on the local MacBook.
+JNC Bridge currently depends on local JNC3Designs infrastructure remaining active.
 
-The bridge process must remain running for live printer telemetry to continue reaching JNC OS.
+For live telemetry to continue reaching JNC OS, the bridge service must remain running and maintain network access to the printer fleet.
 
-Future infrastructure work should move JNC Bridge to an always-on system so telemetry does not depend on the MacBook Terminal remaining open.
+Future infrastructure should move JNC Bridge to a dedicated always-on host.
 
 Potential infrastructure includes:
 
@@ -289,25 +397,48 @@ Potential infrastructure includes:
 
 # Current Milestone
 
-The first physical printer is now connected end-to-end to JNC OS.
+JNC OS has moved beyond its original live-printer proof of concept.
 
-JNC OS is no longer operating solely on demonstration printer data.
+The system now has a functioning multi-printer telemetry architecture.
 
-Real-world production telemetry is flowing through the system.
+Physical printer state flows into JNC OS and is consumed by Mission Control business intelligence.
+
+JNC OS is no longer only monitoring the print farm.
+
+It is beginning to reason about production conditions and use those conditions when determining business priorities.
 
 ---
 
 # Next Direction
 
-Expand the JNC Bridge architecture from a single-printer connection into the JNC3Designs printer fleet.
+## Production Queue Intelligence
 
-Primary next objectives:
+The next major production milestone is connecting orders and live printer capacity into a unified production queue.
 
-1. Prepare JNC Bridge configuration for multiple printers.
-2. Preserve the working P1S connection.
-3. Add additional printers incrementally.
-4. Display multiple live printers inside Production.
-5. Maintain one shared telemetry architecture for the entire farm.
+Target architecture:
+
+Orders  
+→ Production Priority  
+→ Production Queue  
+→ Printer Capability  
+→ Available Printer  
+→ Recommended Assignment  
+→ Live Production
+
+Future production intelligence may consider:
+
+- Rush status
+- Due date
+- Order priority
+- Printer availability
+- Printer capability
+- Build volume
+- Material requirements
+- Nozzle requirements
+- Estimated job duration
+- Current printer workload
+
+The objective is to evolve Mission Control from production monitoring into production management.
 
 ---
 
