@@ -2,6 +2,7 @@ import OperationsHeader from "../../../components/OperationsHeader";
 import JNCCard from "../../../components/JNCCard";
 import Badge from "../../../components/Badge";
 import LivePrinterStatus from "../../../components/LivePrinterStatus";
+import ProductionQueue from "../../../components/ProductionQueue";
 
 export default function ProductionPage() {
   return (
@@ -29,20 +30,14 @@ export default function ProductionPage() {
         <LivePrinterStatus />
       </section>
 
+      <ProductionQueue />
+
       <section className="section">
         <Badge color="blue">
-          📋 Production Management
+          🛠 Production Management
         </Badge>
 
         <div className="operations-grid">
-          <JNCCard hover={false}>
-            <h3>📋 Print Queue</h3>
-
-            <p>
-              View every print waiting to be started.
-            </p>
-          </JNCCard>
-
           <JNCCard hover={false}>
             <h3>⚠ Maintenance</h3>
 
